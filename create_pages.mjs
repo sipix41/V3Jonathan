@@ -1,0 +1,81 @@
+import fs from 'fs';
+import path from 'path';
+
+const newCities = [
+  "Arundel", "Bellefeuille", "Lantier", "Mont-Olympia", "Saint-Adolphe-d'Howard", 
+  "Saint-Colomban", "Saint-Faustin-Lac-Carré", "Sainte-Marguerite-du-Lac-Masson", 
+  "Sainte-Sophie", "Val-des-Lacs", "Wentworth-Nord"
+];
+
+function getSlug(name) {
+  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-').replace(/'/g, '').replace('les-laurentides', 'laurentides').replace('st-', 'saint-');
+}
+
+function getComponentName(name) {
+  return name.replace(/[- ']/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('').replace(/É/g, 'E').replace(/é/g, 'e').replace(/Dhoward/g, 'DHoward').replace(/Carre/g, 'Carre').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+const pagesDir = path.join(process.cwd(), 'pages');
+const template = fs.readFileSync(path.join(pagesDir, 'Mirabel.tsx'), 'utf8');
+
+const newSlugs = newCities.map(getSlug);
+console.log("New slugs:", newSlugs);
+
+for (const city of newCities) {
+  const compName = getComponentName(city);
+  const fileName = compName + '.tsx';
+  
+  // Create page
+  let content = template.split('Mirabel').join(city);
+  content = content.split('mirabel').join(getSlug(city));
+  content = content.split('mirabellois').join('locaux');
+  content = content.split('mirabelloise').join('locale');
+  
+  // Fix the export name
+  content = content.replace(/export const (.*?): React\.FC/g, \`export const \${compName}: React.FC\`);
+  
+  fs.writeFileSync(path.join(pagesDir, fileName), content, 'utf8');
+}
+
+// Update App.tsx
+const appPath = path.join(process.cwd(), 'App.tsx');
+if (fs.existsSync(appPath)) {
+  let appContent = fs.readFileSync(appPath, 'utf8');
+  let newLazy = "";
+  let newRoutes = "";
+  
+  for (const city of newCities) {
+    const compName = getComponentName(city);
+    const slug = getSlug(city);
+    newLazy += \`const \${compName} = React.lazy(() => import("./pages/\${compName}").then((module) => ({ default: module.\${compName} })));\\n\`;
+    newRoutes += \`                <Route path="/\${slug}" element={<\${compName} />} />\\n\`;
+  }
+  
+  appContent = appContent.replace('const Soumission = React.lazy(', newLazy + 'const Soumission = React.lazy(');
+  appContent = appContent.replace('                <Route path="/realisations"', newRoutes + '                <Route path="/realisations"');
+  fs.writeFileSync(appPath, appContent, 'utf8');
+}
+
+// Update validRoutes in all pages
+const allFiles = fs.readdirSync(pagesDir).filter(f => f.endsWith('.tsx'));
+const baseRoutes = ['sainte-agathe-des-monts', 'saint-sauveur', 'mont-tremblant', 'mont-blanc', 'piedmont', 'val-david', 'val-morin', 'sainte-adele', 'sainte-anne-des-lacs', 'prevost', 'mirabel', 'saint-jerome', 'saint-hippolyte', 'morin-heights', 'lac-superieur', 'sainte-lucie-des-laurentides', 'laurentides'];
+const combinedRoutesStr = [...baseRoutes, ...newSlugs].map(s => \`'\${s}'\`).join(', ');
+
+for (const file of allFiles) {
+  const filePath = path.join(pagesDir, file);
+  let content = fs.readFileSync(filePath, 'utf8');
+  // It looks like const validRoutes = ['sainte-agathe-des-monts', ... ];
+  const parts = content.split("const validRoutes = [");
+  let updated = content;
+  if(parts.length > 1) {
+    const end = parts[1].indexOf("];");
+    const replaced = "const validRoutes = [" + combinedRoutesStr + "];" + parts[1].substring(end + 2);
+    updated = parts[0] + replaced;
+  }
+  // Also we need to make sure the getSlug function strips apostrophes if any.
+  // const getSlug = (name) => name.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').replace(/\\s+/g, '-').replace('les-laurentides', 'laurentides').replace('st-', 'saint-');
+  const getSlugUpdated = updated.split("replace(/\\s+/g, '-')").join("replace(/\\s+/g, '-').replace(/'/g, '')");
+  if (content !== getSlugUpdated) {
+    fs.writeFileSync(filePath, getSlugUpdated, 'utf8');
+  }
+}
