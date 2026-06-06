@@ -2,7 +2,7 @@ import React, { Suspense,  useState, useEffect  } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, CheckCircle, ArrowRight, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../components/Button';
-import { COMPANY_INFO, CITIES } from '../constants';
+import { COMPANY_INFO } from '../constants';
 import { SEO } from '../components/SEO';
 const ChampsExpertise = React.lazy(() => import('../components/ChampsExpertise').then(m => ({ default: m.ChampsExpertise })));
 
@@ -447,29 +447,6 @@ export const Home: React.FC = () => {
                 />
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Zones desservies Section */}
-      <section className="py-4 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-extrabold text-brand-black uppercase mb-4">Zones desservies</h2>
-            <div className="w-20 h-1 bg-brand-red mx-auto"></div>
-            <p className="mt-4 text-xl text-gray-600">Fiers de protéger les toitures de notre région.</p>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {CITIES.map((city, idx) => (
-              <Link 
-                key={idx} 
-                to={city.path}
-                className="bg-gray-50 hover:bg-brand-red hover:text-white transition-colors duration-300 py-3 px-4 rounded-lg text-center text-sm font-semibold border border-gray-100 shadow-sm text-gray-700 hover:shadow-md"
-              >
-                {city.name}
-              </Link>
-            ))}
           </div>
         </div>
       </section>
