@@ -38,6 +38,9 @@ const Careers = React.lazy(() =>
 const Partners = React.lazy(() =>
   import("./pages/Partners").then((module) => ({ default: module.Partners })),
 );
+const DevenirPartenaire = React.lazy(() =>
+  import("./pages/DevenirPartenaire").then((module) => ({ default: module.DevenirPartenaire })),
+);
 const Privacy = React.lazy(() =>
   import("./pages/Privacy").then((module) => ({ default: module.Privacy })),
 );
@@ -227,6 +230,7 @@ const App: React.FC = () => {
                 <Route path="/soumission" element={<Soumission />} />
                 <Route path="/carriere" element={<Careers />} />
                 <Route path="/partenaires" element={<Partners />} />
+                <Route path="/devenir-partenaire" element={<DevenirPartenaire />} />
                 <Route path="/confidentialite" element={<Privacy />} />
                 <Route path="/termes" element={<Terms />} />
                 <Route path="/droits-auteur" element={<Copyright />} />

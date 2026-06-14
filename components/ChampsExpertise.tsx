@@ -15,7 +15,7 @@ export const ChampsExpertise: React.FC<{ description?: React.ReactNode }> = ({ d
     <section className="py-12 bg-gray-50 border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold text-brand-black uppercase mb-4 tracking-tight">Nos Champs d'Expertise</h2>
+          <h2 className="text-3xl font-extrabold text-brand-black uppercase mb-4 tracking-tight">Nos Champs <span className="text-brand-red">d'Expertise</span></h2>
           <div className="w-20 h-1 bg-brand-red mx-auto"></div>
           {description ? (
             <div className="mt-8 text-lg md:text-xl text-gray-700 font-medium space-y-4 text-left w-full">

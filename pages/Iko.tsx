@@ -112,7 +112,7 @@ export const Iko: React.FC = () => {
               
               <div className="relative z-10 w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gray-200">
                 {DYNASTY_COLORS.map((color) => (
-                  <img
+                  <img loading="lazy" decoding="async"
                     key={color.id}
                     src={color.image}
                     alt={`Toiture IKO Dynasty couleur ${color.name}`}
@@ -268,12 +268,12 @@ export const Iko: React.FC = () => {
 
             <div className="order-1 lg:order-2 relative">
               <div className="grid grid-cols-2 gap-4">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1628622115682-1be4f4204e3b?auto=format&fit=crop&q=80&w=800" 
                   alt="Installation de toiture" 
                   className="rounded-2xl w-full h-64 object-cover shadow-lg"
                 />
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1542621459-a2c5a2ce2b59?auto=format&fit=crop&q=80&w=800" 
                   alt="Couvreurs au travail" 
                   className="rounded-2xl w-full h-64 object-cover shadow-lg mt-8"

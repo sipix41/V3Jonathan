@@ -4,6 +4,7 @@ import { COMPANY_INFO } from '../constants';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { SEO } from '../components/SEO';
+import { CTA } from '../components/CTA';
 
 export const Faq: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -117,7 +118,7 @@ export const Faq: React.FC = () => {
             Foire aux questions
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
-            Vos questions fréquentes
+            Vos questions <span className="text-brand-red">fréquentes</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Trouvez rapidement les réponses à vos interrogations sur la réfection de toiture, la ventilation, le déneigement et nos processus de travail. Une information transparente pour un choix éclairé.
@@ -173,23 +174,14 @@ export const Faq: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA section */}
-        <div className="mt-12 bg-gray-50 rounded-2xl p-8 md:p-12 text-center border border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Vous ne trouvez pas votre réponse?</h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Chaque maison est unique et certaines situations nécessitent l'avis d'un expert. N'hésitez pas à nous contacter pour une évaluation personnalisée de votre toiture dans la région des Laurentides.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-             <Link to="/contact">
-               <Button size="lg" className="px-8 py-4 text-lg">Parlez à nos experts</Button>
-             </Link>
-             <a href={`tel:${COMPANY_INFO.phoneClean}`} className="text-brand-red font-bold hover:underline text-lg">
-                Appelez-nous au {COMPANY_INFO.phone}
-             </a>
-          </div>
-        </div>
-
       </section>
+
+      <CTA 
+        title="Vous ne trouvez pas votre réponse?"
+        description="Chaque maison est unique et certaines situations nécessitent l'avis d'un expert. N'hésitez pas à nous contacter pour une évaluation personnalisée de votre toiture dans la région des Laurentides."
+        primaryButtonText="Parlez à nos experts"
+        className="py-8 md:py-10"
+      />
     </div>
   );
 };

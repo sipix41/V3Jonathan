@@ -553,9 +553,9 @@ export const Soumission: React.FC = () => {
                       <li key={city.name} className="break-inside-avoid mb-2">
                         <Link 
                           to={city.path} 
-                          className="flex items-center text-gray-600 hover:text-brand-red font-medium transition-colors group"
+                          className="inline-flex items-center text-gray-600 hover:text-brand-red font-medium transition-all duration-300 hover:font-bold hover:scale-110 origin-left group"
                         >
-                          <ChevronRight className="w-4 h-4 mr-2 text-brand-red opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                          <ChevronRight className="w-4 h-4 mr-1 text-brand-red opacity-0 group-hover:opacity-100 transition-all duration-300" />
                           <span className="truncate">{city.name}</span>
                         </Link>
                       </li>

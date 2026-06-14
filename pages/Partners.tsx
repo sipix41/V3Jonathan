@@ -65,22 +65,6 @@ const PARTNERS = [
       </svg>
     ),
     type: "Fournisseur"
-  },
-  {
-    id: 'surface-prestige',
-    name: "Surface Prestige Yannick Dufour inc",
-    fullName: "Surface Prestige Yannick Dufour inc",
-    description: "Surface Prestige se spécialise dans l'application d'enduits de béton, d'époxy et de membranes de protection haut de gamme dans les Laurentides. Leur rigueur technique en préparation de surface et finitions sur mesure garantit des planchers exceptionnels et pérennes.",
-    icon: (
-      <img
-        src="https://www.surface-prestige.ca/images/logo.webp"
-        alt="Logo Surface Prestige"
-        className="h-12 w-auto object-contain"
-        referrerPolicy="no-referrer"
-      />
-    ),
-    type: "Partenaire",
-    iconBg: "bg-zinc-950 border border-zinc-800"
   }
 ];
 
@@ -92,7 +76,7 @@ export const Partners: React.FC = () => {
       <div className="bg-brand-black py-4 text-center text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-64 h-64 bg-brand-red opacity-10 rounded-full blur-3xl -ml-10 -mt-10"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase mb-4">Nos Partenaires Recommandés</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold uppercase mb-4">Nos Partenaires <span className="text-brand-red">Recommandés</span></h1>
           <p className="text-xl text-gray-300 font-medium">La qualité passe par le choix des meilleurs matériaux et associations.</p>
         </div>
       </div>

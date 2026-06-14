@@ -16,8 +16,8 @@ export const About: React.FC = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold tracking-widest uppercase mb-4">
                 <Users className="w-4 h-4" /> NOTRE HISTOIRE
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold uppercase text-white mb-2 tracking-tight">À Propos de Nous</h1>
-              <p className="text-[clamp(11px,3.5vw,20px)] lg:text-[clamp(16px,1.8vw,22px)] text-brand-red font-medium whitespace-nowrap tracking-tight">Une entreprise familiale ancrée dans les Laurentides.</p>
+              <h1 className="text-4xl md:text-5xl font-extrabold uppercase text-white mb-2 tracking-tight"><span className="text-brand-red">À Propos</span> de Nous</h1>
+              <p className="text-[clamp(11px,3.5vw,20px)] lg:text-[clamp(16px,1.8vw,22px)] text-gray-300 font-medium whitespace-nowrap tracking-tight">Une entreprise familiale ancrée dans les Laurentides.</p>
             </div>
             
             <div className="relative mt-2 md:mt-0">
@@ -61,23 +61,23 @@ export const About: React.FC = () => {
           <div className="md:pl-4">
             <h2 className="text-3xl font-bold text-white mb-6">Un mot du propriétaire</h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Bonjour, je suis <strong className="text-white">{COMPANY_INFO.owner}</strong>. Avec plus de <strong className="text-white">{COMPANY_INFO.yearsExperience} ans d'expérience</strong> dans le domaine de la toiture, j'ai fondé mon entreprise sur des valeurs simples mais essentielles : l'honnêteté, le travail bien fait et le respect du client.
+              Bonjour, je suis <strong className="text-brand-red">{COMPANY_INFO.owner}</strong>. Avec plus de <strong className="text-brand-red">{COMPANY_INFO.yearsExperience} ans d'expérience</strong> dans le domaine de la toiture, j'ai fondé mon entreprise sur des valeurs simples mais essentielles : l'honnêteté, le travail bien fait et le respect du client.
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Basés à {COMPANY_INFO.address}, nous servons fièrement la communauté des Laurentides. Nous comprenons que votre toiture est l'investissement le plus important pour protéger votre maison. C'est pourquoi je suis présent sur chaque chantier pour m'assurer que les standards de qualité les plus élevés sont respectés.
+              Basés à <strong><Link to="/sainte-agathe-des-monts" className="text-white hover:text-brand-red transition-colors underline">{COMPANY_INFO.address.split(',')[0]}</Link>{COMPANY_INFO.address.includes(',') ? `, ${COMPANY_INFO.address.split(',')[1]}` : ''}</strong>, nous servons fièrement la communauté des Laurentides. Nous comprenons que votre toiture est l'investissement le plus important pour protéger votre maison. C'est pourquoi je suis présent sur chaque chantier pour m'assurer que les standards de qualité les plus élevés sont respectés.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-              <div className="text-center p-4 border border-zinc-700 bg-zinc-900/50 rounded hover:border-brand-red transition-colors group">
+              <Link to="/sainte-agathe-des-monts" className="block text-center p-4 border border-zinc-700 bg-zinc-900/50 rounded hover:border-brand-red transition-all group scale-100 hover:scale-105 cursor-pointer">
                 <MapPin className="mx-auto text-brand-red mb-2 group-hover:scale-110 transition-transform" size={32} />
                 <h4 className="font-bold text-white">Locale</h4>
                 <p className="text-sm text-gray-400">Sainte-Agathe-des-Monts</p>
-              </div>
-              <div className="text-center p-4 border border-zinc-700 bg-zinc-900/50 rounded hover:border-brand-red transition-colors group">
+              </Link>
+              <a href="#testimonials" className="block text-center p-4 border border-zinc-700 bg-zinc-900/50 rounded hover:border-brand-red transition-all group scale-100 hover:scale-105 cursor-pointer">
                 <ThumbsUp className="mx-auto text-brand-red mb-2 group-hover:scale-110 transition-transform" size={32} />
                 <h4 className="font-bold text-white">Recommandée</h4>
                 <p className="text-sm text-gray-400">Satisfaction 100%</p>
-              </div>
+              </a>
             </div>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -229,17 +229,26 @@ export const About: React.FC = () => {
                 Travailler avec {COMPANY_INFO.name}, c'est choisir la tranquillité d'esprit légale et financière.
               </p>
               <ul className="space-y-8">
-                <li className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-brand-red/10 rounded-full flex items-center justify-center shrink-0 border border-brand-red/20 shadow-[0_0_15px_rgba(204,41,54,0.3)]">
+                <li className="flex items-start gap-5 group cursor-default">
+                  <div className="w-14 h-14 bg-brand-red/10 rounded-full flex items-center justify-center shrink-0 border border-brand-red/20 neon-pulse-effect group-hover:scale-125 transition-transform duration-300">
                     <Award className="text-brand-red w-7 h-7" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">Licence RBQ ({COMPANY_INFO.rbq})</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">
+                      <a 
+                        href="https://www.pes.rbq.gouv.qc.ca/RegistreLicences/FicheDetenteur/5831965801?mode=Entreprise"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-red transition-colors"
+                      >
+                        Licence RBQ ({COMPANY_INFO.rbq})
+                      </a>
+                    </h4>
                     <p className="text-gray-400 leading-relaxed">Nous sommes fiers détenteurs d'une licence de la Régie du bâtiment du Québec, attestant de nos compétences professionnelles.</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-brand-red/10 rounded-full flex items-center justify-center shrink-0 border border-brand-red/20 shadow-[0_0_15px_rgba(204,41,54,0.3)]">
+                <li className="flex items-start gap-5 group cursor-default">
+                  <div className="w-14 h-14 bg-brand-red/10 rounded-full flex items-center justify-center shrink-0 border border-brand-red/20 neon-pulse-effect group-hover:scale-125 transition-transform duration-300">
                     <ShieldCheck className="text-brand-red w-7 h-7" />
                   </div>
                   <div>
@@ -247,8 +256,8 @@ export const About: React.FC = () => {
                     <p className="text-gray-400 leading-relaxed">Nous détenons une couverture complète de plusieurs millions pour protéger votre bâtiment contre tout imprévu durant les travaux.</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-brand-red/10 rounded-full flex items-center justify-center shrink-0 border border-brand-red/20 shadow-[0_0_15px_rgba(204,41,54,0.3)]">
+                <li className="flex items-start gap-5 group cursor-default">
+                  <div className="w-14 h-14 bg-brand-red/10 rounded-full flex items-center justify-center shrink-0 border border-brand-red/20 neon-pulse-effect group-hover:scale-125 transition-transform duration-300">
                     <Shield className="text-brand-red w-7 h-7" />
                   </div>
                   <div>
@@ -267,10 +276,10 @@ export const About: React.FC = () => {
       </div>
 
       {/* Testimonials Section */}
-      <section className="bg-zinc-50 py-4 border-t border-zinc-200">
+      <section id="testimonials" className="bg-zinc-50 py-8 md:py-12 border-t border-zinc-200 scroll-mt-24 md:scroll-mt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 mb-2 uppercase tracking-wider">Ce que disent nos clients</h2>
+            <h2 className="text-2xl md:text-4xl font-extrabold text-zinc-900 mb-2 uppercase tracking-wider">Ce que disent nos clients</h2>
             <div className="w-20 h-1 bg-brand-red mx-auto mb-4"></div>
             <p className="text-lg text-zinc-600 max-w-2xl mx-auto font-light italic">
               "La satisfaction de nos clients est notre meilleure carte de visite."
@@ -345,7 +354,7 @@ export const About: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-8 text-center">
+          <div className="mt-12 text-center">
             <a 
               href={COMPANY_INFO.facebookUrl} 
               target="_blank" 
@@ -362,12 +371,12 @@ export const About: React.FC = () => {
       {/* Call to action */}
       <section className="bg-white py-4 text-center border-t-8 border-brand-red">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-brand-black uppercase tracking-wider mb-6">Prêt à confier votre toiture à nos experts ?</h2>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed font-light">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-black uppercase tracking-wider mb-2">Prêt à confier votre toiture à nos experts ?</h2>
+          <p className="text-lg text-gray-600 mb-6 leading-relaxed font-light max-w-3xl mx-auto">
             Demandez une estimation gratuite aujourd'hui et découvrez la différence qu'un service d'excellence peut faire.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <Link to="/contact" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg hover:shadow-brand-red/40 bg-brand-red text-white hover:bg-red-700">
                 Soumission gratuite
               </Button>

@@ -168,9 +168,20 @@ export const Home: React.FC = () => {
                   />
                 ))}
               </div>
-              <span>Recommandé à 100%</span>
+              <a href="#testimonials" className="hover:text-brand-red transition-colors cursor-pointer">
+                Recommandé à 100%
+              </a>
               <span className="hidden sm:inline w-1 h-1 bg-gray-500 rounded-full"></span>
-              <span className="w-full sm:w-auto mt-1 sm:mt-0 text-gray-400 sm:text-white">RBQ: {COMPANY_INFO.rbq}</span>
+              <span className="w-full sm:w-auto mt-1 sm:mt-0 text-gray-400 sm:text-white">
+                <a 
+                  href="https://www.pes.rbq.gouv.qc.ca/RegistreLicences/FicheDetenteur/5831965801?mode=Entreprise" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-red transition-colors"
+                >
+                  RBQ: {COMPANY_INFO.rbq}
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -316,39 +327,39 @@ export const Home: React.FC = () => {
           <div className="max-w-4xl">
             <h2 className="text-3xl font-extrabold uppercase mb-6">Pourquoi choisir<br/><span className="text-brand-red">Toiture Jonathan Délisle</span> ?</h2>
             <div className="space-y-6">
-              <div className="flex gap-4">
-                <CheckCircle className="text-brand-red flex-shrink-0" size={28} />
+              <div className="flex gap-4 group cursor-default">
+                <CheckCircle className="text-brand-red flex-shrink-0 group-hover:scale-125 transition-transform duration-300 delay-75" size={28} />
                 <div>
-                  <h3 className="text-xl font-bold mb-1">Une toiture conçue pour survivre aux hivers des Laurentides</h3>
-                  <p className="text-gray-400">Neige lourde, cycles gel-dégel, vents violents : nos installations sont adaptées aux réalités climatiques locales pour éviter infiltrations, affaissements prématurés et réparations coûteuses.</p>
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-brand-red transition-colors duration-300">Une toiture conçue pour survivre aux hivers des Laurentides</h3>
+                  <p className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Neige lourde, cycles gel-dégel, vents violents : nos installations sont adaptées aux réalités climatiques locales pour éviter infiltrations, affaissements prématurés et réparations coûteuses.</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="text-brand-red flex-shrink-0" size={28} />
+              <div className="flex gap-4 group cursor-default">
+                <CheckCircle className="text-brand-red flex-shrink-0 group-hover:scale-125 transition-transform duration-300 delay-75" size={28} />
                 <div>
-                  <h3 className="text-xl font-bold mb-1">Des matériaux éprouvés, pas des compromis</h3>
-                  <p className="text-gray-400">Nous utilisons uniquement des matériaux certifiés, testés pour le climat québécois, afin d’assurer une durabilité maximale et une vraie tranquillité d’esprit à long terme.</p>
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-brand-red transition-colors duration-300">Des matériaux éprouvés, pas des compromis</h3>
+                  <p className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Nous utilisons uniquement des matériaux certifiés, testés pour le climat québécois, afin d’assurer une durabilité maximale et une vraie tranquillité d’esprit à long terme.</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="text-brand-red flex-shrink-0" size={28} />
+              <div className="flex gap-4 group cursor-default">
+                <CheckCircle className="text-brand-red flex-shrink-0 group-hover:scale-125 transition-transform duration-300 delay-75" size={28} />
                 <div>
-                  <h3 className="text-xl font-bold mb-1">Un chantier propre. Un travail assumé.</h3>
-                  <p className="text-gray-400">Respect des délais, nettoyage complet après les travaux et service après-vente fiable. Quand on termine un chantier, il est fait pour durer et on le garantit.</p>
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-brand-red transition-colors duration-300">Un chantier propre. Un travail assumé.</h3>
+                  <p className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Respect des délais, nettoyage complet après les travaux et service après-vente fiable. Quand on termine un chantier, il est fait pour durer et on le garantit.</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="text-brand-red flex-shrink-0" size={28} />
+              <div className="flex gap-4 group cursor-default">
+                <CheckCircle className="text-brand-red flex-shrink-0 group-hover:scale-125 transition-transform duration-300 delay-75" size={28} />
                 <div>
-                  <h3 className="text-xl font-bold mb-1">Sécurité maximale, protection totale</h3>
-                  <p className="text-gray-400">Travailler sur un toit demande de la rigueur. Nos installateurs sont formés aux normes de sécurité les plus strictes et nous détenons toutes les assurances requises. Vous avez l'esprit tranquille : vos proches, votre propriété et nos équipes sont pleinement protégés.</p>
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-brand-red transition-colors duration-300">Sécurité maximale, protection totale</h3>
+                  <p className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Travailler sur un toit demande de la rigueur. Nos installateurs sont formés aux normes de sécurité les plus strictes et nous détenons toutes les assurances requises. Vous avez l'esprit tranquille : vos proches, votre propriété et nos équipes sont pleinement protégés.</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="text-brand-red flex-shrink-0" size={28} />
+              <div className="flex gap-4 group cursor-default">
+                <CheckCircle className="text-brand-red flex-shrink-0 group-hover:scale-125 transition-transform duration-300 delay-75" size={28} />
                 <div>
-                  <h3 className="text-xl font-bold mb-1">Le respect du métier et des normes</h3>
-                  <p className="text-gray-400">Pour nous, travailler dans les règles de l'art est une question de fierté. Nos couvreurs qualifiés appliquent les meilleures pratiques de l'industrie à chaque étape de l'installation. Le résultat ? Une toiture esthétique, performante et certifiée, conforme à 100 % aux exigences du Code du bâtiment.</p>
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-brand-red transition-colors duration-300">Le respect du métier et des normes</h3>
+                  <p className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300">Pour nous, travailler dans les règles de l'art est une question de fierté. Nos couvreurs qualifiés appliquent les meilleures pratiques de l'industrie à chaque étape de l'installation. Le résultat ? Une toiture esthétique, performante et certifiée, conforme à 100 % aux exigences du Code du bâtiment.</p>
                 </div>
               </div>
             </div>
@@ -362,7 +373,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Testimonials Carousel Section */}
-      <section className="py-4 bg-gray-50 overflow-hidden">
+      <section id="testimonials" className="py-4 bg-gray-50 overflow-hidden scroll-mt-24 md:scroll-mt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-extrabold text-brand-black uppercase mb-4">Ce que disent nos clients</h2>

@@ -9,6 +9,7 @@ interface CTAProps {
   primaryButtonText?: ReactNode;
   primaryButtonLink?: string;
   secondaryButtonText?: ReactNode;
+  className?: string;
 }
 
 export const CTA: React.FC<CTAProps> = ({ 
@@ -16,10 +17,11 @@ export const CTA: React.FC<CTAProps> = ({
   description, 
   primaryButtonText = "Demandez votre estimation",
   primaryButtonLink = "/contact",
-  secondaryButtonText = `Appelez le ${COMPANY_INFO.phone}`
+  secondaryButtonText = `Appelez le ${COMPANY_INFO.phone}`,
+  className = "py-16"
 }) => {
   return (
-    <section className="bg-white py-16 text-center border-t-8 border-brand-red">
+    <section className={`bg-white text-center border-t-8 border-brand-red ${className}`}>
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl lg:text-4xl font-extrabold text-brand-black mb-6 uppercase tracking-wider">
           {title}
