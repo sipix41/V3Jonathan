@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
                 loading="eager"
                 fetchpriority="high"
                 decoding="sync"
-                className="h-14 md:h-24 w-auto object-contain hover:opacity-90 transition-opacity"
+                className="h-14 md:h-24 w-auto object-contain hover:opacity-90 transition-opacity w-full h-auto"
               />
             </NavLink>
           </div>

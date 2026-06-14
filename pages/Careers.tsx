@@ -108,7 +108,11 @@ export const Careers: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <SEO title="Careers" description="Découvrez nos services d'expert couvreur pour Careers. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/careers" />
+      <SEO 
+        title="Emplois et Carrières en Toiture | Toiture Jonathan Délisle Inc" 
+        description="Joignez l'équipe de Toiture Jonathan Délisle Inc dans les Laurentides. Nous recrutons des couvreurs, apprentis et manœuvres. Découvrez nos avantages et postulez aujourd'hui !" 
+        canonicalUrl="/carriere" 
+      />
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white py-6 lg:py-8 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -171,7 +175,7 @@ export const Careers: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-brand-red/10 rounded-3xl transform translate-x-4 translate-y-4"></div>
-              <img loading="lazy" src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1000" alt="Toiture de bardeaux résidentiel" className="relative rounded-3xl object-cover h-[400px] w-full shadow-xl" decoding="async" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1000" alt="Toiture de bardeaux résidentiel" className="relative rounded-3xl object-cover h-[400px] w-full shadow-xl h-auto" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { SEO } from '../components/SEO';
 export const Copyright: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
-      <SEO title="Copyright" description="Découvrez nos services d'expert couvreur pour Copyright. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/copyright" />
+      <SEO noindex={true} title="Droits d'auteur" description="Droits d'auteur" />
        <div className="bg-brand-black py-4 text-center text-white">
         <p className="inline-block bg-[#fdf2e9] text-[#b45309] px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
           Avis légal

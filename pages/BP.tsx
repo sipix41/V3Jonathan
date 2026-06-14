@@ -22,8 +22,8 @@ export const BP: React.FC = () => {
           <img 
             src="https://images.unsplash.com/photo-1628592102751-ba83b03bc677?auto=format&fit=crop&q=80&w=2000" 
             alt="Toiture BP Canada installation experte" 
-            className="w-full h-full object-cover opacity-30 scale-105"
-          loading="lazy" decoding="async" />
+            className="w-full h-full object-cover opacity-30 scale-105 h-auto"
+          loading="lazy" decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-transparent"></div>
         </div>
         
@@ -55,13 +55,13 @@ export const BP: React.FC = () => {
                 Soumission gratuite
               </Button>
             </Link>
-            <a href="tel:8193236665" className="w-full sm:w-auto">
+            <a href={`tel:${COMPANY_INFO.phoneClean}`} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="primary"
                 className="w-full sm:w-auto font-bold px-8 py-4 text-lg"
               >
-                Appeler au 819-323-6665
+                Appeler au {COMPANY_INFO.phone}
               </Button>
             </a>
           </div>

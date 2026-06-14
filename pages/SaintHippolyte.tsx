@@ -75,7 +75,34 @@ export const SaintHippolyte: React.FC = () => {
         "@type": "City",
         "name": "Saint-Hippolyte"
       },
-      "description": "À la recherche d'un couvreur de confiance à Saint-Hippolyte? Toiture Jonathan Délisle Inc est l'expert local en installation, réparation et déneigement."
+      "description": "À la recherche d'un couvreur de confiance à Saint-Hippolyte? Toiture Jonathan Délisle Inc est l'expert local en installation, réparation et déneigement.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services de toiture à Saint-Hippolyte",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Installation de bardeaux d'asphalte"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Réparation de toiture"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Déneigement de toiture"
+            }
+          }
+        ]
+      }
     }
   ];
 
@@ -508,13 +535,13 @@ export const SaintHippolyte: React.FC = () => {
                 Soumission gratuite
               </Button>
             </Link>
-            <a href="tel:8193236665" className="w-full sm:w-auto">
+            <a href={`tel:${COMPANY_INFO.phoneClean}`} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="primary"
                 className="w-full sm:w-auto font-bold px-8 py-4 text-lg"
               >
-                Appeler au 819-323-6665
+                Appeler au {COMPANY_INFO.phone}
               </Button>
             </a>
           </div>

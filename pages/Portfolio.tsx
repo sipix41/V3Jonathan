@@ -181,8 +181,8 @@ export const Portfolio: React.FC = () => {
           <img loading="lazy" 
             src="https://images.unsplash.com/photo-1681232851496-e6bf98db2571?auto=format&fit=crop&q=80&w=2000" 
             alt="Nos réalisations en toiture" 
-            className="w-full h-full object-cover opacity-30"
-          decoding="async" />
+            className="w-full h-full object-cover opacity-30 h-auto"
+          decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-transparent"></div>
         </div>
         
@@ -271,8 +271,8 @@ export const Portfolio: React.FC = () => {
                   src={project.images[0]} 
                   alt={project.title} 
                   loading="lazy"
-                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                decoding="async" />
+                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out h-auto"
+                decoding="async" width="800" height="600" />
                 <div className="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/40 transition-colors duration-500"></div>
                 
                 {/* Search Icon Overlay */}
@@ -328,8 +328,8 @@ export const Portfolio: React.FC = () => {
               <img loading="lazy" 
                 src={selectedProject.images[currentImageIndex]} 
                 alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`} 
-                className="w-full h-full object-cover transition-opacity duration-500"
-              decoding="async" />
+                className="w-full h-full object-cover transition-opacity duration-500 h-auto"
+              decoding="async" width="800" height="600" />
               
               {/* Carousel Controls */}
               {selectedProject.images.length > 1 && (

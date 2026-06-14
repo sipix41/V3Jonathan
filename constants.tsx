@@ -1,13 +1,17 @@
 export const COMPANY_INFO = {
-  name: "Toiture Jonathan Délisle inc",
+  name: "Toiture Jonathan Délisle Inc",
+  alternateName: "Toiture Délisle",
   owner: "Jonathan Délisle",
   phone: "(819) 323-6665",
   phoneClean: "8193236665",
   rbq: "5831-9658-01",
-  address: "Sainte-Agathe-des-Monts, QC",
+  address: "361, Chemin du Lac-Écho",
+  city: "Prévost",
+  state: "QC",
+  postalCode: "J0R 1T0",
   region: "Laurentides",
   facebookUrl: "https://www.facebook.com/share/17jZUQzLfr/?mibextid=wwXIfr",
-  instagramUrl: "#",
+  instagramUrl: "https://www.instagram.com/toiturejonathandelisle", // fallback or actual link if provided
   email: "info@toiturejonathandelisle.ca", 
   yearsExperience: 17
 };

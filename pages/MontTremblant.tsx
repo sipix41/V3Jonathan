@@ -85,7 +85,34 @@ export const MontTremblant: React.FC = () => {
         "@type": "City",
         "name": "Mont-Tremblant"
       },
-      "description": "Installation, réparation, inspection et déneigement de toiture résidentielle et commerciale pour la région de Mont-Tremblant."
+      "description": "Installation, réparation, inspection et déneigement de toiture résidentielle et commerciale pour la région de Mont-Tremblant.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services de toiture à Mont-Tremblant",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Installation de bardeaux d'asphalte"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Réparation de toiture"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Déneigement de toiture"
+            }
+          }
+        ]
+      }
     }
   ];
 
@@ -725,13 +752,13 @@ export const MontTremblant: React.FC = () => {
                 Soumission gratuite
               </Button>
             </Link>
-            <a href="tel:8193236665" className="w-full sm:w-auto">
+            <a href={`tel:${COMPANY_INFO.phoneClean}`} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="primary"
                 className="w-full sm:w-auto font-bold px-8 py-4 text-lg"
               >
-                Appeler au 819-323-6665
+                Appeler au {COMPANY_INFO.phone}
               </Button>
             </a>
           </div>

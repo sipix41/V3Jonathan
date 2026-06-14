@@ -129,7 +129,7 @@ export const Home: React.FC = () => {
               fetchpriority={idx === 0 ? "high" : "auto"}
               decoding={idx === 0 ? "sync" : "async"}
               className={`absolute w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${idx === bgImageIndex ? 'opacity-40' : 'opacity-0'}`}
-            />
+            width="800" height="600" />
           ))}
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/70 md:via-black/50 to-transparent z-10"></div>
         </div>
@@ -223,7 +223,7 @@ export const Home: React.FC = () => {
                <img loading="lazy" decoding="async"
                  src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000" 
                  alt="Maison avec toiture propre et sécuritaire" 
-                 className="rounded-2xl shadow-xl w-full object-cover h-[400px]"
+                 className="rounded-2xl shadow-xl w-full object-cover h-[400px] h-auto"
                  width="1000"
                  height="400"
                />

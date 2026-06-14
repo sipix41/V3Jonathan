@@ -165,7 +165,7 @@ export const Reparations: React.FC = () => {
                   src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1000" 
                   alt="Signes de dommages sur une toiture" 
                   className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                decoding="async" />
+                decoding="async" width="800" height="600" />
               </div>
             </div>
             <div className="order-1 lg:order-2">

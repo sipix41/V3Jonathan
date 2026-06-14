@@ -8,10 +8,7 @@ import { COMPANY_INFO } from '../constants';
 export const NotFound: React.FC = () => {
   return (
     <div className="min-h-[70vh] flex items-center justify-center bg-gray-50 px-4">
-      <SEO 
-        title="Page non trouvée | Toiture Jonathan Délisle inc."
-        description="Désolé, la page que vous recherchez est introuvable."
-      />
+      <SEO noindex={true} title="Page non trouvée" description="Page non trouvée" />
       <div className="max-w-xl w-full text-center">
         <h1 className="text-9xl font-black text-brand-red mb-4">404</h1>
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Page introuvable</h2>

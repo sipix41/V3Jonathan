@@ -5,7 +5,7 @@ import { SEO } from '../components/SEO';
 export const Terms: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
-      <SEO title="Terms" description="Découvrez nos services d'expert couvreur pour Terms. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/terms" />
+      <SEO noindex={true} title="Termes et Conditions" description="Termes et Conditions" />
       <div className="bg-brand-black py-4 text-center text-white">
         <p className="inline-block bg-[#fdf2e9] text-[#b45309] px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
           Document officiel

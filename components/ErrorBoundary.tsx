@@ -24,6 +24,11 @@ export class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("Uncaught error:", error, errorInfo);
+    
+    // Catch chunk load errors (often happens on deployments where hash changes)
+    if (error.name === 'ChunkLoadError' || error.message.includes('dynamically imported module') || error.message.includes('Importing a module script failed')) {
+      window.location.reload();
+    }
   }
 
   public render() {

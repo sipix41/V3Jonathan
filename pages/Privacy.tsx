@@ -5,7 +5,7 @@ import { SEO } from '../components/SEO';
 export const Privacy: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
-      <SEO title="Privacy" description="Découvrez nos services d'expert couvreur pour Privacy. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/privacy" />
+      <SEO noindex={true} title="Politique de confidentialité" description="Politique de confidentialité" />
       <div className="bg-brand-black py-4 text-center text-white">
         <p className="inline-block bg-[#fdf2e9] text-[#b45309] px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
           Politique officielle

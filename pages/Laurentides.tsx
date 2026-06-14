@@ -701,13 +701,13 @@ export const Laurentides: React.FC = () => {
                 Soumission gratuite
               </Button>
             </Link>
-            <a href="tel:8193236665" className="w-full sm:w-auto block">
+            <a href={`tel:${COMPANY_INFO.phoneClean}`} className="w-full sm:w-auto block">
               <Button
                 size="lg"
                 variant="primary"
                 className="w-full sm:w-auto font-bold px-8 py-4 text-lg"
               >
-                Appeler au 819-323-6665
+                Appeler au {COMPANY_INFO.phone}
               </Button>
             </a>
           </div>

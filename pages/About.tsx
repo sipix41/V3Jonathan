@@ -8,7 +8,11 @@ import { SEO } from '../components/SEO';
 export const About: React.FC = () => {
   return (
     <div className="bg-brand-black min-h-screen">
-      <SEO title="About" description="Découvrez nos services d'expert couvreur pour About. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/about" />
+      <SEO 
+        title="À Propos de Toiture Jonathan Délisle Inc | Notre Histoire" 
+        description="Découvrez l'histoire, les valeurs et l'engagement envers la qualité de Toiture Jonathan Délisle Inc., votre expert couvreur de confiance dans les Laurentides depuis plus de 17 ans." 
+        canonicalUrl="/a-propos" 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-10 md:pb-20">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="flex flex-col gap-6 md:gap-8 text-center pt-2 md:pt-4">
@@ -25,8 +29,8 @@ export const About: React.FC = () => {
                <img loading="lazy" 
                 src="https://www.image-heberg.fr/files/17711315183833199704.jpg" 
                 alt="Jonathan Délisle sur un chantier" 
-                className="rounded-xl shadow-2xl w-full grayscale hover:grayscale-0 transition-all duration-500 border border-zinc-800 relative z-10"
-              decoding="async" />
+                className="rounded-xl shadow-2xl w-full grayscale hover:grayscale-0 transition-all duration-500 border border-zinc-800 relative z-10 h-auto"
+              decoding="async" width="800" height="600" />
                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-brand-red -mb-4 -mr-4"></div>
             </div>
 
@@ -40,8 +44,8 @@ export const About: React.FC = () => {
                 <img 
                   src="https://www.image-heberg.fr/files/17783600033809957581.jpg" 
                   alt="Logo RBQ" 
-                  className="h-20 sm:h-28 w-auto object-contain" 
-                loading="lazy" decoding="async" />
+                  className="h-20 sm:h-28 w-auto object-contain w-full h-auto" 
+                loading="lazy" decoding="async" width="800" height="600" />
               </a>
               <a 
                 href="https://www.apchq.com"
@@ -52,8 +56,8 @@ export const About: React.FC = () => {
                 <img 
                   src="https://www.image-heberg.fr/files/177835927549167421.webp" 
                   alt="Logo APCHQ" 
-                  className="h-20 sm:h-28 w-auto object-contain" 
-                loading="lazy" decoding="async" />
+                  className="h-20 sm:h-28 w-auto object-contain w-full h-auto" 
+                loading="lazy" decoding="async" width="800" height="600" />
               </a>
             </div>
           </div>
@@ -218,7 +222,7 @@ export const About: React.FC = () => {
       {/* RBQ, assurance et garantie */}
       <div className="bg-zinc-900 border-t border-zinc-800 py-4 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
-           <img loading="lazy" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1470&auto=format&fit=crop" className="w-full h-full object-cover" alt="Background" decoding="async" />
+           <img loading="lazy" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1470&auto=format&fit=crop" className="w-full h-full object-cover h-auto" alt="Background" decoding="async" width="800" height="600" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -269,7 +273,7 @@ export const About: React.FC = () => {
             </div>
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-brand-red rounded-3xl transform rotate-3 scale-105"></div>
-              <img loading="lazy" src="https://www.image-heberg.fr/files/17711315183833199704.jpg" alt="Jonathan Délisle sur le toit" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full" decoding="async" />
+              <img loading="lazy" src="https://www.image-heberg.fr/files/17711315183833199704.jpg" alt="Jonathan Délisle sur le toit" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full h-auto" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

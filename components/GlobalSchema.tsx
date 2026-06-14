@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { COMPANY_INFO } from '../constants';
+import { COMPANY_INFO, CITIES } from '../constants';
 
 export const GlobalSchema: React.FC = () => {
   const BASE_URL = import.meta.env.VITE_SITE_URL || "https://toiturejonathandelisle.ca";
@@ -9,21 +9,21 @@ export const GlobalSchema: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${BASE_URL}/#organization`,
-    "name": "Toiture Jonathan Délisle Inc",
-    "alternateName": "Toiture Délisle",
+    "name": COMPANY_INFO.name,
+    "alternateName": COMPANY_INFO.alternateName,
     "url": BASE_URL,
     "logo": `${BASE_URL}/logo.png`,
     "sameAs": [
-      "https://www.facebook.com/toiturejonathandelisle",
-      "https://www.instagram.com/toiturejonathandelisle"
-    ]
+      COMPANY_INFO.facebookUrl,
+      COMPANY_INFO.instagramUrl
+    ].filter(url => url && url !== "#")
   };
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": ["RoofingContractor", "LocalBusiness"],
     "@id": `${BASE_URL}/#localbusiness`,
-    "name": "Toiture Jonathan Délisle Inc",
+    "name": COMPANY_INFO.name,
     "image": `${BASE_URL}/logo.png`,
     "description": "Experts en toiture dans les Laurentides, spécialisés en bardeaux d'asphalte, toits plats, réfection et déneigement.",
     "telephone": COMPANY_INFO.phone,
@@ -31,10 +31,10 @@ export const GlobalSchema: React.FC = () => {
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "361, Chemin du Lac-Écho",
-      "addressLocality": "Prévost",
-      "addressRegion": "QC",
-      "postalCode": "J0R 1T0",
+      "streetAddress": COMPANY_INFO.address,
+      "addressLocality": COMPANY_INFO.city,
+      "addressRegion": COMPANY_INFO.state,
+      "postalCode": COMPANY_INFO.postalCode,
       "addressCountry": "CA"
     },
     "geo": {
@@ -47,26 +47,10 @@ export const GlobalSchema: React.FC = () => {
         "@type": "AdministrativeArea",
         "name": "Laurentides"
       },
-      {
+      ...CITIES.map(c => ({
         "@type": "City",
-        "name": "Prévost"
-      },
-      {
-        "@type": "City",
-        "name": "Saint-Sauveur"
-      },
-      {
-        "@type": "City",
-        "name": "Saint-Jérôme"
-      },
-      {
-        "@type": "City",
-        "name": "Sainte-Agathe-des-Monts"
-      },
-      {
-        "@type": "City",
-        "name": "Mont-Tremblant"
-      }
+        "name": c.name
+      }))
     ],
     "contactPoint": {
       "@type": "ContactPoint",

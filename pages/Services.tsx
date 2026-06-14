@@ -37,8 +37,8 @@ export const Services: React.FC = () => {
           <img loading="lazy" 
             src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000" 
             alt="Nos services de toiture" 
-            className="w-full h-full object-cover opacity-30 filter mix-blend-luminosity"
-          decoding="async" />
+            className="w-full h-full object-cover opacity-30 filter mix-blend-luminosity h-auto"
+          decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent"></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-red/10 blur-[120px] -translate-y-1/4 translate-x-1/4 rounded-full pointer-events-none"></div>
         </motion.div>
@@ -132,8 +132,8 @@ export const Services: React.FC = () => {
             <img loading="lazy" 
               src="https://i.ibb.co/PsxYSsrK/t-l-charg-1.jpg" 
               alt="Toiture bardeaux" 
-              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
-            decoding="async" />
+              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] h-auto"
+            decoding="async" width="800" height="600" />
           </div>
         </motion.div>
 
@@ -150,8 +150,8 @@ export const Services: React.FC = () => {
              <img loading="lazy" 
               src="https://reno-toit.com/wp-content/uploads/2025/07/inspection-evaluation-toiture.jpg" 
               alt="Réparation de toiture" 
-              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
-            decoding="async" />
+              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] h-auto"
+            decoding="async" width="800" height="600" />
           </div>
           <div className="order-2 relative z-10 pl-0 md:pl-6">
             <div className="flex items-center gap-4 mb-6">
@@ -246,8 +246,8 @@ export const Services: React.FC = () => {
              <img loading="lazy" 
               src="https://cdn.prod.website-files.com/682b39f8500ff14e90ad1760/6846eadd9dc4f25969f64de9_4.jpg" 
               alt="Inspection de toiture" 
-              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
-            decoding="async" />
+              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] h-auto"
+            decoding="async" width="800" height="600" />
           </div>
         </motion.div>
 
@@ -264,8 +264,8 @@ export const Services: React.FC = () => {
              <img loading="lazy" 
               src="https://cimtchau.ca/app/uploads/deneigement-toit-2.jpg" 
               alt="Déneigement de Toiture" 
-              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
-            decoding="async" />
+              className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] h-auto"
+            decoding="async" width="800" height="600" />
           </div>
           <div className="order-2 relative z-10 pl-0 md:pl-6">
             <div className="flex items-center gap-4 mb-6">

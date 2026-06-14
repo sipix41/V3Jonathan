@@ -66,7 +66,11 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <SEO title="Contact" description="Découvrez nos services d'expert couvreur pour Contact. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/contact" />
+      <SEO 
+        title="Contactez Nous | Toiture Jonathan Délisle Inc | Soumission Gratuite" 
+        description="Besoin d'un expert pour votre toiture dans les Laurentides? Contactez Toiture Jonathan Délisle Inc. Remplissez notre formulaire pour une soumission gratuite." 
+        canonicalUrl="/contact" 
+      />
       <div className="bg-brand-black py-4 flex flex-col items-center text-center text-white">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold tracking-widest uppercase mb-4">
           <Phone className="w-4 h-4" /> NOUS JOINDRE

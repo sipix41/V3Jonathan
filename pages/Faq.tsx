@@ -94,7 +94,11 @@ export const Faq: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <SEO title="Faq" description="Découvrez nos services d'expert couvreur pour Faq. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/faq">
+      <SEO 
+        title="Foire aux Questions Toiture | Toiture Jonathan Délisle Inc" 
+        description="Trouvez des réponses claires à vos questions sur la réfection de toiture, bardeaux d'asphalte, ventilation et déneigement dans les Laurentides." 
+        canonicalUrl="/faq"
+      >
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

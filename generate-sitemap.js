@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { CITIES } from './constants';
 
 const APP_URL = process.env.VITE_SITE_URL || 'https://toiturejonathandelisle.ca';
 
@@ -22,10 +23,16 @@ function generateSitemap() {
   while ((match = routeRegex.exec(content)) !== null) {
     const routePath = match[1];
     // Exclude wildcard routes or layout wrappers if any
-    if (routePath !== '*' && !routePath.includes(':')) {
+    const excludePatterns = ['*', '/confidentialite', '/termes', '/droits-auteur'];
+    if (!excludePatterns.includes(routePath) && !routePath.includes(':')) {
       paths.push(routePath);
     }
   }
+
+  // Inject cities
+  CITIES.forEach(city => {
+    paths.push(city.path);
+  });
 
   const lastmod = new Date().toISOString().split('T')[0];
 
