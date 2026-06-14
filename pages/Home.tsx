@@ -55,6 +55,7 @@ const TURNKEY_SERVICES = [
 const STARS_ARRAY = [0, 1, 2, 3, 4];
 
 const BACKGROUND_IMAGES = [
+  "/nouvelle-maison.jpg",
   "https://www.image-heberg.fr/files/17711305432305535229.jpg",
   "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000",
   "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000",
@@ -469,7 +470,7 @@ export const Home: React.FC = () => {
             Prêt à refaire votre toiture ?
           </h2>
           <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour une estimation gratuite et sans engagement à {COMPANY_INFO.address}.
+            Contactez-nous dès aujourd'hui pour une estimation gratuite et sans engagement dans les {COMPANY_INFO.region}.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
              <Link to="/contact">

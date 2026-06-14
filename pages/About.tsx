@@ -68,7 +68,7 @@ export const About: React.FC = () => {
               Bonjour, je suis <strong className="text-brand-red">{COMPANY_INFO.owner}</strong>. Avec plus de <strong className="text-brand-red">{COMPANY_INFO.yearsExperience} ans d'expérience</strong> dans le domaine de la toiture, j'ai fondé mon entreprise sur des valeurs simples mais essentielles : l'honnêteté, le travail bien fait et le respect du client.
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Basés à <strong><Link to="/sainte-agathe-des-monts" className="text-white hover:text-brand-red transition-colors underline">{COMPANY_INFO.address.split(',')[0]}</Link>{COMPANY_INFO.address.includes(',') ? `, ${COMPANY_INFO.address.split(',')[1]}` : ''}</strong>, nous servons fièrement la communauté des Laurentides. Nous comprenons que votre toiture est l'investissement le plus important pour protéger votre maison. C'est pourquoi je suis présent sur chaque chantier pour m'assurer que les standards de qualité les plus élevés sont respectés.
+              Basés à <strong><Link to="/sainte-agathe-des-monts" className="text-white hover:text-brand-red transition-colors underline">{COMPANY_INFO.city}</Link></strong>, nous servons fièrement la communauté des {COMPANY_INFO.region}. Nous comprenons que votre toiture est l'investissement le plus important pour protéger votre maison. C'est pourquoi je suis présent sur chaque chantier pour m'assurer que les standards de qualité les plus élevés sont respectés.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">

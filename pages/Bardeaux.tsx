@@ -866,7 +866,7 @@ export const Bardeaux: React.FC = () => {
             <div className="text-left">
               <h2 className="text-2xl font-bold text-white mb-2">Couvreur dans les Laurentides</h2>
               <p className="text-gray-400">
-                Nous desservons avec fierté : <strong className="text-white"><Link to="/sainte-agathe-des-monts" className="hover:text-brand-red font-bold hover:underline">{COMPANY_INFO.address.split(',')[0]}</Link>{COMPANY_INFO.address.includes(',') ? `, ${COMPANY_INFO.address.split(',')[1]}` : ''}</strong>, <Link to="/val-david" className="text-white hover:text-brand-red font-bold hover:underline">Val-David</Link>, Val-Morin, Saint-Adolphe-d&#39;Howard, Mont-Blanc, Tremblant, Piedmont, Mont-Rolland et toutes les municipalités environnantes.
+                Nous desservons avec fierté : <strong className="text-white"><Link to="/sainte-agathe-des-monts" className="hover:text-brand-red font-bold hover:underline">{COMPANY_INFO.city}</Link></strong>, <Link to="/val-david" className="text-white hover:text-brand-red font-bold hover:underline">Val-David</Link>, Val-Morin, Saint-Adolphe-d&#39;Howard, Mont-Blanc, Tremblant, Piedmont, Mont-Rolland et toutes les municipalités environnantes.
               </p>
             </div>
           </div>
@@ -904,12 +904,12 @@ export const Bardeaux: React.FC = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center"
           >
             <Link to="/contact">
-              <Button size="lg" className="w-full sm:w-auto text-xl px-12 py-6 shadow-2xl shadow-brand-red/40 bg-brand-red text-white hover:bg-red-700 hover:scale-105 transition-all font-black">
+              <Button size="lg" className="w-full sm:w-auto shadow-xl shadow-brand-red/40 bg-brand-red text-white hover:bg-red-700 hover:scale-105 transition-all font-bold">
                 OBTENIR MON DEVIS
               </Button>
             </Link>
             <a href={`tel:${COMPANY_INFO.phoneClean}`} className="w-full sm:w-auto block">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto text-xl px-12 py-6 border-brand-black/20 text-brand-black hover:bg-brand-black hover:text-white transition-all font-bold">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto border-brand-black/20 text-brand-black hover:bg-brand-black hover:text-white transition-all font-bold">
                 APPELER LE {COMPANY_INFO.phone}
               </Button>
             </a>

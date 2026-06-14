@@ -5,10 +5,10 @@ export const COMPANY_INFO = {
   phone: "(819) 323-6665",
   phoneClean: "8193236665",
   rbq: "5831-9658-01",
-  address: "361, Chemin du Lac-Écho",
-  city: "Prévost",
+  address: "11 rue Desjardins",
+  city: "Sainte-Agathe-des-Monts",
   state: "QC",
-  postalCode: "J0R 1T0",
+  postalCode: "J8C 2W7",
   region: "Laurentides",
   facebookUrl: "https://www.facebook.com/share/17jZUQzLfr/?mibextid=wwXIfr",
   instagramUrl: "https://www.instagram.com/toiturejonathandelisle", // fallback or actual link if provided

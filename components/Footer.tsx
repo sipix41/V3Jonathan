@@ -86,10 +86,9 @@ export const Footer: React.FC = () => {
               <MapPin className="text-brand-red mt-1 flex-shrink-0 group-hover:scale-125 group-hover:text-white transition-all duration-300" size={18} />
               <span className="leading-snug">
                 <Link to="/sainte-agathe-des-monts" className="hover:text-brand-red transition-colors font-bold underline underline-offset-4 decoration-brand-red/50">
-                  {COMPANY_INFO.address.split(',')[0]}
+                  {COMPANY_INFO.city}
                 </Link>
-                {COMPANY_INFO.address.includes(',') ? `, ${COMPANY_INFO.address.split(',')[1]}` : ''}
-                <br />{COMPANY_INFO.region}
+                , {COMPANY_INFO.region}
               </span>
             </li>
             <li className="flex items-center gap-3 group">
