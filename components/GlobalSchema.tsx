@@ -3,15 +3,28 @@ import { Helmet } from 'react-helmet-async';
 import { COMPANY_INFO } from '../constants';
 
 export const GlobalSchema: React.FC = () => {
-  const schema = {
+  const BASE_URL = import.meta.env.VITE_SITE_URL || "https://toiturejonathandelisle.ca";
+
+  const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": ["RoofingContractor", "LocalBusiness"],
-    "@id": "https://toiturejonathandelisle.ca/#organization",
+    "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
     "name": "Toiture Jonathan Délisle Inc",
     "alternateName": "Toiture Délisle",
-    "url": "https://toiturejonathandelisle.ca",
-    "logo": "https://toiturejonathandelisle.ca/logo.png",
-    "image": "https://toiturejonathandelisle.ca/logo.png",
+    "url": BASE_URL,
+    "logo": `${BASE_URL}/logo.png`,
+    "sameAs": [
+      "https://www.facebook.com/toiturejonathandelisle",
+      "https://www.instagram.com/toiturejonathandelisle"
+    ]
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["RoofingContractor", "LocalBusiness"],
+    "@id": `${BASE_URL}/#localbusiness`,
+    "name": "Toiture Jonathan Délisle Inc",
+    "image": `${BASE_URL}/logo.png`,
     "description": "Experts en toiture dans les Laurentides, spécialisés en bardeaux d'asphalte, toits plats, réfection et déneigement.",
     "telephone": COMPANY_INFO.phone,
     "email": COMPANY_INFO.email,
@@ -31,7 +44,7 @@ export const GlobalSchema: React.FC = () => {
     },
     "areaServed": [
       {
-        "@type": "State",
+        "@type": "AdministrativeArea",
         "name": "Laurentides"
       },
       {
@@ -74,6 +87,12 @@ export const GlobalSchema: React.FC = () => {
         "dayOfWeek": ["Saturday"],
         "opens": "08:00",
         "closes": "12:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "00:00",
+        "closes": "00:00"
       }
     ],
     "aggregateRating": {
@@ -82,17 +101,53 @@ export const GlobalSchema: React.FC = () => {
       "reviewCount": "124",
       "bestRating": "5",
       "worstRating": "1"
+    }
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Réfection de toiture",
+    "provider": {
+      "@id": `${BASE_URL}/#organization`
     },
-    "sameAs": [
-      "https://www.facebook.com/toiturejonathandelisle",
-      "https://www.instagram.com/toiturejonathandelisle"
-    ]
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Laurentides"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de toiture",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Installation de bardeaux d'asphalte"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Réparation de toiture"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Déneigement de toiture"
+          }
+        }
+      ]
+    }
   };
 
   return (
     <Helmet>
       <script type="application/ld+json">
-        {JSON.stringify(schema)}
+        {JSON.stringify([organizationSchema, localBusinessSchema, serviceSchema])}
       </script>
     </Helmet>
   );

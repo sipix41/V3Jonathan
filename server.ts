@@ -14,11 +14,13 @@ async function startServer() {
     contentSecurityPolicy: process.env.NODE_ENV === "production" ? {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: ["'self'", "data:", "https:"],
-        connectSrc: ["'self'", "https://formsubmit.co"]
+        connectSrc: ["'self'", "https://formsubmit.co"],
+        objectSrc: ["'none'"],
+        baseUri: ["'self'"]
       }
     } : false
   }));
@@ -31,8 +33,8 @@ async function startServer() {
     } 
     // Only target specific static extensions
     else if (/\.(js|css|webp|png|jpg|jpeg|svg|woff2?|ico|json)$/.test(req.url)) {
-      // Set strict caching headers for CDN
-      res.setHeader("Cache-Control", "public, s-maxage=31536000, stale-while-revalidate");
+      // Set strict caching headers for CDN with immutable
+      res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
     }
     next();
   });
@@ -48,9 +50,14 @@ async function startServer() {
     // Serve static files with express cache options as well just in case
     app.use(express.static(distPath, {
       maxAge: '1y',
-      setHeaders: (res, path) => {
-        // Enforce the headers specified by the user
-        res.setHeader("Cache-Control", "public, s-maxage=31536000, stale-while-revalidate");
+      immutable: true,
+      setHeaders: (res, reqPath) => {
+        if (reqPath.endsWith('.html')) {
+          res.setHeader("Cache-Control", "no-cache");
+        } else {
+          // Enforce the headers specified by the user
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        }
       }
     }));
     app.get('*', (req, res) => {
