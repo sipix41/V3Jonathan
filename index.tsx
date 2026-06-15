@@ -5,7 +5,7 @@ import './index.css';
 import { registerSW } from 'virtual:pwa-register';
 
 // Register Service Worker
-const updateSW = registerSW({
+registerSW({
   onNeedRefresh() {
     // We could show a prompt, but autoUpdate is enabled in Vite config
   },

@@ -41,11 +41,10 @@ const DYNASTY_COLORS = [
 
 export const Iko: React.FC = () => {
   const [activeColor, setActiveColor] = useState(DYNASTY_COLORS[1]);
-  const [imageLoaded, setImageLoaded] = useState(true);
 
   return (
     <div className="bg-white">
-      <SEO title="Bardeaux IKO Dynasty" description="Découvrez les bardeaux architecturaux haute performance IKO Dynasty avec la technologie ArmourZone. Installation experte dans les Laurentides." canonicalUrl="/iko" />
+      <SEO title="Bardeaux IKO Dynasty" description="Découvrez les bardeaux architecturaux haute performance IKO Dynasty avec la technologie ArmourZone. Installation experte dans les Laurentides." canonicalUrl="/services/bardeaux/iko" />
       
       {/* Hero Section */}
       <section className="relative bg-[#0d1522] text-white py-24 md:py-32 overflow-hidden">

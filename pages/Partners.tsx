@@ -71,7 +71,7 @@ const PARTNERS = [
 export const Partners: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
-      <SEO title="Partners" description="Découvrez nos services d'expert couvreur pour Partners. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/partners" />
+      <SEO title="Partenaires" description="Découvrez nos partenaires de confiance. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/partenaires" />
       {/* Hero Section */}
       <div className="bg-brand-black py-4 text-center text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-64 h-64 bg-brand-red opacity-10 rounded-full blur-3xl -ml-10 -mt-10"></div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SEO } from '../components/SEO';
-import { Send, CheckCircle, HelpCircle, Briefcase, Plus, Users, ShieldCheck, Mail, Phone, Globe, FileText, ArrowRight, Award } from 'lucide-react';
+import { CheckCircle, Briefcase, Users, ShieldCheck, Mail, Phone, Globe, ArrowRight, Award } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Button } from '../components/Button';
 import { COMPANY_INFO } from '../constants';
@@ -117,7 +117,6 @@ export const DevenirPartenaire: React.FC = () => {
       <SEO 
         title="Devenir Partenaire" 
         description="Faites une demande pour devenir partenaire et joignez notre réseau d'excellence dans les Laurentides."
-        keywords={[`partenaire ${COMPANY_INFO.name}`, "recommandation", "entrepreneur", "construction Laurentides"]}
       />
 
       {/* Hero Header */}

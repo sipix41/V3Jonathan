@@ -24,7 +24,7 @@ export const Services: React.FC = () => {
 
   return (
     <div className="bg-zinc-50">
-      <SEO title="Services" description="Découvrez nos services d'expert couvreur pour Services. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/services" />
+      <SEO title="Services de Toiture" description="Découvrez nos services professionnels de toiture : installation de bardeaux, réparation, inspection et déneigement. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/services" />
       
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white pt-16 pb-10 md:pt-24 md:pb-12 overflow-hidden">

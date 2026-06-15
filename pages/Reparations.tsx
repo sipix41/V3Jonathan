@@ -24,7 +24,7 @@ const staggerContainer = {
 export const Reparations: React.FC = () => {
   return (
     <div className="bg-white">
-      <SEO title="Réparations et Rénovations" description="Découvrez nos services d'expert couvreur pour réparations de toiture. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/reparations" />
+      <SEO title="Réparations et Rénovations" description="Découvrez nos services d'expert couvreur pour réparations de toiture. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/services/reparations" />
       
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white min-h-[85vh] flex items-center overflow-hidden">

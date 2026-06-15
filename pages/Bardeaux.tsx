@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Shield, Hammer, ArrowRight, CheckCircle2, ChevronRight, ChevronDown, MapPin, Wind, Snowflake, ThermometerSun, ShieldCheck, Star, Award, Clock, Grid, Layers } from 'lucide-react';
+import { Shield, Hammer, CheckCircle2, ChevronRight, ChevronDown, Wind, Snowflake, ThermometerSun, ShieldCheck, Star, Award, Clock, Layers, MapPin } from 'lucide-react';
 import { Button } from '../components/Button';
 import { COMPANY_INFO } from '../constants';
 import { SEO } from '../components/SEO';
@@ -21,9 +21,11 @@ const staggerContainer = {
 };
 
 export const Bardeaux: React.FC = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
   return (
     <div className="bg-white">
-      <SEO title="Bardeaux" description="Découvrez nos services d'expert couvreur pour Bardeaux. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/bardeaux" />
+      <SEO title="Installation de Bardeaux" description="Découvrez nos services d'expert couvreur pour l'installation de bardeaux d'asphalte. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/services/bardeaux" />
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white py-8 md:py-4 overflow-hidden">
         <motion.div 
@@ -830,27 +832,35 @@ export const Bardeaux: React.FC = () => {
                 q: "Quelles sont les garanties offertes sur vos installations ?",
                 a: "Nous travaillons avec des matériaux bénéficiant d'excellentes garanties limitées à vie du manufacturier, et Toiture Jonathan Délisle soutient la qualité de son travail par une garantie sur la main-d'œuvre."
               }
-            ].map((faq, idx) => (
-              <motion.details 
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${idx % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} cursor-pointer group hover:shadow-md hover:-translate-y-0.5 open:shadow-[0_8px_30px_rgb(0,0,0,0.08)] open:-translate-y-1`}
+            ].map((faq, index) => (
+              <div 
+                key={index} 
+                className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${index % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} ${openFaqIndex === index ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] -translate-y-1' : 'hover:shadow-md hover:-translate-y-0.5'}`}
               >
-                <summary className="w-full text-left px-6 py-6 md:px-8 flex items-center justify-between outline-none list-none bg-transparent group-open:bg-gray-50/50 transition-colors">
-                  <span className="text-xl md:text-2xl font-bold pr-8 tracking-tight text-gray-900 group-open:text-brand-red transition-colors">
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                  className={`w-full text-left px-5 py-4 md:px-6 flex items-center justify-between focus:outline-none transition-colors ${openFaqIndex === index ? 'bg-gray-50/50' : 'bg-transparent'}`}
+                  aria-expanded={openFaqIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <h3 className={`text-base md:text-lg font-bold pr-8 tracking-tight transition-colors ${openFaqIndex === index ? 'text-brand-red' : 'text-gray-900'}`}>
                     {faq.q}
-                  </span>
-                  <div className="shrink-0 w-10 h-10 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center transition-colors group-open:bg-brand-red group-open:text-white group-open:shadow-md">
-                    <ChevronDown className="w-6 h-6 transition-transform duration-300 group-open:rotate-180" />
+                  </h3>
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openFaqIndex === index ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`} />
                   </div>
-                </summary>
-                <div className="px-6 md:px-8 pb-8 pt-2 text-gray-600 leading-relaxed text-lg border-t border-transparent group-open:border-gray-50">
-                  {faq.a}
+                </button>
+                
+                <div 
+                  id={`faq-answer-${index}`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                  aria-hidden={openFaqIndex !== index}
+                >
+                  <div className="p-5 md:px-6 pt-0 pb-5 text-gray-600 leading-relaxed text-sm md:text-base font-normal">
+                    {faq.a}
+                  </div>
                 </div>
-              </motion.details>
+              </div>
             ))}
           </div>
         </div>
@@ -866,7 +876,7 @@ export const Bardeaux: React.FC = () => {
             <div className="text-left">
               <h2 className="text-2xl font-bold text-white mb-2">Couvreur dans les Laurentides</h2>
               <p className="text-gray-400">
-                Nous desservons avec fierté : <strong className="text-white"><Link to="/sainte-agathe-des-monts" className="hover:text-brand-red font-bold hover:underline">{COMPANY_INFO.city}</Link></strong>, <Link to="/val-david" className="text-white hover:text-brand-red font-bold hover:underline">Val-David</Link>, Val-Morin, Saint-Adolphe-d&#39;Howard, Mont-Blanc, Tremblant, Piedmont, Mont-Rolland et toutes les municipalités environnantes.
+                Nous desservons avec fierté : <strong className="text-white"><Link to="/sainte-agathe-des-monts" className="hover:text-brand-red font-bold hover:underline">{COMPANY_INFO.city}</Link></strong>, <Link to="/val-david" className="text-white hover:text-brand-red font-bold hover:underline">Val-David</Link>, <Link to="/val-morin" className="text-white hover:text-brand-red font-bold hover:underline">Val-Morin</Link>, <Link to="/saint-adolphe-dhoward" className="text-white hover:text-brand-red font-bold hover:underline">Saint-Adolphe-d&#39;Howard</Link>, <Link to="/mont-blanc" className="text-white hover:text-brand-red font-bold hover:underline">Mont-Blanc</Link>, <Link to="/mont-tremblant" className="text-white hover:text-brand-red font-bold hover:underline">Tremblant</Link>, <Link to="/piedmont" className="text-white hover:text-brand-red font-bold hover:underline">Piedmont</Link>, <Link to="/saint-jerome" className="text-white hover:text-brand-red font-bold hover:underline">Saint-Jérôme</Link> et toutes les municipalités environnantes.
               </p>
             </div>
           </div>

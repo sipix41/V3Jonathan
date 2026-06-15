@@ -83,11 +83,12 @@ const App: React.FC = () => {
                 
                 {/* Individual City Routes */}
                 {CITIES.map((city) => (
-                  <Route
-                    key={city.path}
-                    path={city.path}
-                    element={<CityTemplate cityName={city.name} cityPath={city.path} />}
-                  />
+                  <React.Fragment key={city.path}>
+                    <Route
+                      path={city.path}
+                      element={<CityTemplate cityName={city.name} cityPath={city.path} />}
+                    />
+                  </React.Fragment>
                 ))}
                 
                 <Route path="/laurentides" element={<Laurentides />} />

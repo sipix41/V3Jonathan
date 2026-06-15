@@ -125,7 +125,7 @@ export const Home: React.FC = () => {
               src={img} 
               alt={`Toiture neuve Laurentides ${idx + 1}`} 
               loading={idx === 0 ? "eager" : "lazy"}
-              fetchpriority={idx === 0 ? "high" : "auto"}
+              {...({ fetchpriority: idx === 0 ? "high" : "auto" } as any)}
               decoding={idx === 0 ? "sync" : "async"}
               className={`absolute w-full h-full transition-opacity duration-1000 ease-in-out ${idx === bgImageIndex ? 'opacity-40' : 'opacity-0'} ${idx === 0 ? 'object-cover object-top' : 'object-contain object-center'}`}
             width="800" height="600" />

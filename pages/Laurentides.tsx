@@ -1,13 +1,12 @@
 import React, { Suspense,  useState  } from 'react';
 import {
   Shield,
-  Wrench, Hammer,
+  Hammer,
   Snowflake,
   CheckCircle,
   MapPin,
   Phone,
   ChevronDown,
-  ChevronUp,
   Star,
 } from "lucide-react";
 import { SEO } from "../components/SEO";
@@ -640,7 +639,7 @@ export const Laurentides: React.FC = () => {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {FAQ_DATA.map((faq, index) => (
               <div 
                 key={index} 

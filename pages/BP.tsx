@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Shield, Hammer, ChevronRight, Award, Wind, ShieldCheck, Grid, Layers, ChevronDown } from 'lucide-react';
+import { Award, ShieldCheck, Layers, ChevronDown } from 'lucide-react';
 import { Button } from '../components/Button';
 import { COMPANY_INFO } from '../constants';
 import { SEO } from '../components/SEO';

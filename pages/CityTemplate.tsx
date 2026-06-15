@@ -2,13 +2,12 @@ import React, { Suspense, useState  } from 'react';
 import {
   Shield,
   Star,
-  Wrench, Hammer,
+  Hammer,
   Snowflake,
   CheckCircle,
   MapPin,
   Phone,
   ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 import { SEO } from "../components/SEO";
 import { Button } from "../components/Button";
@@ -63,9 +62,9 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
       "name": `Services de toiture à ${cityName}`,
       "provider": {
         "@type": "RoofingContractor",
-        "name": "Toiture Jonathan Délisle inc",
+        "name": "Toiture Jonathan Délisle Inc",
         "image": "https://i.postimg.cc/FKLjSjn2/thumb-show.jpg",
-        "telephone": "819-323-8888",
+        "telephone": "819-323-6665",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": cityName,
@@ -114,9 +113,9 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
   return (
     <div className="w-full">
       <SEO
-        title={`Couvreur ${cityName} | Toiture Jonathan Délisle Inc – Toiture Laurentides`}
-        overrideFullTitle={`Couvreur ${cityName} | Toiture Jonathan Délisle Inc – Toiture Laurentides`}
-        description={`Vous cherchez un couvreur de confiance à ${cityName}? Toiture Jonathan Délisle Inc est l'expert local en installation, réparation et déneigement. Soumission gratuite!`}
+        title={`Couvreur à ${cityName} | Toiture Jonathan Délisle Inc – Toiture Laurentides`}
+        overrideFullTitle={`Couvreur à ${cityName} | Toiture Jonathan Délisle Inc – Toiture Laurentides`}
+        description={`Vous cherchez un couvreur de confiance à ${cityName}? Toiture Jonathan Délisle Inc est l'expert local en installation, réparation de toiture et déneigement. Soumission gratuite!`}
         canonicalUrl={cityPath}
       >
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -231,17 +230,17 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
               <div className="text-lg text-gray-700 leading-relaxed space-y-4">
                 <p>
                   {customContent?.posePart1 || (
-                    <>Le <strong>remplacement bardeaux asphalte {cityName}</strong> représente le cœur de nos interventions, particulièrement avec le vieillissement des premières phases de développements résidentiels de la ville. Les matériaux de recouvrement ont énormément évolué au cours des dernières années, et les bardeaux architecturaux d'aujourd'hui offrent une résistance remarquable jumelée à un rapport qualité-prix inégalé sur le marché. Chez Toiture Jonathan Délisle Inc, nous sommes de véritables spécialistes de l'installation de ces bardeaux d'asphalte de qualité supérieure. Fini le temps des vieux bardeaux plats à trois pattes qui s'arrachaient au moindre coup de vent. Les modèles architecturaux que nous installons sont multidimensionnels, beaucoup plus épais, lourdement texturés, et spécifiquement testés pour résister à des vents de force majeure.</>
+                    <>Le <strong>remplacement de bardeaux d'asphalte à {cityName}</strong> représente le cœur de nos interventions, particulièrement avec le vieillissement des premières phases de développements résidentiels de la ville. Les matériaux de recouvrement ont énormément évolué au cours des dernières années, et les bardeaux architecturaux d'aujourd'hui offrent une résistance remarquable jumelée à un rapport qualité-prix inégalé sur le marché. Chez Toiture Jonathan Délisle Inc, nous sommes de véritables spécialistes de l'installation de ces bardeaux d'asphalte de qualité supérieure. Fini le temps des vieux bardeaux plats à trois pattes qui s'arrachaient au moindre coup de vent. Les modèles architecturaux que nous installons sont multidimensionnels, beaucoup plus épais, lourdement texturés, et spécifiquement testés pour résister à des vents de force majeure.</>
                   )}
                 </p>
                 <p>
                   {customContent?.posePart2 || (
-                    <>Notre méthodologie pour tout projet de <strong>remplacement bardeaux asphalte {cityName}</strong> est d'une rigueur absolue. Chaque chantier débute par l'arrachage méticuleux et total des anciennes couches de revêtement afin de mettre à nu le pontage de bois. Cette étape est non négociable : elle nous permet d'inspecter physiquement la santé de votre charpente. Il est techniquement impensable de poser un toit neuf sur des planches pourries ou un contreplaqué délaminé par l'humidité. Si du bois est endommagé ou affaibli, nos experts le remplacent sur-le-champ pour garantir une base solide à 100 %.</>
+                    <>Notre méthodologie pour tout projet de <strong>remplacement de bardeaux d'asphalte à {cityName}</strong> est d'une rigueur absolue. Chaque chantier débute par l'arrachage méticuleux et total des anciennes couches de revêtement afin de mettre à nu le pontage de bois. Cette étape est non négociable : elle nous permet d'inspecter physiquement la santé de votre charpente. Il est techniquement impensable de poser un toit neuf sur des planches pourries ou un contreplaqué délaminé par l'humidité. Si du bois est endommagé ou affaibli, nos experts le remplacent sur-le-champ pour garantir une base solide à 100 %.</>
                   )}
                 </p>
                 <p>
                   {customContent?.posePart3 || (
-                    <>Une fois la fondation approuvée, nous passons à l'imperméabilisation stratégique de l'enveloppe. Nous fixons d'abord des larmiers métalliques au périmètre pour guider l'eau de pluie loin de vos fascias et soffites. Ensuite, nous déployons une large membrane autocollante de haute performance (membrane élastomère) aux endroits critiques : les avant-toits, les noues (les vallées où l'eau s'écoule), et tout autour de la cheminée ou des puits de lumière. À {cityName}, où l'exposition au vent refroidit rapidement les toits, la formation de barrages de glace est fréquente ; cette membrane caoutchoutée est votre ultime bouclier contre les infiltrations. La surface restante est ensuite couverte d'une sous-couche synthétique de fine pointe. Enfin, les bardeaux sont installés selon un schéma de clouage précis, garantissant la validité des garanties des manufacturiers pour votre toiture {cityName}.</>
+                    <>Une fois la fondation approuvée, nous passons à l'imperméabilisation stratégique de l'enveloppe. Nous fixons d'abord des larmiers métalliques au périmètre pour guider l'eau de pluie loin de vos fascias et soffites. Ensuite, nous déployons une large membrane autocollante de haute performance (membrane élastomère) aux endroits critiques : les avant-toits, les noues (les vallées où l'eau s'écoule), et tout autour de la cheminée ou des puits de lumière. À {cityName}, où l'exposition au vent refroidit rapidement les toits, la formation de barrages de glace est fréquente ; cette membrane caoutchoutée est votre ultime bouclier contre les infiltrations. La surface restante est ensuite couverte d'une sous-couche synthétique de fine pointe. Enfin, les bardeaux sont installés selon un schéma de clouage précis, garantissant la validité des garanties des manufacturiers pour votre toiture à {cityName}.</>
                   )}
                 </p>
                 {!customContent?.posePart1 && (
@@ -323,12 +322,12 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
             <div className="text-lg text-gray-700 leading-relaxed space-y-6">
               <p>
                 {customContent?.repPart1 || (
-                  <>Malgré la meilleure volonté du monde, un entretien régulier et des matériaux de qualité, la météo imprévisible peut causer des dommages soudains et inattendus. Après une puissante rafale automnale ou à la suite d'un orage estival de grêle fracassant, il n'est pas rare qu'une toiture subisse des bris. Si vous apercevez des morceaux de bardeaux éparpillés sur votre pelouse, des cernes bruns d'humidité sur vos plafonds intérieurs, de la peinture qui s'écaille ou des solins d'acier tordus, vous devez agir vite. Notre service d'intervention d'urgence en <strong>réparation toiture Laurentides</strong> est spécialement conçu pour colmater les brèches rapidement avant que l'eau ne compromette gravement la structure de votre maison.</>
+                  <>Malgré la meilleure volonté du monde, un entretien régulier et des matériaux de qualité, la météo imprévisible peut causer des dommages soudains et inattendus. Après une puissante rafale automnale ou à la suite d'un orage estival de grêle fracassant, il n'est pas rare qu'une toiture subisse des bris. Si vous apercevez des morceaux de bardeaux éparpillés sur votre pelouse, des cernes bruns d'humidité sur vos plafonds intérieurs, de la peinture qui s'écaille ou des solins d'acier tordus, vous devez agir vite. Notre service d'intervention d'urgence en <strong>réparation de toiture dans les Laurentides</strong> est spécialement conçu pour colmater les brèches rapidement avant que l'eau ne compromette gravement la structure de votre maison.</>
                 )}
               </p>
               <p>
                 {customContent?.repPart2 || (
-                  <>En tant qu'entrepreneur <strong>toiture {cityName}</strong> de grande expérience, nous savons que l'eau est un élément extrêmement sournois. Elle peut s'infiltrer par une micro-fissure au sommet du toit, glisser lentement le long des chevrons, et goutter à un endroit complètement différent à l'intérieur. C'est pourquoi chaque intervention de réparation toiture Laurentides débute par une enquête diagnostique rigoureuse. Nous refusons de simplement appliquer du ciment plastique ou du goudron sur un symptôme de surface; nous retraçons la source exacte de la fuite pour appliquer un correctif technique permanent.</>
+                  <>En tant qu'entrepreneur de <strong>toiture à {cityName}</strong> de grande expérience, nous savons que l'eau est un élément extrêmement sournois. Elle peut s'infiltrer par une micro-fissure au sommet du toit, glisser lentement le long des chevrons, et goutter à un endroit complètement différent à l'intérieur. C'est pourquoi chaque intervention de réparation de toiture dans les Laurentides débute par une enquête diagnostique rigoureuse. Nous refusons de simplement appliquer du ciment plastique ou du goudron sur un symptôme de surface; nous retraçons la source exacte de la fuite pour appliquer un correctif technique permanent.</>
                 )}
               </p>
               {!customContent?.repPart1 && (
@@ -375,14 +374,14 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
               </h2>
               <div className="text-gray-300 space-y-4 leading-relaxed flex-grow">
                 <p>
-                  {customContent?.deneigPart1 || `Les hivers à ${cityName} apportent de fortes précipitations de neige qui s'accumulent et se compactent au fil des mois, souvent durcies par les vents froids. Cette masse représente une surcharge mécanique très dangereuse pour la charpente de votre résidence. Un service professionnel de déneigement toiture Laurentides est absolument impératif pour prévenir l'affaissement, la déformation à long terme, ou même l'effondrement pur et simple de vos fermes de toit sous l'énorme pression de la neige mouillée.`}
+                  {customContent?.deneigPart1 || `Les hivers à ${cityName} apportent de fortes précipitations de neige qui s'accumulent et se compactent au fil des mois, souvent durcies par les vents froids. Cette masse représente une surcharge mécanique très dangereuse pour la charpente de votre résidence. Un service professionnel de déneigement de toiture dans les Laurentides est absolument impératif pour prévenir l'affaissement, la déformation à long terme, ou même l'effondrement pur et simple de vos fermes de toit sous l'énorme pression de la neige mouillée.`}
                 </p>
                 <p>
                   {customContent?.deneigPart2 || `Le poids de la neige n'est d'ailleurs qu'une partie du problème. Le plus grand danger et la première cause de réclamation aux assurances hivernales proviennent de la formation de barrières de glace (digues de glace). Celles-ci se créent en bordure des toits à cause des cycles répétés de gel et de dégel. La neige fond sur la section supérieure, s'écoule sous forme d'eau, et regèle instantanément au contact des avant-toits glacés, bloquant ainsi l'accès vers les gouttières. L'eau s'accumule derrière ce mur de glace de plus en plus épais, remonte sous les bardeaux d'asphalte, et s'infiltre massivement à l'intérieur, détruisant la laine isolante et le gypse.`}
                 </p>
                 <div className="mt-6 pt-6 border-t border-white/10">
                   <p className="text-sm">
-                    {customContent?.deneigPart3 || `Il est très fortement déconseillé de tenter de déneiger votre toit vous-même avec une échelle instable. Monter sur un toit en pente recouvert de glace est la cause de nombreuses chutes tragiques et de blessures graves. Par ailleurs, l'utilisation d'outils inappropriés par les propriétaires (pelles métalliques, haches, pioches) détruit immanquablement l'asphalte de vos bardeaux, annulant sur-le-champ toutes vos garanties. Confiez cette tâche à haut risque à Toiture Jonathan Délisle Inc. Nos professionnels formés utilisent des harnais de sécurité certifiés et effectuent le déneigement toiture Laurentides avec des pelles en polymère spécialement conçues pour ne pas égratigner. Nous laissons toujours une mince pellicule de neige de protection pour ne jamais gratter le revêtement à nu.`}
+                    {customContent?.deneigPart3 || `Il est très fortement déconseillé de tenter de déneiger votre toit vous-même avec une échelle instable. Monter sur un toit en pente recouvert de glace est la cause de nombreuses chutes tragiques et de blessures graves. Par ailleurs, l'utilisation d'outils inappropriés par les propriétaires (pelles métalliques, haches, pioches) détruit immanquablement l'asphalte de vos bardeaux, annulant sur-le-champ toutes vos garanties. Confiez cette tâche à haut risque à Toiture Jonathan Délisle Inc. Nos professionnels formés utilisent des harnais de sécurité certifiés et effectuent le déneigement de toiture dans les Laurentides avec des pelles en polymère spécialement conçues pour ne pas égratigner. Nous laissons toujours une mince pellicule de neige de protection pour ne jamais gratter le revêtement à nu.`}
                   </p>
                 </div>
               </div>
@@ -401,7 +400,7 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
               <span className="text-brand-red">{cityName}</span> ?
             </h2>
             <p className="text-base md:text-lg text-gray-600">
-              {customContent?.pourquoiIntro || `Le choix de votre couvreur ${cityName} ne doit pas se faire à la hâte en cherchant uniquement l'entrepreneur le moins cher sur papier. La toiture est la première ligne de défense de votre foyer. Chez Toiture Jonathan Délisle Inc, nous nous démarquons très nettement de la concurrence par notre approche profondément humaine, notre minutie de tous les instants et notre grande maîtrise technique des enjeux propres à une véritable toiture Laurentides.`}
+              {customContent?.pourquoiIntro || `Le choix de votre couvreur à ${cityName} ne doit pas se faire à la hâte en observant uniquement l'entrepreneur le moins cher sur papier. La toiture est la première ligne de défense de votre foyer. Chez Toiture Jonathan Délisle Inc, nous nous démarquons très nettement de la concurrence par notre approche profondément humaine, notre minutie de tous les instants et notre grande maîtrise technique des enjeux propres à une véritable toiture dans les Laurentides.`}
             </p>
           </div>
 
@@ -457,7 +456,7 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
             Zone de service — {cityName} et les villes des Laurentides desservies
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Extrêmement fiers de notre excellente réputation à titre d'entrepreneur <strong>toiture {cityName}</strong>, notre flotte de camions bien identifiés sillonne les routes et autoroutes (15 et 50) pour desservir avec la même passion et la même rigueur l'ensemble de notre majestueuse région.
+            Extrêmement fiers de notre excellente réputation à titre d'entrepreneur de <strong>toiture à {cityName}</strong>, notre flotte de camions bien identifiés sillonne les routes et autoroutes (15 et 50) pour desservir avec la même passion et la même rigueur l'ensemble de notre majestueuse région.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {Array.from(new Set([
@@ -497,7 +496,7 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
             })}
           </div>
           <p className="text-gray-700">
-            Que votre propriété se trouve à {cityName} même dans ses divers quartiers ou dans les municipalités environnantes, notre équipe mobile se rend rapidement chez vous. Quelle que soit l'envergure de votre projet résidentiel, nous garantissons à tous nos clients le même professionnalisme, la même courtoisie et la même qualité technique supérieure pour toute installation de <strong>toiture Laurentides</strong>.
+            Que votre propriété se trouve à {cityName} même dans ses divers quartiers ou dans les municipalités environnantes, notre équipe mobile se rend rapidement chez vous. Quelle que soit l'envergure de votre projet résidentiel, nous garantissons à tous nos clients le même professionnalisme, la même courtoisie et la même qualité technique supérieure pour toute installation de <strong>toiture dans les Laurentides</strong>.
           </p>
         </div>
       </section>
@@ -511,7 +510,7 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {FAQ_DATA.map((faq, index) => (
               <div 
                 key={index} 

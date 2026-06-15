@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
 import { Phone, AlertTriangle } from 'lucide-react';
 import { Button } from './Button';
 import { COMPANY_INFO } from '../constants';

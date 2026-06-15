@@ -23,7 +23,7 @@ const staggerContainer = {
 export const Deneigement: React.FC = () => {
   return (
     <div className="bg-white">
-      <SEO title="Deneigement" description="Découvrez nos services d'expert couvreur pour Deneigement. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/deneigement" />
+      <SEO title="Déneigement de Toiture" description="Découvrez nos services professionnels de déneigement de toiture. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/services/deneigement" />
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white py-8 md:py-4 overflow-hidden">
         <motion.div 

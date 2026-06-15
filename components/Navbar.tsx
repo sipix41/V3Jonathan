@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, ChevronRight } from "lucide-react";
-import { COMPANY_INFO, NAV_LINKS, CITIES } from "../constants";
+import { Menu, X, Phone } from "lucide-react";
+import { COMPANY_INFO, NAV_LINKS } from "../constants";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +27,9 @@ export const Navbar: React.FC = () => {
                 width="282"
                 height="96"
                 loading="eager"
-                fetchpriority="high"
+                {...({ fetchpriority: "high" } as any)}
                 decoding="sync"
-                className="h-14 md:h-24 w-auto object-contain hover:opacity-90 transition-opacity w-full h-auto"
+                className="h-14 md:h-24 w-auto object-contain hover:opacity-90 transition-opacity"
               />
             </NavLink>
           </div>

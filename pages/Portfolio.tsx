@@ -174,7 +174,7 @@ export const Portfolio: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <SEO title="Portfolio" description="Découvrez nos services d'expert couvreur pour Portfolio. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/portfolio" />
+      <SEO title="Réalisations" description="Découvrez nos magnifiques réalisations de toiture. Toiture Jonathan Délisle inc dans les Laurentides." canonicalUrl="/realisations" />
       {/* Hero Section */}
       <section className="relative bg-brand-black py-8 text-white overflow-hidden">
         <div className="absolute inset-0">

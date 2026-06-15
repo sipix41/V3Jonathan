@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, MessageCircleQuestion, HelpCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
-import { Link } from 'react-router-dom';
-import { Button } from '../components/Button';
 import { SEO } from '../components/SEO';
 import { CTA } from '../components/CTA';
 
