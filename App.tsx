@@ -35,7 +35,37 @@ const Iko = React.lazy(() => import("./pages/Iko").then((module) => ({ default: 
 const BP = React.lazy(() => import("./pages/BP").then((module) => ({ default: module.BP })));
 const Inspection = React.lazy(() => import("./pages/Inspection").then((module) => ({ default: module.Inspection })));
 const NotFound = React.lazy(() => import("./pages/NotFound").then((module) => ({ default: module.NotFound })));
-const CityTemplate = React.lazy(() => import("./pages/CityTemplate").then((module) => ({ default: module.CityTemplate })));
+const Amherst = React.lazy(() => import("./pages/Amherst").then((module) => ({ default: module.Amherst })));
+const Arundel = React.lazy(() => import("./pages/Arundel").then((module) => ({ default: module.Arundel })));
+const Bellefeuille = React.lazy(() => import("./pages/Bellefeuille").then((module) => ({ default: module.Bellefeuille })));
+const Esterel = React.lazy(() => import("./pages/Esterel").then((module) => ({ default: module.Esterel })));
+const LacSuperieur = React.lazy(() => import("./pages/LacSuperieur").then((module) => ({ default: module.LacSuperieur })));
+const Lantier = React.lazy(() => import("./pages/Lantier").then((module) => ({ default: module.Lantier })));
+const MilleIsles = React.lazy(() => import("./pages/MilleIsles").then((module) => ({ default: module.MilleIsles })));
+const Mirabel = React.lazy(() => import("./pages/Mirabel").then((module) => ({ default: module.Mirabel })));
+const MontBlanc = React.lazy(() => import("./pages/MontBlanc").then((module) => ({ default: module.MontBlanc })));
+const MontOlympia = React.lazy(() => import("./pages/MontOlympia").then((module) => ({ default: module.MontOlympia })));
+const MontTremblant = React.lazy(() => import("./pages/MontTremblant").then((module) => ({ default: module.MontTremblant })));
+const MorinHeights = React.lazy(() => import("./pages/MorinHeights").then((module) => ({ default: module.MorinHeights })));
+const Piedmont = React.lazy(() => import("./pages/Piedmont").then((module) => ({ default: module.Piedmont })));
+const Prevost = React.lazy(() => import("./pages/Prevost").then((module) => ({ default: module.Prevost })));
+const SaintAdolpheDHoward = React.lazy(() => import("./pages/SaintAdolpheDHoward").then((module) => ({ default: module.SaintAdolpheDHoward })));
+const SaintColomban = React.lazy(() => import("./pages/SaintColomban").then((module) => ({ default: module.SaintColomban })));
+const SaintFaustinLacCarre = React.lazy(() => import("./pages/SaintFaustinLacCarre").then((module) => ({ default: module.SaintFaustinLacCarre })));
+const SaintHippolyte = React.lazy(() => import("./pages/SaintHippolyte").then((module) => ({ default: module.SaintHippolyte })));
+const SaintJerome = React.lazy(() => import("./pages/SaintJerome").then((module) => ({ default: module.SaintJerome })));
+const SaintSauveur = React.lazy(() => import("./pages/SaintSauveur").then((module) => ({ default: module.SaintSauveur })));
+const SainteAdele = React.lazy(() => import("./pages/SainteAdele").then((module) => ({ default: module.SainteAdele })));
+const SainteAgatheDesMonts = React.lazy(() => import("./pages/SainteAgatheDesMonts").then((module) => ({ default: module.SainteAgatheDesMonts })));
+const SainteAnneDesLacs = React.lazy(() => import("./pages/SainteAnneDesLacs").then((module) => ({ default: module.SainteAnneDesLacs })));
+const SainteLucieDesLaurentides = React.lazy(() => import("./pages/SainteLucieDesLaurentides").then((module) => ({ default: module.SainteLucieDesLaurentides })));
+const SainteMargueriteDuLacMasson = React.lazy(() => import("./pages/SainteMargueriteDuLacMasson").then((module) => ({ default: module.SainteMargueriteDuLacMasson })));
+const SainteSophie = React.lazy(() => import("./pages/SainteSophie").then((module) => ({ default: module.SainteSophie })));
+const ValDavid = React.lazy(() => import("./pages/ValDavid").then((module) => ({ default: module.ValDavid })));
+const ValDesLacs = React.lazy(() => import("./pages/ValDesLacs").then((module) => ({ default: module.ValDesLacs })));
+const ValMorin = React.lazy(() => import("./pages/ValMorin").then((module) => ({ default: module.ValMorin })));
+const WentworthNord = React.lazy(() => import("./pages/WentworthNord").then((module) => ({ default: module.WentworthNord })));
+const Laurentides = React.lazy(() => import("./pages/Laurentides").then((module) => ({ default: module.Laurentides })));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -80,10 +110,39 @@ const App: React.FC = () => {
                 <Route path="/services/deneigement" element={<Deneigement />} />
                 <Route path="/a-propos" element={<About />} />
                 
-                {/* Dynamically render all city routes using the CityTemplate */}
-                {CITIES.map(city => (
-                  <Route key={city.path} path={city.path} element={<CityTemplate cityName={city.name} cityPath={city.path} />} />
-                ))}
+                {/* Individual City Routes */}
+                <Route path="/amherst" element={<Amherst />} />
+                <Route path="/arundel" element={<Arundel />} />
+                <Route path="/bellefeuille" element={<Bellefeuille />} />
+                <Route path="/esterel" element={<Esterel />} />
+                <Route path="/lac-superieur" element={<LacSuperieur />} />
+                <Route path="/lantier" element={<Lantier />} />
+                <Route path="/mille-isles" element={<MilleIsles />} />
+                <Route path="/mirabel" element={<Mirabel />} />
+                <Route path="/mont-blanc" element={<MontBlanc />} />
+                <Route path="/mont-olympia" element={<MontOlympia />} />
+                <Route path="/mont-tremblant" element={<MontTremblant />} />
+                <Route path="/morin-heights" element={<MorinHeights />} />
+                <Route path="/piedmont" element={<Piedmont />} />
+                <Route path="/prevost" element={<Prevost />} />
+                <Route path="/saint-adolphe-dhoward" element={<SaintAdolpheDHoward />} />
+                <Route path="/saint-colomban" element={<SaintColomban />} />
+                <Route path="/saint-faustin-lac-carre" element={<SaintFaustinLacCarre />} />
+                <Route path="/saint-hippolyte" element={<SaintHippolyte />} />
+                <Route path="/saint-jerome" element={<SaintJerome />} />
+                <Route path="/saint-sauveur" element={<SaintSauveur />} />
+                <Route path="/sainte-adele" element={<SainteAdele />} />
+                <Route path="/sainte-agathe-des-monts" element={<SainteAgatheDesMonts />} />
+                <Route path="/sainte-anne-des-lacs" element={<SainteAnneDesLacs />} />
+                <Route path="/sainte-lucie-des-laurentides" element={<SainteLucieDesLaurentides />} />
+                <Route path="/sainte-marguerite-du-lac-masson" element={<SainteMargueriteDuLacMasson />} />
+                <Route path="/sainte-sophie" element={<SainteSophie />} />
+                <Route path="/val-david" element={<ValDavid />} />
+                <Route path="/val-des-lacs" element={<ValDesLacs />} />
+                <Route path="/val-morin" element={<ValMorin />} />
+                <Route path="/wentworth-nord" element={<WentworthNord />} />
+                
+                <Route path="/laurentides" element={<Laurentides />} />
 
                 <Route path="/realisations" element={<Portfolio />} />
                 <Route path="/faq" element={<Faq />} />

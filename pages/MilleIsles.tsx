@@ -180,7 +180,7 @@ export const MilleIsles: React.FC = () => {
               Toiture Jonathan Délisle Inc : Votre partenaire couvreur expert à <strong>Mille-Isles</strong>. Sécurisez votre propriété face aux vents des plaines et aux rigueurs climatiques.
             </p>
             <p>
-              En pleine expansion, la vaste ville de <strong>Mille-Isles</strong> combine de vastes territoires agricoles et des zones résidentielles en effervescence. Des nouvelles constructions contemporaines dans les quartiers comme le Domaine-Vert (Nord et Sud) aux bungalows confortables de Saint-Janvier, Saint-Canut ou Saint-Augustin, le paysage immobilier est hétéroclite. Ces différents secteurs partagent toutefois des vulnérabilités communes face aux éléments.
+              En pleine expansion, la vaste ville de <strong>Mille-Isles</strong> possède un charme unique avec ses paysages naturels et ses quartiers variés. Des propriétés au cœur de la ville aux chalets nichés en pleine nature, son paysage immobilier de la région est riche et hétéroclite. Ces différents secteurs partagent toutefois des vulnérabilités communes face aux éléments.
             </p>
             <p>
               La topographie plane et dégagée de Mille-Isles expose particulièrement les toitures aux vents dominants puissants, souvent sans l'obstacle protecteur de grandes forêts ou de montagnes, augmentant le risque d'arrachement de bardeaux. De plus, les accumulations de neige lors des tempêtes hivernales frappant la plaine exigent des toitures infaillibles. En tant qu'<strong>entrepreneur couvreur à Mille-Isles</strong>, <strong>Toiture Jonathan Délisle Inc</strong> installe des revêtements d'une solidité éprouvée, capables de résister aux rafales les plus intenses pour assurer l'étanchéité absolue de votre foyer.
@@ -194,7 +194,7 @@ export const MilleIsles: React.FC = () => {
           description={
             <>
               <p>
-                Que vous résidiez dans les secteurs familiaux denses, à proximité des grands axes routiers comme l'autoroute 15 ou au cœur des terres agricoles, nous sommes à votre service pour des interventions de pointe. Nous prêtons une attention particulière à la ventilation et à l'ancrage des matériaux, contrant la pression qu'exerce le vent continu sur l'enveloppe extérieure des bâtiments mille-isleslois.
+                Que vous résidiez dans les secteurs familiaux denses, à proximité des grands axes routiers comme l'autoroute 15 ou au cœur des terres agricoles, nous sommes à votre service pour des interventions de pointe. Nous prêtons une attention particulière à la ventilation et à l'ancrage des matériaux, contrant la pression qu'exerce le vent continu sur l'enveloppe extérieure des bâtiments de la municipalité.
               </p>
               <p>
                 Ayez l'esprit tranquille avec Toiture Jonathan Délisle Inc. Nous nous illustrons par un remplacement impeccable de bardeaux d'asphalte architecturaux, un service prompt en cas d'appels d'urgence et un déneigement préventif sécuritaire. Optez pour des spécialistes dévoués afin de protéger votre demeure à Mille-Isles.
@@ -380,7 +380,7 @@ export const MilleIsles: React.FC = () => {
             {[
               {
                 title: "Connaissance experte de la ville",
-                desc: "Nous connaissons les réalités de Mille-Isles, des grands corridors de vents des secteurs ruraux (Saint-Benoît, Sainte-Scholastique) aux densités urbaines (Domaine-Vert, Saint-Janvier). Nos méthodes de fixation sont fermement adaptées en conséquence.",
+                desc: "Nous connaissons les réalités de Mille-Isles, des défis particuliers posés par le climat local, des vents forts près des lacs aux conditions vigoureuses en altitude. Nos méthodes de fixation sont fermement adaptées en conséquence.",
               },
               {
                 title: "Des matériaux d'une qualité sans compromis",
@@ -468,7 +468,7 @@ export const MilleIsles: React.FC = () => {
             })}
           </div>
           <p className="text-gray-700">
-            Que votre propriété se trouve à Mille-Isles même (dans les secteurs de Saint-Janvier, Saint-Canut, le Domaine-Vert Nord et Sud, Sainte-Scholastique ou Saint-Augustin), plus au nord vers Prévost et Saint-Sauveur, ou juste à côté dans le grand pôle de Saint-Jérôme, notre équipe mobile se rend rapidement chez vous. Quelle que soit l'envergure de votre projet résidentiel, nous garantissons à tous nos clients le même professionnalisme, la même courtoisie et la même qualité technique supérieure pour toute installation de <strong>toiture Laurentides</strong>.
+            Que votre propriété se trouve à Mille-Isles même dans ses divers quartiers ou dans les municipalités environnantes, notre équipe mobile se rend rapidement chez vous. Quelle que soit l'envergure de votre projet résidentiel, nous garantissons à tous nos clients le même professionnalisme, la même courtoisie et la même qualité technique supérieure pour toute installation de <strong>toiture Laurentides</strong>.
           </p>
         </div>
       </section>

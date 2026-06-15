@@ -194,7 +194,7 @@ export const Mirabel: React.FC = () => {
           description={
             <>
               <p>
-                Que vous résidiez dans les secteurs familiaux denses, à proximité des grands axes routiers comme l'autoroute 15 ou au cœur des terres agricoles, nous sommes à votre service pour des interventions de pointe. Nous prêtons une attention particulière à la ventilation et à l'ancrage des matériaux, contrant la pression qu'exerce le vent continu sur l'enveloppe extérieure des bâtiments mirabellois.
+                Que vous résidiez dans les secteurs familiaux denses, à proximité des grands axes routiers comme l'autoroute 15 ou au cœur des terres agricoles, nous sommes à votre service pour des interventions de pointe. Nous prêtons une attention particulière à la ventilation et à l'ancrage des matériaux, contrant la pression qu'exerce le vent continu sur l'enveloppe extérieure des bâtiments de la municipalité.
               </p>
               <p>
                 Ayez l'esprit tranquille avec Toiture Jonathan Délisle Inc. Nous nous illustrons par un remplacement impeccable de bardeaux d'asphalte architecturaux, un service prompt en cas d'appels d'urgence et un déneigement préventif sécuritaire. Optez pour des spécialistes dévoués afin de protéger votre demeure à Mirabel.
