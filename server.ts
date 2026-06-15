@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import helmet from "helmet";
 import compression from "compression";
@@ -61,7 +62,18 @@ async function startServer() {
       }
     }));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      let routePath = req.path;
+      if (routePath.endsWith('/')) {
+        routePath = routePath.slice(0, -1);
+      }
+      
+      const specificHtmlPath = path.join(distPath, routePath, 'index.html');
+      
+      if (fs.existsSync(specificHtmlPath)) {
+        res.sendFile(specificHtmlPath);
+      } else {
+        res.sendFile(path.join(distPath, 'index.html'));
+      }
     });
   }
 

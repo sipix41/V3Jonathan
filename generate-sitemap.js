@@ -1,37 +1,20 @@
 import fs from 'fs';
 import path from 'path';
-import { CITIES } from './constants';
+import { CITIES, STATIC_ROUTES } from './constants';
 
 const APP_URL = process.env.VITE_SITE_URL || 'https://toiturejonathandelisle.ca';
 
 function generateSitemap() {
-  const appTsxPath = path.join(process.cwd(), 'App.tsx');
   const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
 
-  if (!fs.existsSync(appTsxPath)) {
-    console.error('App.tsx not found!');
-    process.exit(1);
-  }
-
-  const content = fs.readFileSync(appTsxPath, 'utf8');
-  
-  // Extract all paths using regex
-  const routeRegex = /<Route[^>]+path=["']([^"']+)["']/g;
-  const paths = [];
-  let match;
-
-  while ((match = routeRegex.exec(content)) !== null) {
-    const routePath = match[1];
-    // Exclude wildcard routes or layout wrappers if any
-    const excludePatterns = ['*', '/confidentialite', '/termes', '/droits-auteur'];
-    if (!excludePatterns.includes(routePath) && !routePath.includes(':')) {
-      paths.push(routePath);
-    }
-  }
+  // Use STATIC_ROUTES as base
+  const paths = [...STATIC_ROUTES];
 
   // Inject cities
   CITIES.forEach(city => {
-    paths.push(city.path);
+    if (!paths.includes(city.path)) {
+      paths.push(city.path);
+    }
   });
 
   const lastmod = new Date().toISOString().split('T')[0];

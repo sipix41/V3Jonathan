@@ -27,9 +27,9 @@ export const About: React.FC = () => {
             <div className="relative mt-2 md:mt-0">
                <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-brand-red -mt-4 -ml-4"></div>
                <img loading="lazy" 
-                src="https://www.image-heberg.fr/files/17711315183833199704.jpg" 
+                src="https://i.postimg.cc/50b4BJSb/B.jpg" 
                 alt="Jonathan Délisle sur un chantier" 
-                className="rounded-xl shadow-2xl w-full grayscale hover:grayscale-0 transition-all duration-500 border border-zinc-800 relative z-10 h-auto"
+                className="rounded-xl shadow-2xl w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-zinc-800 relative z-10"
               decoding="async" width="800" height="600" />
                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-brand-red -mb-4 -mr-4"></div>
             </div>
@@ -44,8 +44,8 @@ export const About: React.FC = () => {
                 <img 
                   src="https://www.image-heberg.fr/files/17783600033809957581.jpg" 
                   alt="Logo RBQ" 
-                  className="h-20 sm:h-28 w-auto object-contain w-full h-auto" 
-                loading="lazy" decoding="async" width="800" height="600" />
+                  className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
+                loading="lazy" decoding="async" />
               </a>
               <a 
                 href="https://www.apchq.com"
@@ -56,8 +56,8 @@ export const About: React.FC = () => {
                 <img 
                   src="https://www.image-heberg.fr/files/177835927549167421.webp" 
                   alt="Logo APCHQ" 
-                  className="h-20 sm:h-28 w-auto object-contain w-full h-auto" 
-                loading="lazy" decoding="async" width="800" height="600" />
+                  className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
+                loading="lazy" decoding="async" />
               </a>
             </div>
           </div>
@@ -222,7 +222,7 @@ export const About: React.FC = () => {
       {/* RBQ, assurance et garantie */}
       <div className="bg-zinc-900 border-t border-zinc-800 py-4 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
-           <img loading="lazy" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1470&auto=format&fit=crop" className="w-full h-full object-cover h-auto" alt="Background" decoding="async" width="800" height="600" />
+           <img loading="lazy" src="https://i.postimg.cc/xC50gZ6N/telecharge-(16).jpg" className="w-full h-full object-cover h-auto" alt="Background" decoding="async" width="800" height="600" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

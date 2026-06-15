@@ -115,8 +115,12 @@ export const Careers: React.FC = () => {
       />
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white py-6 lg:py-8 overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold tracking-widest uppercase mb-6">
+        <div className="absolute inset-0 z-0 opacity-20">
+           <img loading="lazy" src="https://i.postimg.cc/SskS64fS/telecharge-(4).jpg" className="w-full h-full object-cover object-top" alt="Arrière-plan Toiture" decoding="async" />
+           <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
             <Briefcase className="w-4 h-4" /> Emplois Disponibles
           </div>
           <h1 className="text-4xl font-extrabold tracking-tight mb-4 uppercase">
@@ -175,7 +179,7 @@ export const Careers: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-brand-red/10 rounded-3xl transform translate-x-4 translate-y-4"></div>
-              <img loading="lazy" src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1000" alt="Toiture de bardeaux résidentiel" className="relative rounded-3xl object-cover h-[400px] w-full shadow-xl h-auto" decoding="async" width="800" height="600" />
+              <img loading="lazy" src="https://i.postimg.cc/fLc5gJgd/att-r-Ow-IF8i2FMh-J9-xwj-FSsdp-Wun3x7K-WUmoj-Ymea-ZXh-E.jpg" alt="Toiture de bardeaux résidentiel" className="relative rounded-3xl w-full h-auto shadow-xl" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

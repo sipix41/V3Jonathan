@@ -1,15 +1,7 @@
 User-agent: *
 Allow: /
 
-# Exclusions des pages légales et de système
-Disallow: /terms
-Disallow: /privacy
-Disallow: /copyright
-Disallow: /termes
-Disallow: /confidentialite
-Disallow: /droits-auteur
-
-# Exclusion des paramètres de suivi (optimisation du Budget de Crawl)
+# Exclusions système
 Disallow: /*?fbclid=*
 Disallow: /*?utm_*
 Disallow: /*?gclid=*

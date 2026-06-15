@@ -16,6 +16,29 @@ export const COMPANY_INFO = {
   yearsExperience: 17
 };
 
+export const STATIC_ROUTES = [
+  '/',
+  '/services',
+  '/services/bardeaux',
+  '/services/bardeaux/iko',
+  '/services/bardeaux/bp',
+  '/services/reparations',
+  '/services/inspection',
+  '/services/deneigement',
+  '/a-propos',
+  '/laurentides',
+  '/realisations',
+  '/faq',
+  '/contact',
+  '/soumission',
+  '/carriere',
+  '/partenaires',
+  '/devenir-partenaire',
+  '/confidentialite',
+  '/termes',
+  '/droits-auteur',
+];
+
 export const CITIES = [
   { name: 'Amherst', path: '/amherst' },
   { name: 'Arundel', path: '/arundel' },

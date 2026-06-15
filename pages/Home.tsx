@@ -55,11 +55,9 @@ const TURNKEY_SERVICES = [
 const STARS_ARRAY = [0, 1, 2, 3, 4];
 
 const BACKGROUND_IMAGES = [
-  "/nouvelle-maison.jpg",
-  "https://www.image-heberg.fr/files/17711305432305535229.jpg",
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000",
-  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=2000"
+  "https://i.postimg.cc/76wH34nT/telecharge-(9).jpg",
+  "https://i.postimg.cc/SskS64fS/telecharge-(4).jpg",
+  "https://i.postimg.cc/gJmzVpHR/telecharge-(10).jpg"
 ];
 
 export const Home: React.FC = () => {
@@ -129,7 +127,7 @@ export const Home: React.FC = () => {
               loading={idx === 0 ? "eager" : "lazy"}
               fetchpriority={idx === 0 ? "high" : "auto"}
               decoding={idx === 0 ? "sync" : "async"}
-              className={`absolute w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${idx === bgImageIndex ? 'opacity-40' : 'opacity-0'}`}
+              className={`absolute w-full h-full transition-opacity duration-1000 ease-in-out ${idx === bgImageIndex ? 'opacity-40' : 'opacity-0'} ${idx === 0 ? 'object-cover object-top' : 'object-contain object-center'}`}
             width="800" height="600" />
           ))}
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/70 md:via-black/50 to-transparent z-10"></div>
@@ -222,7 +220,7 @@ export const Home: React.FC = () => {
             
             <div className="lg:w-1/2 relative z-10 w-full">
                <img loading="lazy" decoding="async"
-                 src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000" 
+                 src="https://i.postimg.cc/Jnx1KFpJ/telecharge-(17).jpg" 
                  alt="Maison avec toiture propre et sécuritaire" 
                  className="rounded-2xl shadow-xl w-full object-cover h-[400px] h-auto"
                  width="1000"
