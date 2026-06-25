@@ -4,7 +4,16 @@ import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import helmet from "helmet";
 import compression from "compression";
+import rateLimit from "express-rate-limit";
+import { z } from "zod";
 import { STATIC_ROUTES, CITIES } from "./constants";
+
+const formSchema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  message: z.string().min(10)
+});
 
 async function startServer() {
   const app = express();
@@ -25,9 +34,8 @@ async function startServer() {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://www.googletagmanager.com"],
-        // 'unsafe-inline' est nécessaire pour le fonctionnement des animations de Framer Motion 
-        // et pour les styles en ligne dynamiques (ex: backgrounds de couleur, display: none).
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        // 'unsafe-inline' est retiré comme demandé pour améliorer la sécurité.
+        styleSrc: ["'self'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://i.postimg.cc", "https://www.image-heberg.fr", "https://www.google-analytics.com"],
         connectSrc: ["'self'", "https://formsubmit.co", "https://www.google-analytics.com"],
@@ -45,8 +53,19 @@ async function startServer() {
   // Middleware to parse JSON bodies
   app.use(express.json());
 
-  app.post('/api/submit-form', async (req, res) => {
+  const formLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10, // limit each IP to 10 requests per windowMs
+    message: { error: "Trop de requêtes, veuillez réessayer plus tard." }
+  });
+
+  app.post('/api/submit-form', formLimiter, async (req, res) => {
     try {
+      const parsedData = formSchema.safeParse(req.body);
+      if (!parsedData.success) {
+        return res.status(400).json({ error: "Données invalides", details: parsedData.error.errors });
+      }
+
       const FORMSUBMIT_TOKEN = process.env.VITE_FORMSUBMIT_TOKEN || process.env.FORMSUBMIT_TOKEN;
       if (!FORMSUBMIT_TOKEN) {
         console.error("Missing FORMSUBMIT_TOKEN");
@@ -59,7 +78,7 @@ async function startServer() {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(req.body)
+        body: JSON.stringify(parsedData.data)
       });
 
       if (response.ok) {

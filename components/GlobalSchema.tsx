@@ -39,8 +39,8 @@ export const GlobalSchema: React.FC = () => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 45.8647,
-      "longitude": -74.0688
+      "latitude": 45.7804,
+      "longitude": -74.0036
     },
     "areaServed": [
       {
