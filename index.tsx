@@ -2,17 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import { registerSW } from 'virtual:pwa-register';
 
-// Register Service Worker
-registerSW({
-  onNeedRefresh() {
-    // We could show a prompt, but autoUpdate is enabled in Vite config
-  },
-  onOfflineReady() {
-    console.log('App is ready to work offline');
-  },
-});
+// PWA disabled in dev to prevent iframe security errors
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
