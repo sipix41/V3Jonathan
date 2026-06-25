@@ -222,7 +222,7 @@ export const Home: React.FC = () => {
                <img loading="lazy" decoding="async"
                  src="https://i.postimg.cc/Jnx1KFpJ/telecharge-(17).jpg" 
                  alt="Maison avec toiture propre et sécuritaire" 
-                 className="rounded-2xl shadow-xl w-full object-cover h-[400px] h-auto"
+                 className="rounded-2xl shadow-xl w-full object-cover h-[400px]"
                  width="1000"
                  height="400"
                />

@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
-import { CITIES } from '../constants';
+import { CITIES, BASE_URL } from '../constants';
 
 const routeNameMap: Record<string, string> = {
   'services': 'Services',
@@ -51,7 +51,7 @@ export const Breadcrumbs: React.FC = () => {
     "@type": "ListItem",
     "position": index + 2, // Home is 1
     "name": crumb.name,
-    "item": `https://toiturejonathandelisle.ca${crumb.to}`
+    "item": `${BASE_URL}${crumb.to}`
   }));
 
   const jsonLd = {
@@ -62,7 +62,7 @@ export const Breadcrumbs: React.FC = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://toiturejonathandelisle.ca/"
+        "item": `${BASE_URL}/`
       },
       ...schemaListElements
     ]

@@ -27,7 +27,13 @@ export class ErrorBoundary extends Component<Props, State> {
     
     // Catch chunk load errors (often happens on deployments where hash changes)
     if (error.name === 'ChunkLoadError' || error.message.includes('dynamically imported module') || error.message.includes('Importing a module script failed')) {
-      window.location.reload();
+      const reloadCount = parseInt(sessionStorage.getItem('chunk_reload_count') || '0', 10);
+      if (reloadCount < 3) {
+        sessionStorage.setItem('chunk_reload_count', (reloadCount + 1).toString());
+        window.location.reload();
+      } else {
+        console.error("Too many reloads for chunk load error, stopping.");
+      }
     }
   }
 

@@ -23,6 +23,7 @@ import {
 import { Button } from "../components/Button";
 import { COMPANY_INFO, CITIES } from "../constants";
 import { SEO } from "../components/SEO";
+import { useFormSubmit } from "../src/hooks/useFormSubmit";
 
 type FormData = {
   name: string;
@@ -32,6 +33,7 @@ type FormData = {
   roofAge: string;
   roofSize: string;
   message: string;
+  _honey: string;
 };
 
 export const Soumission: React.FC = () => {
@@ -45,44 +47,25 @@ export const Soumission: React.FC = () => {
     mode: "onBlur",
   });
 
-  const [submitStatus, setSubmitStatus] = React.useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const { submitStatus, submitForm } = useFormSubmit();
 
   const onSubmit = async (data: FormData) => {
-    try {
-      setSubmitStatus("idle");
-      const reponse = await fetch(
-        `https://formsubmit.co/ajax/${COMPANY_INFO.email}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            _subject: `Nouvelle demande de soumission - ${data.service} - ${data.name}`,
-            _template: "table",
-            Nom: data.name,
-            Téléphone: data.phone,
-            Courriel: data.email,
-            Service: data.service,
-            "Âge de la toiture": data.roofAge,
-            "Superficie estimée": data.roofSize,
-            Message: data.message,
-          }),
-        },
-      );
+    if (data._honey) return; // Spam detected
 
-      if (reponse.ok) {
-        setSubmitStatus("success");
-        reset();
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (erreur) {
-      console.error("Problème de connexion", erreur);
-      setSubmitStatus("error");
+    const subject = `Nouvelle demande de soumission - ${data.service} - ${data.name}`;
+    const formattedData = {
+      Nom: data.name,
+      Téléphone: data.phone,
+      Courriel: data.email,
+      Service: data.service,
+      "Âge de la toiture": data.roofAge,
+      "Superficie estimée": data.roofSize,
+      Message: data.message,
+    };
+
+    await submitForm(formattedData, subject);
+    if (submitStatus !== "error") {
+      reset();
     }
   };
 
@@ -274,6 +257,7 @@ export const Soumission: React.FC = () => {
                 VOTRE DEMANDE DE SOUMISSION
               </h2>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                <input type="text" {...register("_honey")} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                 {/* Personal Info */}
                 <div className="pb-2 border-b border-gray-50 flex items-center gap-3">
                   <User className="text-brand-red w-6 h-6" />

@@ -37,7 +37,7 @@ export const Bardeaux: React.FC = () => {
           <img loading="lazy" 
             src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000" 
             alt="Toiture en bardeaux d'asphalte dans les Laurentides" 
-            className="w-full h-full object-cover opacity-40 h-auto"
+            className="w-full h-full object-cover opacity-40"
           decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent"></div>
         </motion.div>
@@ -152,7 +152,7 @@ export const Bardeaux: React.FC = () => {
                 <img loading="lazy" 
                   src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1000" 
                   alt="Travaux de couverture en bardeaux" 
-                  className="rounded-3xl shadow-2xl w-full h-[500px] object-cover border-8 border-white h-auto"
+                  className="rounded-3xl shadow-2xl w-full h-[500px] object-cover border-8 border-white"
                 decoding="async" width="800" height="600" />
               </div>
             </motion.div>
@@ -344,7 +344,7 @@ export const Bardeaux: React.FC = () => {
                  <img loading="lazy" 
                     src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" 
                     alt="Processus d'installation de toiture professionnelle" 
-                    className="relative rounded-[2rem] shadow-2xl w-full h-[600px] object-cover ring-1 ring-gray-100 h-auto"
+                    className="relative rounded-[2rem] shadow-2xl w-full h-[600px] object-cover ring-1 ring-gray-100"
                   decoding="async" width="800" height="600" />
                   <motion.div 
                     initial={{ opacity: 0, y: 30 }}

@@ -1,4 +1,4 @@
-import React, { Suspense, useState  } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import {
   Shield,
   Star,
@@ -13,35 +13,56 @@ import { SEO } from "../components/SEO";
 import { Button } from "../components/Button";
 import { COMPANY_INFO } from "../constants";
 import { Link } from "react-router-dom";
-import { CITY_CONTENT } from "../cityContent";
 const ChampsExpertise = React.lazy(() => import('../components/ChampsExpertise').then(m => ({ default: m.ChampsExpertise })));
 
 export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({ cityName, cityPath }) => {
-  const customContent = (CITY_CONTENT as Record<string, any>)[cityName];
+  const [customContent, setCustomContent] = useState<Record<string, string> | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const loadContent = async () => {
+      try {
+        const filename = cityName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-').replace(/'/g, '').replace('les-laurentides', 'laurentides').replace('st-', 'saint-');
+        const module = await import(`../src/cityData/${filename}.json`);
+        if (isMounted) {
+          setCustomContent(module.default || module);
+        }
+      } catch (err) {
+        console.error("Failed to load city data:", err);
+      }
+    };
+    loadContent();
+    return () => { isMounted = false; };
+  }, [cityName]);
+
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  if (!customContent) {
+    return <div className="min-h-screen flex items-center justify-center bg-white"><div className="w-16 h-16 border-4 border-brand-red border-t-transparent rounded-full animate-spin"></div></div>;
+  }
 
   const FAQ_DATA = [
     {
       question: `Quelle est l'espérance de vie réelle d'une toiture en bardeaux d'asphalte à ${cityName} ?`,
-      answer: `Compte tenu de l'exposition spécifique aux grands vents et aux extrêmes climatiques de ${cityName}, une toiture recouverte de bardeaux d'asphalte architecturaux de première qualité, si elle est parfaitement installée et adéquatement ventilée par l'entretoit, durera de façon tout à fait réaliste entre 20 et 30 ans. L'entretien de vos gouttières et un bon déneigement préventif l'hiver sont cruciaux pour maximiser cette longévité dans le secteur.`,
+      answer: `${customContent.introPart3 ? customContent.introPart3 + ' ' : ''}De façon générale, une toiture recouverte de bardeaux d'asphalte architecturaux de première qualité, si elle est parfaitement installée et ventilée, durera entre 20 et 30 ans. L'entretien de vos gouttières et un bon déneigement préventif l'hiver sont cruciaux pour maximiser cette longévité dans le secteur.`,
     },
     {
       question: `À quel moment précis de l'année devrais-je faire faire une inspection de toiture à ${cityName} ?`,
-      answer: `L'approche la plus rentable est la prévention, particulièrement dans la région de ${cityName} où la météo varie rapidement. Nous recommandons vivement une inspection visuelle annuelle. Le meilleur moment est la fin de l'automne, une fois les feuilles des arbres environnants tombées, pour s'assurer que les gouttières sont propres et que les solins sont hermétiques avant les gels intenses. Le printemps est également un moment clé pour diagnostiquer rapidement tout dommage potentiel causé par la glace hivernale typique des environs.`,
+      answer: `${customContent.inspPart1 ? customContent.inspPart1 + ' ' : ''}Le meilleur moment pour une vérification visuelle approfondie est la fin de l'automne, une fois les feuilles tombées, ou au printemps pour diagnostiquer rapidement tout dommage potentiel causé par la glace hivernale.`,
     },
     {
-      question: `Intervenez-vous pour une réparation de toiture d'urgence à ${cityName} suite à de grands vents ?`,
-      answer: `Oui, absolument. Nous comprenons l'importance d'une intervention rapide pour minimiser les dégâts d'eau à l'intérieur de votre résidence à ${cityName}. Les vents peuvent être féroces dans notre région. Si une puissante rafale a arraché une section complète de bardeaux de votre toit, appelez-nous immédiatement. Notre équipe d'intervention se déploiera rapidement pour sécuriser les lieux avec l'installation de toiles de protection temporaires épaisses, arrêtant ainsi les dégâts à l'intérieur, pour ensuite planifier la réfection permanente.`,
+      question: `Intervenez-vous pour une réparation de toiture d'urgence à ${cityName} ?`,
+      answer: `Oui, absolument. ${customContent.repPart1 ? customContent.repPart1 + ' ' : 'Les vents peuvent être féroces dans notre région. '}Notre équipe d'intervention se déploiera rapidement pour sécuriser les lieux avec l'installation de toiles de protection temporaires épaisses, arrêtant ainsi les dégâts à l'intérieur, pour ensuite planifier la réfection permanente.`,
     },
     {
-      question: `Comment évaluez-vous le coût moyen d'un remplacement de bardeaux d'asphalte à ${cityName} ?`,
-      answer: `Il est peu professionnel de donner un prix à l'aveugle, car chaque toiture de ${cityName} est unique. Le coût d'un remplacement complet varie en fonction de plusieurs variables d'importance : la superficie totale du toit, la pente de la toiture, la complexité architecturale typique du coin, ainsi que la gamme de matériaux choisis. Nous offrons une estimation sur place, 100 % gratuite et détaillée pour votre projet à ${cityName}.`,
+      question: `Comment évaluez-vous le coût moyen d'un remplacement de toiture à ${cityName} ?`,
+      answer: `Chaque toiture est unique. ${customContent.posePart1 ? customContent.posePart1 + ' ' : ''}Le coût d'un remplacement complet varie en fonction de plusieurs variables d'importance : la superficie totale du toit, la pente de la toiture, la complexité architecturale, ainsi que la gamme de matériaux choisis. Nous offrons une estimation sur place, 100 % gratuite et détaillée.`,
     },
     {
       question: `Pourquoi est-il si risqué de faire le déneigement de toiture moi-même à ${cityName} ?`,
-      answer: `Le déneigement d'un toit est une tâche hautement dangereuse, surtout avec les fortes accumulations rencontrées à ${cityName}. Nos professionnels locaux disposent du matériel de sécurité adéquat et de pelles en polymère aux bords arrondis pour effectuer le travail de manière sécuritaire sans endommager la couverture.`,
+      answer: `${customContent.deneigPart1 ? customContent.deneigPart1 + ' ' : ''}Le déneigement d'un toit est une tâche hautement dangereuse. Nos professionnels locaux disposent du matériel de sécurité adéquat et de pelles en polymère aux bords arrondis pour effectuer le travail de manière sécuritaire sans endommager la couverture.`,
     },
   ];
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const jsonLd = [
     {
@@ -64,7 +85,7 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
         "@type": "RoofingContractor",
         "name": "Toiture Jonathan Délisle Inc",
         "image": "https://i.postimg.cc/FKLjSjn2/thumb-show.jpg",
-        "telephone": "819-323-6665",
+        "telephone": COMPANY_INFO.phone,
         "address": {
           "@type": "PostalAddress",
           "addressLocality": cityName,

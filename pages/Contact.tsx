@@ -5,6 +5,7 @@ import { Phone, Mail, MapPin, Clock, Facebook, Instagram, ChevronRight, CheckCir
 import { Button } from '../components/Button';
 import { COMPANY_INFO } from '../constants';
 import { SEO } from '../components/SEO';
+import { useFormSubmit } from '../src/hooks/useFormSubmit';
 
 type FormData = {
   name: string;
@@ -12,6 +13,7 @@ type FormData = {
   phone: string;
   service: string;
   message: string;
+  _honey: string;
 };
 
 export const Contact: React.FC = () => {
@@ -19,40 +21,23 @@ export const Contact: React.FC = () => {
     mode: "onBlur"
   });
 
-  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const { submitStatus, submitForm } = useFormSubmit();
 
   const onSubmit = async (data: FormData) => {
-    try {
-      setSubmitStatus('idle');
-      // Actuellement : utilise l'adresse courriel (nécessite une activation par courriel lors du premier essai)
-      // Plus tard, vous pourrez remplacer ${COMPANY_INFO.email} par votre code secret (token) :
-      // const reponse = await fetch(`https://formsubmit.co/ajax/VOTRE_CODE_SECRET_ICI`, {
-      const reponse = await fetch(`https://formsubmit.co/ajax/${COMPANY_INFO.email}`, {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `Nouvelle demande de soumission - ${data.service} - ${data.name}`,
-          _template: "table",
-          Nom: data.name,
-          Téléphone: data.phone,
-          Courriel: data.email,
-          Service: data.service,
-          Message: data.message
-        })
-      });
+    if (data._honey) return; // Spam detected
 
-      if (reponse.ok) {
-         setSubmitStatus('success');
-         reset();
-      } else {
-         setSubmitStatus('error');
-      }
-    } catch (erreur) {
-      console.error("Problème de connexion", erreur);
-      setSubmitStatus('error');
+    const subject = `Nouvelle demande de soumission - ${data.service} - ${data.name}`;
+    const formattedData = {
+      Nom: data.name,
+      Téléphone: data.phone,
+      Courriel: data.email,
+      Service: data.service,
+      Message: data.message
+    };
+
+    await submitForm(formattedData, subject);
+    if (submitStatus !== 'error') {
+      reset();
     }
   };
 
@@ -166,6 +151,8 @@ export const Contact: React.FC = () => {
             <h2 className="text-3xl font-extrabold text-brand-black mb-6 uppercase tracking-tight">Nous contacter</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               
+              <input type="text" {...register("_honey")} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1">Nom complet <span className="text-brand-red">*</span></label>
                 <input 

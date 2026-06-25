@@ -13,6 +13,7 @@ import { GlobalSchema } from "./components/GlobalSchema";
 import { CookieBanner } from "./components/CookieBanner";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { CITIES } from "./constants";
+import { useGlobalTracking } from "./src/hooks/useAnalytics";
 
 // Lazy loading pages for performance
 const Home = React.lazy(() => import("./pages/Home").then((module) => ({ default: module.Home })));
@@ -50,6 +51,7 @@ const ScrollToTop = () => {
 };
 
 const App: React.FC = () => {
+  useGlobalTracking();
   return (
     <HelmetProvider>
       <GlobalSchema />

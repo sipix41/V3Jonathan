@@ -4,6 +4,7 @@ import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import helmet from "helmet";
 import compression from "compression";
+import { STATIC_ROUTES, CITIES } from "./constants";
 
 async function startServer() {
   const app = express();
@@ -15,7 +16,7 @@ async function startServer() {
     contentSecurityPolicy: process.env.NODE_ENV === "production" ? {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: ["'self'", "data:", "https:"],
@@ -72,7 +73,13 @@ async function startServer() {
       if (fs.existsSync(specificHtmlPath)) {
         res.sendFile(specificHtmlPath);
       } else {
-        res.sendFile(path.join(distPath, 'index.html'));
+        const isValidRoute = STATIC_ROUTES.includes(routePath) || CITIES.some(city => city.path === routePath) || routePath === '';
+        
+        if (isValidRoute) {
+          res.sendFile(path.join(distPath, 'index.html'));
+        } else {
+          res.status(404).sendFile(path.join(distPath, 'index.html'));
+        }
       }
     });
   }

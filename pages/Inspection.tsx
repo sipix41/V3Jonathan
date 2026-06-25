@@ -35,7 +35,7 @@ export const Inspection: React.FC = () => {
           <img loading="lazy" 
             src="https://i.ibb.co/Dgs96DpR/533529545-702578862825816-4072289905900816055-n.jpg" 
             alt="Inspection de toiture" 
-            className="w-full h-full object-cover opacity-40 h-auto"
+            className="w-full h-full object-cover opacity-40"
           decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent"></div>
         </motion.div>

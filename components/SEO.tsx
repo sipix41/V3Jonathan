@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
+import { BASE_URL } from '../constants';
 
 interface SEOProps {
   title: string;
@@ -15,7 +16,6 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, over
   const location = useLocation();
   const currentPath = location.pathname;
   const fullTitle = overrideFullTitle || `${title} | Toiture Jonathan Délisle Inc.`;
-  const BASE_URL = import.meta.env.VITE_SITE_URL || 'https://toiturejonathandelisle.ca';
   
   // Use provided canonicalUrl or current path
   const finalPath = canonicalUrl || currentPath;
@@ -35,14 +35,14 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, over
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${BASE_URL}/logo.png`} />
+      <meta property="og:image" content="https://i.postimg.cc/FKLjSjn2/thumb-show.jpg" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={url} />
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={`${BASE_URL}/logo.png`} />
+      <meta property="twitter:image" content="https://i.postimg.cc/FKLjSjn2/thumb-show.jpg" />
 
       {/* Canonical URL */}
       <link rel="canonical" href={url} />

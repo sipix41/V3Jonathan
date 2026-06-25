@@ -12,7 +12,7 @@ export const GlobalSchema: React.FC = () => {
     "name": COMPANY_INFO.name,
     "alternateName": COMPANY_INFO.alternateName,
     "url": BASE_URL,
-    "logo": `${BASE_URL}/logo.png`,
+    "logo": "https://i.postimg.cc/FKLjSjn2/thumb-show.jpg",
     "sameAs": [
       COMPANY_INFO.facebookUrl,
       COMPANY_INFO.instagramUrl
@@ -24,7 +24,7 @@ export const GlobalSchema: React.FC = () => {
     "@type": ["RoofingContractor", "LocalBusiness"],
     "@id": `${BASE_URL}/#localbusiness`,
     "name": COMPANY_INFO.name,
-    "image": `${BASE_URL}/logo.png`,
+    "image": "https://i.postimg.cc/FKLjSjn2/thumb-show.jpg",
     "description": "Experts en toiture dans les Laurentides, spécialisés en bardeaux d'asphalte, toits plats, réfection et déneigement.",
     "telephone": COMPANY_INFO.phone,
     "email": COMPANY_INFO.email,
@@ -71,12 +71,6 @@ export const GlobalSchema: React.FC = () => {
         "dayOfWeek": ["Saturday"],
         "opens": "08:00",
         "closes": "12:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Sunday"],
-        "opens": "00:00",
-        "closes": "00:00"
       }
     ],
     "aggregateRating": {

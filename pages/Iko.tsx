@@ -52,7 +52,7 @@ export const Iko: React.FC = () => {
           <img loading="lazy" 
             src="https://images.unsplash.com/photo-1519782487440-fb9742ef709c?auto=format&fit=crop&q=80&w=2000" 
             alt="Toiture en bardeaux d'asphalte IKO Dynasty" 
-            className="w-full h-full object-cover opacity-20 h-auto"
+            className="w-full h-full object-cover opacity-20"
           decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d1522] via-[#0d1522]/80 to-transparent"></div>
         </div>
@@ -270,12 +270,12 @@ export const Iko: React.FC = () => {
                 <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1628622115682-1be4f4204e3b?auto=format&fit=crop&q=80&w=800" 
                   alt="Installation de toiture" 
-                  className="rounded-2xl w-full h-64 object-cover shadow-lg h-auto"
+                  className="rounded-2xl w-full h-64 object-cover shadow-lg"
                 width="800" height="600" />
                 <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1542621459-a2c5a2ce2b59?auto=format&fit=crop&q=80&w=800" 
                   alt="Couvreurs au travail" 
-                  className="rounded-2xl w-full h-64 object-cover shadow-lg mt-8 h-auto"
+                  className="rounded-2xl w-full h-64 object-cover shadow-lg mt-8"
                 width="800" height="600" />
               </div>
             </div>

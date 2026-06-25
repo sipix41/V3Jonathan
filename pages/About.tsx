@@ -222,7 +222,7 @@ export const About: React.FC = () => {
       {/* RBQ, assurance et garantie */}
       <div className="bg-zinc-900 border-t border-zinc-800 py-4 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
-           <img loading="lazy" src="https://i.postimg.cc/xC50gZ6N/telecharge-(16).jpg" className="w-full h-full object-cover h-auto" alt="Background" decoding="async" width="800" height="600" />
+           <img loading="lazy" src="https://i.postimg.cc/xC50gZ6N/telecharge-(16).jpg" className="w-full h-full object-cover" alt="Background" decoding="async" width="800" height="600" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -273,7 +273,7 @@ export const About: React.FC = () => {
             </div>
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-brand-red rounded-3xl transform rotate-3 scale-105"></div>
-              <img loading="lazy" src="https://www.image-heberg.fr/files/17711315183833199704.jpg" alt="Jonathan Délisle sur le toit" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full h-auto" decoding="async" width="800" height="600" />
+              <img loading="lazy" src="https://www.image-heberg.fr/files/17711315183833199704.jpg" alt="Jonathan Délisle sur le toit" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

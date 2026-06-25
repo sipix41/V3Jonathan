@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+import { initAnalytics } from '../src/hooks/useAnalytics';
 
 export const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,7 +10,7 @@ export const CookieBanner: React.FC = () => {
   // Granular settings corresponding to Loi 25 requirements
   const [preferences, setPreferences] = useState({
     functional: true, // always required for core site features
-    analytics: true,
+    analytics: false,
     marketing: false,
   });
 
@@ -18,6 +19,7 @@ export const CookieBanner: React.FC = () => {
     if (!consent) {
       setIsVisible(true);
     } else {
+      initAnalytics();
       try {
         const storedPrefs = localStorage.getItem('cookiePreferences');
         if (storedPrefs) {
@@ -35,12 +37,14 @@ export const CookieBanner: React.FC = () => {
     localStorage.setItem('cookiePreferences', JSON.stringify(allAccepted));
     setPreferences(allAccepted);
     setIsVisible(false);
+    initAnalytics();
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem('cookieConsent', 'custom');
     localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
     setIsVisible(false);
+    initAnalytics();
   };
 
   const togglePreference = (key: 'analytics' | 'marketing') => {

@@ -1,3 +1,5 @@
+export const BASE_URL = (typeof process !== 'undefined' && process.env.VITE_SITE_URL) || (typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_SITE_URL : '') || 'https://toiturejonathandelisle.ca';
+
 export const COMPANY_INFO = {
   name: "Toiture Jonathan Délisle Inc",
   alternateName: "Toiture Délisle",

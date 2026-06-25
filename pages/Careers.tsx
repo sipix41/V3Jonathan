@@ -5,6 +5,7 @@ import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { COMPANY_INFO } from '../constants';
 import { SEO } from '../components/SEO';
+import { useFormSubmit } from '../src/hooks/useFormSubmit';
 
 type JobFormData = {
   name: string;
@@ -15,49 +16,47 @@ type JobFormData = {
   message: string;
   ccq: boolean;
   cv?: FileList;
+  _honey: string;
 };
 
 export const Careers: React.FC = () => {
-  const { register, handleSubmit, setValue, formState: { errors, isSubmitting }, reset } = useForm<JobFormData>();
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting }, reset, setError } = useForm<JobFormData>();
 
-  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const { submitStatus, submitForm } = useFormSubmit();
 
   const onSubmit = async (data: JobFormData) => {
-    try {
-      setSubmitStatus('idle');
-      
-      const formData = new FormData();
-      formData.append('_subject', `Nouvelle candidature - ${data.position} - ${data.name}`);
-      formData.append('_template', "table");
-      formData.append('Nom', data.name);
-      formData.append('Courriel', data.email);
-      formData.append('Téléphone', data.phone);
-      formData.append('Poste convoité', data.position);
-      formData.append("Années d'expérience", data.experience || "0");
-      formData.append("Cartes CCQ", data.ccq as unknown as string);
-      formData.append("Message/Lettre de motivation", data.message);
-      
-      if (data.cv && data.cv.length > 0) {
-        formData.append('attachment', data.cv[0]);
-      }
+    if (data._honey) return; // Spam detected
 
-      const reponse = await fetch(`https://formsubmit.co/ajax/${COMPANY_INFO.email}`, {
-        method: "POST",
-        headers: { 
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
-
-      if (reponse.ok) {
-         setSubmitStatus('success');
-         reset();
-      } else {
-         setSubmitStatus('error');
+    if (data.cv && data.cv.length > 0) {
+      const file = data.cv[0];
+      // 8 MB limit
+      if (file.size > 8 * 1024 * 1024) {
+        setError('cv', {
+          type: 'manual',
+          message: 'Le fichier est trop volumineux (maximum 8 Mo).'
+        });
+        return;
       }
-    } catch (erreur) {
-      console.error("Problème de connexion", erreur);
-      setSubmitStatus('error');
+    }
+
+    const subject = `Nouvelle candidature - ${data.position} - ${data.name}`;
+    
+    const formData = new FormData();
+    formData.append('Nom', data.name);
+    formData.append('Courriel', data.email);
+    formData.append('Téléphone', data.phone);
+    formData.append('Poste convoité', data.position);
+    formData.append("Années d'expérience", data.experience || "0");
+    formData.append("Cartes CCQ", data.ccq ? "Oui" : "Non");
+    formData.append("Message/Lettre de motivation", data.message);
+    
+    if (data.cv && data.cv.length > 0) {
+      formData.append('attachment', data.cv[0]);
+    }
+
+    await submitForm(formData, subject);
+    if (submitStatus !== "error") {
+      reset();
     }
   };
 
@@ -385,6 +384,7 @@ export const Careers: React.FC = () => {
                </div>
                
                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" encType="multipart/form-data">
+                 <input type="text" {...register("_honey")} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                    <div>
                      <label className="block text-sm font-bold text-gray-700 mb-1">Nom complet <span className="text-brand-red">*</span></label>
@@ -479,7 +479,8 @@ export const Careers: React.FC = () => {
                                      <div className="mb-6">
                     <label className="block text-sm font-bold text-gray-700 mb-1">Curriculum Vitae (CV)</label>
                     <input type="file" accept=".pdf,.doc,.docx" {...register("cv")} className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-brand-red focus:border-brand-red shadow-sm transition-shadow outline-none font-medium file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-red/10 file:text-brand-red hover:file:bg-brand-red/20" />
-                    <p className="text-gray-500 text-sm mt-2">Formats acceptés : .pdf, .doc, .docx - Si vous n'avez pas de CV, pas de problème!</p>
+                    {errors.cv && <p className="text-brand-red text-sm mt-1 font-medium">{errors.cv.message as string}</p>}
+                    <p className="text-gray-500 text-sm mt-2">Formats acceptés : .pdf, .doc, .docx (Max 8 Mo) - Si vous n'avez pas de CV, pas de problème!</p>
                   </div>
                   <label className="block text-sm font-bold text-gray-700 mb-1">Détails ou petit message pour nous</label>
                    <textarea 

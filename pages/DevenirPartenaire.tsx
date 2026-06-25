@@ -5,6 +5,7 @@ import { CheckCircle, Briefcase, Users, ShieldCheck, Mail, Phone, Globe, ArrowRi
 import { motion } from 'motion/react';
 import { Button } from '../components/Button';
 import { COMPANY_INFO } from '../constants';
+import { useFormSubmit } from '../src/hooks/useFormSubmit';
 
 export const DevenirPartenaire: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -17,12 +18,15 @@ export const DevenirPartenaire: React.FC = () => {
     rbq: '',
     experience: '1-3',
     description: '',
-    acceptTerms: false
+    acceptTerms: false,
+    _honey: ''
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { submitStatus, submitForm } = useFormSubmit();
 
   const validateForm = () => {
     const tempErrors: { [key: string]: string } = {};
@@ -73,41 +77,33 @@ export const DevenirPartenaire: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData._honey) return; // Spam detected
+    
     if (validateForm()) {
       setIsSubmitting(true);
-      try {
-        const reponse = await fetch("https://formsubmit.co/ajax/info@toiturejonathandelisle.ca", {
-          method: "POST",
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: `Nouvelle demande de Partenaire Recommandé - ${formData.entrepriseName}`,
-            _template: "table",
-            "Nom de l'entreprise": formData.entrepriseName,
-            "Nom du contact": formData.contactName,
-            "Courriel": formData.email,
-            "Téléphone": formData.phone,
-            "Secteur d'activité": formData.activitySector,
-            "Licence RBQ": formData.rbq || "Non spécifiée",
-            "Site Web": formData.website || "Non spécifié",
-            "Années d'expérience": formData.experience,
-            "Description": formData.description
-          })
-        });
-
-        setIsSubmitting(false);
-        if (reponse.ok) {
-          setIsSubmitted(true);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          setErrors(prev => ({ ...prev, submit: "Une erreur est survenue lors de l'envoi du formulaire. Veuillez réessayer." }));
-        }
-      } catch (erreur) {
-        console.error("Erreur de connexion", erreur);
-        setIsSubmitting(false);
-        setErrors(prev => ({ ...prev, submit: "Erreur réseau. Veuillez vérifier votre connexion et réessayer." }));
+      
+      const subject = `Nouvelle demande de Partenaire Recommandé - ${formData.entrepriseName}`;
+      const data = {
+        "Nom de l'entreprise": formData.entrepriseName,
+        "Nom du contact": formData.contactName,
+        "Courriel": formData.email,
+        "Téléphone": formData.phone,
+        "Secteur d'activité": formData.activitySector,
+        "Licence RBQ": formData.rbq || "Non spécifiée",
+        "Site Web": formData.website || "Non spécifiée",
+        "Années d'expérience": formData.experience,
+        "Description": formData.description
+      };
+      
+      const success = await submitForm(data, subject);
+      
+      setIsSubmitting(false);
+      
+      if (success) {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setErrors(prev => ({ ...prev, submit: "Une erreur est survenue lors de l'envoi du formulaire. Veuillez réessayer." }));
       }
     }
   };
@@ -264,7 +260,7 @@ export const DevenirPartenaire: React.FC = () => {
                 </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-8">
-                  
+                  <input type="text" name="_honey" value={formData._honey} onChange={handleInputChange} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                   {/* Entreprise & Contact Group */}
                   <div className="space-y-5">
                     <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2">1. Informations de base</h4>

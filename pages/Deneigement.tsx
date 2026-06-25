@@ -35,7 +35,7 @@ export const Deneigement: React.FC = () => {
           <img loading="lazy" 
             src="https://i.ibb.co/DD1HBY0d/Gemini-Generated-Image-tb69k1tb69k1tb69.png" 
             alt="Déneigement de toiture professionnel dans les Laurentides" 
-            className="w-full h-full object-cover opacity-50 h-auto"
+            className="w-full h-full object-cover opacity-50"
           decoding="async" width="800" height="600" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent"></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[120px] -translate-y-1/4 translate-x-1/4 rounded-full pointer-events-none"></div>
