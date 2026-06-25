@@ -83,7 +83,7 @@ export const CityInspectionDeneigement: React.FC<{ cityName: string, customConte
 );
 
 export const CityFAQ: React.FC<{ cityName: string, FAQ_DATA: any[] }> = ({ cityName, FAQ_DATA }) => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [indexFaqOuvert, setIndexFaqOuvert] = useState<number | null>(null);
 
   return (
     <section className="py-12 bg-gray-50 border-t border-gray-200">
@@ -93,19 +93,27 @@ export const CityFAQ: React.FC<{ cityName: string, FAQ_DATA: any[] }> = ({ cityN
         </h2>
         <div className="space-y-4">
           {FAQ_DATA.map((faq, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div 
+              key={index} 
+              className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${index % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} ${indexFaqOuvert === index ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] -translate-y-1' : 'hover:shadow-md hover:-translate-y-0.5'}`}
+            >
               <button
-                className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none"
-                onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                aria-expanded={openFaqIndex === index}
+                className={`w-full text-left px-5 py-4 md:px-6 flex items-center justify-between focus:outline-none transition-colors ${indexFaqOuvert === index ? 'bg-gray-50/50' : 'bg-transparent'}`}
+                onClick={() => setIndexFaqOuvert(indexFaqOuvert === index ? null : index)}
+                aria-expanded={indexFaqOuvert === index}
               >
-                <span className="font-bold text-gray-900 pr-8">{faq.question}</span>
-                <ChevronDown className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-300 ${openFaqIndex === index ? "rotate-180" : ""}`} />
+                <h3 className={`text-base md:text-lg font-bold pr-8 tracking-tight transition-colors ${indexFaqOuvert === index ? 'text-brand-red' : 'text-gray-900'}`}>
+                  {faq.question}
+                </h3>
+                <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${indexFaqOuvert === index ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${indexFaqOuvert === index ? "rotate-180" : ""}`} />
+                </div>
               </button>
               <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaqIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${indexFaqOuvert === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+                aria-hidden={indexFaqOuvert !== index}
               >
-                <div className="px-6 pb-4 text-gray-600 leading-relaxed">
+                <div className="p-5 md:px-6 pt-0 pb-5 text-gray-600 leading-relaxed text-sm md:text-base font-normal">
                   {faq.answer}
                 </div>
               </div>

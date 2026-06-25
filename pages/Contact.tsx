@@ -157,6 +157,7 @@ export const Contact: React.FC = () => {
                 <label className="block text-sm font-bold text-gray-700 mb-1">Nom complet <span className="text-brand-red">*</span></label>
                 <input 
                   type="text" 
+                  required
                   {...register("name", { 
                     required: "Le nom complet est requis",
                     minLength: { value: 2, message: "Le nom doit contenir au moins 2 caractères" }
@@ -173,6 +174,7 @@ export const Contact: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-1">Téléphone <span className="text-brand-red">*</span></label>
                   <input 
                     type="tel" 
+                    required
                     {...register("phone", { 
                       required: "Le numéro de téléphone est requis",
                       pattern: {
@@ -190,6 +192,7 @@ export const Contact: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-1">Courriel <span className="text-brand-red">*</span></label>
                   <input 
                     type="email" 
+                    required
                     {...register("email", { 
                       required: "L'adresse courriel est requise",
                       pattern: {
@@ -226,6 +229,7 @@ export const Contact: React.FC = () => {
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1">Message <span className="text-brand-red">*</span></label>
                 <textarea 
+                  required
                   {...register("message", { 
                     required: "Veuillez décrire votre projet",
                     minLength: { value: 10, message: "Le message doit être plus détaillé (min. 10 caractères)" }

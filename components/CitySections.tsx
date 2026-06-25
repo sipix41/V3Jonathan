@@ -108,30 +108,30 @@ export const CityPose: React.FC<{ cityName: string, customContent: Record<string
             )}
           </div>
         </div>
-        <div className="order-1 lg:order-2 grid grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
-            <div className="text-[34px] shrink-0">🔨</div>
+        <div className="order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start gap-4">
+            <div className="text-[34px] shrink-0 mb-2 sm:mb-0">🔨</div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2">Préparation du pontage</h3>
               <p className="text-sm text-gray-600">Retrait complet de l'ancien revêtement et remplacement du bois abîmé au besoin.</p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mt-8 flex items-start gap-4">
-            <div className="text-[34px] shrink-0">🏠</div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sm:mt-8 flex flex-col sm:flex-row items-start gap-4">
+            <div className="text-[34px] shrink-0 mb-2 sm:mb-0">🏠</div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2">Bardeaux architecturaux</h3>
               <p className="text-sm text-gray-600">Épais, multidimensionnels et testés pour résister aux vents de force majeure.</p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
-            <div className="text-[34px] shrink-0">🛡️</div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start gap-4">
+            <div className="text-[34px] shrink-0 mb-2 sm:mb-0">🛡️</div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2">Imperméabilisation stratégique</h3>
               <p className="text-sm text-gray-600">Membrane élastomère et sous-couche synthétique pour une protection optimale.</p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mt-8 flex items-start gap-4">
-            <div className="text-[34px] shrink-0">💨</div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sm:mt-8 flex flex-col sm:flex-row items-start gap-4">
+            <div className="text-[34px] shrink-0 mb-2 sm:mb-0">💨</div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2">Ventilation adéquate</h3>
               <p className="text-sm text-gray-600">Prévention de la condensation hivernale et la surchauffe estivale de l'entretoit.</p>

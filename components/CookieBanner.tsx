@@ -19,11 +19,14 @@ export const CookieBanner: React.FC = () => {
     if (!consent) {
       setIsVisible(true);
     } else {
-      initAnalytics();
       try {
         const storedPrefs = localStorage.getItem('cookiePreferences');
         if (storedPrefs) {
-          setPreferences(JSON.parse(storedPrefs));
+          const parsed = JSON.parse(storedPrefs);
+          setPreferences(parsed);
+          if (parsed.analytics) {
+            initAnalytics();
+          }
         }
       } catch (e) {
         // Fallback if not JSON
@@ -44,7 +47,9 @@ export const CookieBanner: React.FC = () => {
     localStorage.setItem('cookieConsent', 'custom');
     localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
     setIsVisible(false);
-    initAnalytics();
+    if (preferences.analytics) {
+      initAnalytics();
+    }
   };
 
   const togglePreference = (key: 'analytics' | 'marketing') => {

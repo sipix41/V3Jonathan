@@ -13,10 +13,20 @@ async function startServer() {
   // Add compression and security headers
   app.use(compression());
   app.use(helmet({
+    hsts: {
+      maxAge: 31536000,
+      includeSubDomains: true,
+      preload: true
+    },
+    referrerPolicy: {
+      policy: "no-referrer-when-downgrade"
+    },
     contentSecurityPolicy: process.env.NODE_ENV === "production" ? {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://www.googletagmanager.com"],
+        // 'unsafe-inline' est nécessaire pour le fonctionnement des animations de Framer Motion 
+        // et pour les styles en ligne dynamiques (ex: backgrounds de couleur, display: none).
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://i.postimg.cc", "https://www.image-heberg.fr", "https://www.google-analytics.com"],
@@ -26,6 +36,11 @@ async function startServer() {
       }
     } : false
   }));
+
+  app.use((req, res, next) => {
+    res.setHeader("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
+    next();
+  });
 
   // Middleware to parse JSON bodies
   app.use(express.json());
@@ -99,7 +114,8 @@ async function startServer() {
         routePath = routePath.slice(0, -1);
       }
       
-      const specificHtmlPath = path.join(distPath, routePath, 'index.html');
+      const safePath = path.normalize(routePath).replace(/^(\.\.[\/\\])+/, '');
+      const specificHtmlPath = path.join(distPath, safePath, 'index.html');
       
       if (fs.existsSync(specificHtmlPath)) {
         res.sendFile(specificHtmlPath);

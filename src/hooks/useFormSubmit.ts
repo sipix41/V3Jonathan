@@ -3,16 +3,16 @@ import { trackEvent } from './useAnalytics';
 
 
 type UseFormSubmitResult = {
-  submitStatus: 'idle' | 'success' | 'error';
+  submitStatus: 'idle' | 'loading' | 'success' | 'error';
   submitForm: (data: Record<string, any> | FormData, subject: string) => Promise<boolean>;
 };
 
 export const useFormSubmit = (): UseFormSubmitResult => {
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const submitForm = async (data: Record<string, any> | FormData, subject: string): Promise<boolean> => {
     try {
-      setSubmitStatus('idle');
+      setSubmitStatus('loading');
       
       let payload: Record<string, any> = {};
       
@@ -27,14 +27,20 @@ export const useFormSubmit = (): UseFormSubmitResult => {
       if (!payload._subject) payload._subject = subject;
       if (!payload._template) payload._template = 'table';
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
       const response = await fetch('/api/submit-form', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
 
       if (response.ok) {
          setSubmitStatus('success');

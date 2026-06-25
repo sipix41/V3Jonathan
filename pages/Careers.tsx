@@ -115,7 +115,7 @@ export const Careers: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white py-6 lg:py-8 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
-           <img loading="lazy" src="https://i.postimg.cc/SskS64fS/telecharge-(4).jpg" className="w-full h-full object-cover object-top" alt="Arrière-plan Toiture" decoding="async" />
+           <img loading="lazy" src="https://i.postimg.cc/SskS64fS/telecharge-(4).jpg" className="w-full h-full object-cover object-top" alt="Arrière-plan Toiture" decoding="async" width="1920" height="1080" />
            <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -390,6 +390,7 @@ export const Careers: React.FC = () => {
                      <label className="block text-sm font-bold text-gray-700 mb-1">Nom complet <span className="text-brand-red">*</span></label>
                      <input 
                        type="text" 
+                       required
                        {...register("name", { required: "Ce champ est requis" })}
                        className={getInputClass(!!errors.name)}
                        placeholder="Votre nom"
@@ -400,6 +401,7 @@ export const Careers: React.FC = () => {
                      <label className="block text-sm font-bold text-gray-700 mb-1">Adresse e-mail <span className="text-brand-red">*</span></label>
                      <input 
                        type="email" 
+                       required
                        {...register("email", { 
                          required: "Ce champ est requis",
                          pattern: {
@@ -419,6 +421,7 @@ export const Careers: React.FC = () => {
                      <label className="block text-sm font-bold text-gray-700 mb-1">Téléphone <span className="text-brand-red">*</span></label>
                      <input 
                        type="tel" 
+                       required
                        {...register("phone", { required: "Ce champ est requis" })}
                        className={getInputClass(!!errors.phone)}
                        placeholder="(819) ..."

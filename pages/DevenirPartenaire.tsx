@@ -273,6 +273,7 @@ export const DevenirPartenaire: React.FC = () => {
                           type="text" 
                           name="entrepriseName"
                           id="entrepriseName"
+                          required
                           value={formData.entrepriseName}
                           onChange={handleInputChange}
                           className={`w-full px-4 py-3.5 bg-neutral-50 border rounded-xl focus:bg-white focus:ring-2 focus:ring-brand-red/20 focus:border-brand-red transition-all text-sm outline-none ${errors.entrepriseName ? 'border-red-500' : 'border-gray-200'}`}
@@ -289,6 +290,7 @@ export const DevenirPartenaire: React.FC = () => {
                           type="text" 
                           name="contactName"
                           id="contactName"
+                          required
                           value={formData.contactName}
                           onChange={handleInputChange}
                           className={`w-full px-4 py-3.5 bg-neutral-50 border rounded-xl focus:bg-white focus:ring-2 focus:ring-brand-red/20 focus:border-brand-red transition-all text-sm outline-none ${errors.contactName ? 'border-red-500' : 'border-gray-200'}`}
@@ -313,6 +315,7 @@ export const DevenirPartenaire: React.FC = () => {
                             type="email" 
                             name="email"
                             id="email"
+                            required
                             value={formData.email}
                             onChange={handleInputChange}
                             className={`w-full pl-11 pr-4 py-3.5 bg-neutral-50 border rounded-xl focus:bg-white focus:ring-2 focus:ring-brand-red/20 focus:border-brand-red transition-all text-sm outline-none ${errors.email ? 'border-red-500' : 'border-gray-200'}`}
@@ -332,6 +335,7 @@ export const DevenirPartenaire: React.FC = () => {
                             type="tel" 
                             name="phone"
                             id="phone"
+                            required
                             value={formData.phone}
                             onChange={handleInputChange}
                             className={`w-full pl-11 pr-4 py-3.5 bg-neutral-50 border rounded-xl focus:bg-white focus:ring-2 focus:ring-brand-red/20 focus:border-brand-red transition-all text-sm outline-none ${errors.phone ? 'border-red-500' : 'border-gray-200'}`}
@@ -439,6 +443,7 @@ export const DevenirPartenaire: React.FC = () => {
                     <textarea 
                       name="description"
                       id="description"
+                      required
                       rows={5}
                       value={formData.description}
                       onChange={handleInputChange}

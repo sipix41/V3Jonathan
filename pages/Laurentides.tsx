@@ -49,7 +49,7 @@ const FAQ_DATA = [
 ];
 
 export const Laurentides: React.FC = () => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [indexFaqOuvert, setIndexFaqOuvert] = useState<number | null>(null);
 
   const jsonLd = [
     {
@@ -260,44 +260,52 @@ export const Laurentides: React.FC = () => {
             <div className="order-1 lg:order-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-red/5 rounded-full blur-3xl -z-10"></div>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-xl text-2xl mb-4 border border-gray-100">🔨</div>
-                  <h3 className="font-bold text-gray-900 mb-2">
-                    Préparation du pontage
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Arrachage complet des vieilles couches pour inspecter et
-                    garantir une fondation solide à 100%.
-                  </p>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start gap-4 hover:shadow-md transition-shadow">
+                  <div className="text-[34px] shrink-0 mb-2 sm:mb-0">🔨</div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      Préparation du pontage
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Arrachage complet des vieilles couches pour inspecter et
+                      garantir une fondation solide à 100%.
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sm:translate-y-8 hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-xl text-2xl mb-4 border border-gray-100">🏠</div>
-                  <h3 className="font-bold text-gray-900 mb-2">
-                    Bardeaux architecturaux
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Multidimensionnels, ultra-épais et renforcés pour affronter
-                    des rafales extrêmes.
-                  </p>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sm:translate-y-8 flex flex-col sm:flex-row items-start gap-4 hover:shadow-md transition-shadow">
+                  <div className="text-[34px] shrink-0 mb-2 sm:mb-0">🏠</div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      Bardeaux architecturaux
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Multidimensionnels, ultra-épais et renforcés pour affronter
+                      des rafales extrêmes.
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-xl text-2xl mb-4 border border-gray-100">🛡️</div>
-                  <h3 className="font-bold text-gray-900 mb-2">
-                    Membrane élastomère
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Bouclier ultime contre les redoutables barrages de glace.
-                  </p>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start gap-4 hover:shadow-md transition-shadow">
+                  <div className="text-[34px] shrink-0 mb-2 sm:mb-0">🛡️</div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      Membrane élastomère
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Bouclier ultime contre les redoutables barrages de glace.
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sm:translate-y-8 hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-xl text-2xl mb-4 border border-gray-100">💨</div>
-                  <h3 className="font-bold text-gray-900 mb-2">
-                    Ventilation intelligente
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Aérateurs performants garantissant la pérennité de votre
-                    investissement.
-                  </p>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sm:translate-y-8 flex flex-col sm:flex-row items-start gap-4 hover:shadow-md transition-shadow">
+                  <div className="text-[34px] shrink-0 mb-2 sm:mb-0">💨</div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      Ventilation intelligente
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Aérateurs performants garantissant la pérennité de votre
+                      investissement.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -643,26 +651,26 @@ export const Laurentides: React.FC = () => {
             {FAQ_DATA.map((faq, index) => (
               <div 
                 key={index} 
-                className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${index % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} ${openFaqIndex === index ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] -translate-y-1' : 'hover:shadow-md hover:-translate-y-0.5'}`}
+                className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${index % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} ${indexFaqOuvert === index ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] -translate-y-1' : 'hover:shadow-md hover:-translate-y-0.5'}`}
               >
                 <button
-                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                  className={`w-full text-left px-5 py-4 md:px-6 flex items-center justify-between focus:outline-none transition-colors ${openFaqIndex === index ? 'bg-gray-50/50' : 'bg-transparent'}`}
-                  aria-expanded={openFaqIndex === index}
+                  onClick={() => setIndexFaqOuvert(indexFaqOuvert === index ? null : index)}
+                  className={`w-full text-left px-5 py-4 md:px-6 flex items-center justify-between focus:outline-none transition-colors ${indexFaqOuvert === index ? 'bg-gray-50/50' : 'bg-transparent'}`}
+                  aria-expanded={indexFaqOuvert === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h3 className={`text-base md:text-lg font-bold pr-8 tracking-tight transition-colors ${openFaqIndex === index ? 'text-brand-red' : 'text-gray-900'}`}>
+                  <h3 className={`text-base md:text-lg font-bold pr-8 tracking-tight transition-colors ${indexFaqOuvert === index ? 'text-brand-red' : 'text-gray-900'}`}>
                     {faq.question}
                   </h3>
-                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openFaqIndex === index ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`} />
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${indexFaqOuvert === index ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${indexFaqOuvert === index ? 'rotate-180' : ''}`} />
                   </div>
                 </button>
                 
                 <div 
                   id={`faq-answer-${index}`}
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
-                  aria-hidden={openFaqIndex !== index}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${indexFaqOuvert === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                  aria-hidden={indexFaqOuvert !== index}
                 >
                   <div className="p-5 md:px-6 pt-0 pb-5 text-gray-600 leading-relaxed text-sm md:text-base font-normal">
                     {faq.answer}

@@ -277,6 +277,7 @@ export const Soumission: React.FC = () => {
                       </div>
                       <input
                         type="text"
+                        required
                         {...register("name", {
                           required: "Le nom complet est requis",
                         })}
@@ -303,6 +304,7 @@ export const Soumission: React.FC = () => {
                       </div>
                       <input
                         type="tel"
+                        required
                         {...register("phone", {
                           required: "Le téléphone est requis",
                           pattern: {
@@ -336,6 +338,7 @@ export const Soumission: React.FC = () => {
                     </div>
                     <input
                       type="email"
+                      required
                       {...register("email", {
                         required: "L'adresse courriel est requise",
                         pattern: {
@@ -429,6 +432,7 @@ export const Soumission: React.FC = () => {
                       <MessageSquare size={18} />
                     </div>
                     <textarea
+                      required
                       {...register("message", {
                         required: "Veuillez décrire brièvement votre projet",
                         minLength: {

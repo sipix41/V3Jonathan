@@ -53,11 +53,26 @@ export class ErrorBoundary extends Component<Props, State> {
               Nous sommes désolés, un problème technique empêche l'affichage de cette page.
             </p>
             
-            <div className="flex justify-center">
-              <a href={`tel:${COMPANY_INFO.phoneClean}`}>
-                <Button size="lg" className="w-full sm:w-auto flex items-center justify-center gap-2">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button 
+                onClick={() => {
+                   sessionStorage.removeItem('chunk_reload_count');
+                   this.setState({ hasError: false });
+                   window.location.reload();
+                }}
+                className="bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors w-full sm:w-auto"
+              >
+                Réessayer
+              </button>
+              <a href="/" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full bg-white flex items-center justify-center">
+                  Retour à l'accueil
+                </Button>
+              </a>
+              <a href={`tel:${COMPANY_INFO.phoneClean}`} className="w-full sm:w-auto">
+                <Button size="lg" className="w-full flex items-center justify-center gap-2">
                   <Phone size={20} />
-                  Nous appeler : {COMPANY_INFO.phone}
+                  Appeler
                 </Button>
               </a>
             </div>

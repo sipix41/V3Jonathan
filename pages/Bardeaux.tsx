@@ -21,7 +21,7 @@ const staggerContainer = {
 };
 
 export const Bardeaux: React.FC = () => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [indexFaqOuvert, setIndexFaqOuvert] = useState<number | null>(null);
 
   return (
     <div className="bg-white">
@@ -835,26 +835,26 @@ export const Bardeaux: React.FC = () => {
             ].map((faq, index) => (
               <div 
                 key={index} 
-                className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${index % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} ${openFaqIndex === index ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] -translate-y-1' : 'hover:shadow-md hover:-translate-y-0.5'}`}
+                className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-[6px] ${index % 2 === 0 ? 'border-l-brand-red' : 'border-l-brand-black'} ${indexFaqOuvert === index ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] -translate-y-1' : 'hover:shadow-md hover:-translate-y-0.5'}`}
               >
                 <button
-                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                  className={`w-full text-left px-5 py-4 md:px-6 flex items-center justify-between focus:outline-none transition-colors ${openFaqIndex === index ? 'bg-gray-50/50' : 'bg-transparent'}`}
-                  aria-expanded={openFaqIndex === index}
+                  onClick={() => setIndexFaqOuvert(indexFaqOuvert === index ? null : index)}
+                  className={`w-full text-left px-5 py-4 md:px-6 flex items-center justify-between focus:outline-none transition-colors ${indexFaqOuvert === index ? 'bg-gray-50/50' : 'bg-transparent'}`}
+                  aria-expanded={indexFaqOuvert === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h3 className={`text-base md:text-lg font-bold pr-8 tracking-tight transition-colors ${openFaqIndex === index ? 'text-brand-red' : 'text-gray-900'}`}>
+                  <h3 className={`text-base md:text-lg font-bold pr-8 tracking-tight transition-colors ${indexFaqOuvert === index ? 'text-brand-red' : 'text-gray-900'}`}>
                     {faq.q}
                   </h3>
-                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openFaqIndex === index ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`} />
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${indexFaqOuvert === index ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${indexFaqOuvert === index ? 'rotate-180' : ''}`} />
                   </div>
                 </button>
                 
                 <div 
                   id={`faq-answer-${index}`}
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaqIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
-                  aria-hidden={openFaqIndex !== index}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${indexFaqOuvert === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                  aria-hidden={indexFaqOuvert !== index}
                 >
                   <div className="p-5 md:px-6 pt-0 pb-5 text-gray-600 leading-relaxed text-sm md:text-base font-normal">
                     {faq.a}

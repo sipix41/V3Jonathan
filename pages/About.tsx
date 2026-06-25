@@ -29,7 +29,7 @@ export const About: React.FC = () => {
                <img loading="lazy" 
                 src="https://i.postimg.cc/50b4BJSb/B.jpg" 
                 alt="Jonathan Délisle sur un chantier" 
-                className="rounded-xl shadow-2xl w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-zinc-800 relative z-10"
+                className="rounded-xl shadow-2xl w-full aspect-[4/3] object-cover border border-zinc-800 relative z-10"
               decoding="async" width="800" height="600" />
                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-brand-red -mb-4 -mr-4"></div>
             </div>
@@ -45,7 +45,7 @@ export const About: React.FC = () => {
                   src="https://www.image-heberg.fr/files/17783600033809957581.jpg" 
                   alt="Logo RBQ" 
                   className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
-                loading="lazy" decoding="async" />
+                loading="lazy" decoding="async" width="150" height="96" />
               </a>
               <a 
                 href="https://www.apchq.com"
@@ -57,7 +57,7 @@ export const About: React.FC = () => {
                   src="https://www.image-heberg.fr/files/177835927549167421.webp" 
                   alt="Logo APCHQ" 
                   className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
-                loading="lazy" decoding="async" />
+                loading="lazy" decoding="async" width="150" height="96" />
               </a>
             </div>
           </div>

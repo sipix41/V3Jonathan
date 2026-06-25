@@ -34,11 +34,11 @@ export const Services: React.FC = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <img loading="lazy" 
-            src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000" 
-            alt="Nos services de toiture" 
-            className="w-full h-full object-cover opacity-30 filter mix-blend-luminosity"
-          decoding="async" width="800" height="600" />
+            <img loading="lazy" 
+              src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000" 
+              alt="Nos services de toiture" 
+              className="w-full h-full object-cover opacity-30 filter mix-blend-luminosity"
+            decoding="async" width="1920" height="1080" />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent"></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-red/10 blur-[120px] -translate-y-1/4 translate-x-1/4 rounded-full pointer-events-none"></div>
         </motion.div>
