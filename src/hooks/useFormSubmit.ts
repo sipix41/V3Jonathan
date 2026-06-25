@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { trackEvent } from './useAnalytics';
 
-// Remplacez cette valeur par votre jeton secret FormSubmit
-const FORMSUBMIT_TOKEN = import.meta.env.VITE_FORMSUBMIT_TOKEN || "VOTRE_CODE_SECRET_ICI";
 
 type UseFormSubmitResult = {
   submitStatus: 'idle' | 'success' | 'error';
@@ -16,31 +14,26 @@ export const useFormSubmit = (): UseFormSubmitResult => {
     try {
       setSubmitStatus('idle');
       
-      let body: any;
-      let headers: HeadersInit = { 'Accept': 'application/json' };
-
-      if (data instanceof FormData) {
-        body = data;
-        if (!data.has('_subject')) {
-           data.append('_subject', subject);
-        }
-        if (!data.has('_template')) {
-           data.append('_template', 'table');
-        }
-        // When using FormData with fetch, do not set Content-Type manually
-      } else {
-        body = JSON.stringify({
-          _subject: subject,
-          _template: "table",
-          ...data
-        });
-        headers['Content-Type'] = 'application/json';
-      }
+      let payload: Record<string, any> = {};
       
-      const response = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`, {
+      if (data instanceof FormData) {
+        data.forEach((value, key) => {
+          payload[key] = value;
+        });
+      } else {
+        payload = { ...data };
+      }
+
+      if (!payload._subject) payload._subject = subject;
+      if (!payload._template) payload._template = 'table';
+
+      const response = await fetch('/api/submit-form', {
         method: "POST",
-        headers,
-        body
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
 
       if (response.ok) {

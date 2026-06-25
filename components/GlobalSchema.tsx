@@ -82,50 +82,10 @@ export const GlobalSchema: React.FC = () => {
     }
   };
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Réfection de toiture",
-    "provider": {
-      "@id": `${BASE_URL}/#organization`
-    },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Laurentides"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services de toiture",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Installation de bardeaux d'asphalte"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Réparation de toiture"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Déneigement de toiture"
-          }
-        }
-      ]
-    }
-  };
-
   return (
     <Helmet>
       <script type="application/ld+json">
-        {JSON.stringify([organizationSchema, localBusinessSchema, serviceSchema])}
+        {JSON.stringify([organizationSchema, localBusinessSchema])}
       </script>
     </Helmet>
   );

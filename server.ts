@@ -16,16 +16,47 @@ async function startServer() {
     contentSecurityPolicy: process.env.NODE_ENV === "production" ? {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://www.googletagmanager.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "https:"],
-        connectSrc: ["'self'", "https://formsubmit.co"],
+        imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://i.postimg.cc", "https://www.image-heberg.fr", "https://www.google-analytics.com"],
+        connectSrc: ["'self'", "https://formsubmit.co", "https://www.google-analytics.com"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"]
       }
     } : false
   }));
+
+  // Middleware to parse JSON bodies
+  app.use(express.json());
+
+  app.post('/api/submit-form', async (req, res) => {
+    try {
+      const FORMSUBMIT_TOKEN = process.env.VITE_FORMSUBMIT_TOKEN || process.env.FORMSUBMIT_TOKEN;
+      if (!FORMSUBMIT_TOKEN) {
+        console.error("Missing FORMSUBMIT_TOKEN");
+        return res.status(500).json({ error: "Configuration error" });
+      }
+
+      const response = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(req.body)
+      });
+
+      if (response.ok) {
+        res.status(200).json({ success: true });
+      } else {
+        res.status(response.status).json({ error: "Forwarding failed" });
+      }
+    } catch (error) {
+      console.error("Error in /api/submit-form:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
 
   // Add custom caching middleware for static assets (Cloud Run specific optimization)
   app.use((req, res, next) => {

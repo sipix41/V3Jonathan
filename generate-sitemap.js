@@ -4,6 +4,15 @@ import { CITIES, STATIC_ROUTES } from './constants';
 
 const APP_URL = process.env.VITE_SITE_URL || 'https://toiturejonathandelisle.ca';
 
+function getFileLastMod(filePath) {
+  try {
+    const stats = fs.statSync(filePath);
+    return stats.mtime.toISOString().split('T')[0];
+  } catch (error) {
+    return new Date().toISOString().split('T')[0];
+  }
+}
+
 function generateSitemap() {
   const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
 
@@ -17,13 +26,39 @@ function generateSitemap() {
     }
   });
 
-  const lastmod = new Date().toISOString().split('T')[0];
-
   // Generate XML
   const urls = paths.map(routePath => {
     // Determine priority and changefreq based on path depth and type
     let priority = 0.8;
     let changefreq = 'monthly';
+    
+    // Determine file path for lastmod
+    let sourceFile = 'index.html';
+    if (routePath === '/') {
+      sourceFile = 'pages/Home.tsx';
+    } else if (routePath.startsWith('/services/bardeaux')) {
+      if (routePath === '/services/bardeaux') {
+        sourceFile = 'pages/Bardeaux.tsx';
+      } else if (routePath.includes('bp')) {
+        sourceFile = 'pages/BP.tsx';
+      } else if (routePath.includes('iko')) {
+        sourceFile = 'pages/Iko.tsx';
+      }
+    } else if (routePath.startsWith('/services/')) {
+      const parts = routePath.split('/');
+      const pageName = parts[parts.length - 1];
+      sourceFile = `pages/${pageName.charAt(0).toUpperCase() + pageName.slice(1)}.tsx`;
+    } else if (CITIES.some(c => c.path === routePath)) {
+      sourceFile = 'pages/CityTemplate.tsx';
+    } else {
+      const parts = routePath.split('/');
+      const pageName = parts[parts.length - 1];
+      if (pageName) {
+         sourceFile = `pages/${pageName.charAt(0).toUpperCase() + pageName.slice(1)}.tsx`;
+      }
+    }
+    const fullSourcePath = path.join(process.cwd(), sourceFile);
+    const lastmod = getFileLastMod(fullSourcePath);
 
     if (routePath === '/') {
       priority = 1.0;
