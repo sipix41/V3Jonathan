@@ -96,6 +96,15 @@ async function startServer() {
     }
   });
 
+  app.get('/api/debug-info', (req, res) => {
+    res.json({
+      cwd: process.cwd(),
+      dir: __dirname,
+      filesCwd: fs.readdirSync(process.cwd()),
+      documentRoot: process.env.DOCUMENT_ROOT || 'unknown'
+    });
+  });
+
   // Add custom caching middleware for static assets (Cloud Run specific optimization)
   app.use((req, res, next) => {
     // Exclude root path and HTML files from cache entirely
