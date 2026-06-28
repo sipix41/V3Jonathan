@@ -44,3 +44,9 @@ jobs:
             **/.github/**
             .env*
             README.md
+            index.html
+            *.tsx
+            *.ts
+            components/**
+            pages/**
+            public/**
