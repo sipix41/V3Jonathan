@@ -31,10 +31,11 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
           # On déploie le dossier complet (sauf exclusions ci-dessous)
           local-dir: ./
-          # Changez /toiture_app/ si vous déployez dans un sous-dossier ou un autre répertoire
-          server-dir: /toiture_app/ 
+          # On envoie à la racine du compte FTP (qui sera configuré pour pointer sur toiture_app)
+          server-dir: /
           exclude: |
             **/.git*
             **/.git*/**
