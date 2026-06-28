@@ -5,17 +5,14 @@ import helmet from "helmet";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
 import { z } from "zod";
+import nodemailer from "nodemailer";
 import { STATIC_ROUTES, CITIES } from "./constants";
 
-const formSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  phone: z.string().optional(),
-  message: z.string().min(10)
-});
+const formSchema = z.record(z.any());
 
 async function startServer() {
   const app = express();
+  app.set("trust proxy", 1);
   // Utiliser le port fourni par l'hébergeur (WHC) ou 3000 par défaut
   const PORT = process.env.PORT || 3000;
 
@@ -41,7 +38,7 @@ async function startServer() {
         // 'unsafe-inline' est retiré comme demandé pour améliorer la sécurité.
         styleSrc: ["'self'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://i.postimg.cc", "https://www.image-heberg.fr", "https://www.google-analytics.com"],
+        imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://i.postimg.cc", "https://www.image-heberg.fr", "https://www.google-analytics.com", "https://storage.googleapis.com"],
         connectSrc: ["'self'", "https://formsubmit.co", "https://www.google-analytics.com"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"]
@@ -59,37 +56,61 @@ async function startServer() {
 
   const formLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 10, // limit each IP to 10 requests per windowMs
+    max: 100, // limit each IP to 100 requests per windowMs
     message: { error: "Trop de requêtes, veuillez réessayer plus tard." }
   });
 
   app.post('/api/submit-form', formLimiter, async (req, res) => {
     try {
+      console.log("Received form submission:", req.body);
       const parsedData = formSchema.safeParse(req.body);
       if (!parsedData.success) {
+        console.log("Invalid data:", parsedData);
         return res.status(400).json({ error: "Données invalides", details: (parsedData as any).error.errors });
       }
 
-      const FORMSUBMIT_TOKEN = process.env.VITE_FORMSUBMIT_TOKEN || process.env.FORMSUBMIT_TOKEN;
-      if (!FORMSUBMIT_TOKEN) {
-        console.error("Missing FORMSUBMIT_TOKEN");
-        return res.status(500).json({ error: "Configuration error" });
+      const targetEmail = "soumission@toiturejonathandelisle.ca";
+      
+      const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
+      console.log("SMTP Config present:", { host: !!SMTP_HOST, port: !!SMTP_PORT, user: !!SMTP_USER, pass: !!SMTP_PASS });
+
+      if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+        console.warn("Mocking form submission because SMTP credentials are missing");
+        return res.status(200).json({ success: true, mocked: true });
       }
 
-      const response = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+      const transporter = nodemailer.createTransport({
+        host: SMTP_HOST,
+        port: Number(SMTP_PORT),
+        secure: Number(SMTP_PORT) === 465, // true for 465, false for other ports
+        auth: {
+          user: SMTP_USER,
+          pass: SMTP_PASS,
         },
-        body: JSON.stringify(parsedData.data)
       });
 
-      if (response.ok) {
-        res.status(200).json({ success: true });
-      } else {
-        res.status(response.status).json({ error: "Forwarding failed" });
-      }
+      console.log("Sending email...");
+
+      const mailOptions = {
+        from: SMTP_USER,
+        to: targetEmail,
+        subject: `Nouvelle demande de soumission de ${parsedData.data.name || "Client"}`,
+        text: JSON.stringify(parsedData.data, null, 2),
+        html: `
+          <h2>Nouvelle demande de soumission</h2>
+          <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+            ${Object.entries(parsedData.data).map(([key, value]) => `
+              <tr>
+                <td><strong>${key}</strong></td>
+                <td>${value}</td>
+              </tr>
+            `).join('')}
+          </table>
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+      res.status(200).json({ success: true });
     } catch (error) {
       console.error("Error in /api/submit-form:", error);
       res.status(500).json({ error: "Internal server error" });

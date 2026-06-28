@@ -273,7 +273,7 @@ export const About: React.FC = () => {
             </div>
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-brand-red rounded-3xl transform rotate-3 scale-105"></div>
-              <img loading="lazy" src="https://www.image-heberg.fr/files/17711315183833199704.jpg" alt="Jonathan Délisle sur le toit" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full" decoding="async" width="800" height="600" />
+              <img loading="lazy" src="https://i.postimg.cc/XqLG8WBk/RBQ-assurance-et-garantie.jpg" alt="RBQ, assurance et garantie" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

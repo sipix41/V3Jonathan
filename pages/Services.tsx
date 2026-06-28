@@ -244,7 +244,7 @@ export const Services: React.FC = () => {
           </div>
           <div className="order-1 md:order-2">
              <img loading="lazy" 
-              src="https://cdn.prod.website-files.com/682b39f8500ff14e90ad1760/6846eadd9dc4f25969f64de9_4.jpg" 
+              src="https://i.postimg.cc/D0RZ5zyB/503rmpemaxrp60cz1n8sv0dc54.png" 
               alt="Inspection de toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />
@@ -262,7 +262,7 @@ export const Services: React.FC = () => {
           <div className="absolute top-0 right-0 w-2 h-full bg-blue-600"></div>
           <div className="order-1">
              <img loading="lazy" 
-              src="https://cimtchau.ca/app/uploads/deneigement-toit-2.jpg" 
+              src="https://i.postimg.cc/hjdPvB0q/Deneigement.png" 
               alt="Déneigement de Toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />

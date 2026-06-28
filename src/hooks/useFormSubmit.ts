@@ -28,7 +28,7 @@ export const useFormSubmit = (): UseFormSubmitResult => {
       if (!payload._template) payload._template = 'table';
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000);
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
 
       const response = await fetch('/api/submit-form', {
         method: "POST",

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
-import { COMPANY_INFO } from '../constants';
+import { COMPANY_INFO, CITIES } from '../constants';
 import { CheckCircle2, ArrowRight, X, Calendar, MapPin, Hammer, ChevronLeft, ChevronRight, Search, Star } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { CTA } from '../components/CTA';
@@ -11,130 +11,17 @@ const CATEGORIES = ['Toutes', 'Bardeaux', 'Rénovation', 'Déneigement'];
 const PROJECTS = [
   { 
     id: 1, 
-    title: 'Résidence Lac-des-Sables', 
+    title: 'Toiture Saint-Adolphe-d\'Howard', 
     category: 'Bardeaux', 
     images: [
-      'https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=1000'
+      'https://i.postimg.cc/nrzwFFxF/Saint-Adolphe-d-Howard-2024-Bardeaux-Mystique-Brun-2-Tons-Avant.jpg',
+      'https://i.postimg.cc/DzTjWdhN/Saint-Adolphe-d-Howard-2024-Bardeaux-Mystique-Brun-2-Tons-Apres.jpg'
     ],
-    city: 'Sainte-Agathe-des-Monts',
-    year: '2023',
-    materials: 'Bardeaux IKO Cambridge',
-    description: 'Remplacement complet de la toiture en bardeaux d\'asphalte. Amélioration de la ventilation de l\'entretoit et installation de nouveaux solins.'
-  },
-  { 
-    id: 2, 
-    title: 'Chalet Val-David', 
-    category: 'Rénovation', 
-    images: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Val-David',
-    year: '2022',
-    materials: 'Bardeaux IKO Dynasty',
-    description: 'Rénovation majeure d\'un toit de chalet avec ajout d\'isolation par l\'extérieur et pose de bardeaux haute performance.'
-  },
-  { 
-    id: 3, 
-    title: 'Toiture Sainte-Agathe', 
-    category: 'Bardeaux', 
-    images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Sainte-Agathe-des-Monts',
-    year: '2023',
-    materials: 'Bardeaux BP Mystique',
-    description: 'Intervention rapide pour refaire la toiture vieillissante avant l\'hiver. Travail de précision avec alignement parfait.'
-  },
-  { 
-    id: 4, 
-    title: 'Déneigement de toiture', 
-    category: 'Déneigement', 
-    images: [
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Mont-Tremblant',
+    city: 'Saint-Adolphe-d\'Howard',
     year: '2024',
-    materials: 'Pelles spécialisées, harnais',
-    description: 'Intervention d\'urgence pour déneiger une toiture accumulant une charge dangereuse de neige et de glace.'
-  },
-  { 
-    id: 5, 
-    title: 'Maison de plain-pied', 
-    category: 'Bardeaux', 
-    images: [
-      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Saint-Sauveur',
-    year: '2021',
-    materials: 'Bardeaux IKO Cambridge',
-    description: 'Installation d\'une toiture neuve sur une construction récente avec une excellente pente pour l\'écoulement des eaux.'
-  },
-  { 
-    id: 6, 
-    title: 'Toiture complexe', 
-    category: 'Rénovation', 
-    images: [
-      'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Piedmont',
-    year: '2023',
-    materials: 'Bardeaux architecturaux IKO',
-    description: 'Projet complexe impliquant de multiples noues et arêtiers. Une expertise technique poussée a été nécessaire.'
-  },
-  { 
-    id: 7, 
-    title: 'Chalet traditionnel', 
-    category: 'Bardeaux', 
-    images: [
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Val-Morin',
-    year: '2022',
-    materials: 'Bardeaux fibre de verre',
-    description: 'Réfection de toiture préservant le cachet architectural d\'un chalet en bois rond. Pose de membrane d\'étanchéité complète.'
-  },
-  { 
-    id: 8, 
-    title: 'Reprofilage complet', 
-    category: 'Rénovation', 
-    images: [
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Sainte-Adèle',
-    year: '2024',
-    materials: 'Contreplaqué et Bardeaux IKO',
-    description: 'Correction de la structure du pontage affaissée avant de procéder à l\'installation d\'un revêtement tout neuf.'
-  },
-  { 
-    id: 9, 
-    title: 'Déneigement préventif', 
-    category: 'Déneigement', 
-    images: [
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=1000',
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000'
-    ],
-    city: 'Saint-Jérôme',
-    year: '2023',
-    materials: 'Équipement de sécurité complet',
-    description: 'Déneigement préventif pour libérer la toiture et prévenir, lors de la fonte, les infiltrations d\'eau et de glace.'
-  },
+    materials: 'Bardeaux BP Mystique couleur brun 2 tons',
+    description: 'Installation d\'une toiture neuve en bardeaux d\'asphalte BP Mystique couleur brun 2 tons à Saint-Adolphe-d\'Howard.'
+  }
 ];
 
 export const Portfolio: React.FC = () => {
@@ -142,11 +29,16 @@ export const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const filteredProjects = React.useMemo(() => {
+  const filteredProjects = useMemo(() => {
     return activeCategory === 'Toutes' 
       ? PROJECTS 
       : PROJECTS.filter(p => p.category === activeCategory);
   }, [activeCategory]);
+
+  const getCityPath = (cityName: string) => {
+    const city = CITIES.find(c => c.name === cityName);
+    return city ? city.path : null;
+  };
 
   const handleNextImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -266,12 +158,12 @@ export const Portfolio: React.FC = () => {
               }}
               className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl hover:shadow-brand-red/20 transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-brand-red flex flex-col h-full"
             >
-              <div className="overflow-hidden aspect-[4/3] relative">
+              <div className="relative w-full bg-gray-100 flex items-center justify-center overflow-hidden">
                 <img 
                   src={project.images[0]} 
                   alt={project.title} 
                   loading="lazy"
-                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-auto max-h-[400px] object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 decoding="async" width="800" height="600" />
                 <div className="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/40 transition-colors duration-500"></div>
                 
@@ -322,13 +214,22 @@ export const Portfolio: React.FC = () => {
             </button>
 
             {/* Image Carousel Section */}
-            <div className="relative w-full h-[40vh] min-h-[300px] bg-gray-100 rounded-t-2xl overflow-hidden">
+            <div className="relative w-full min-h-[40vh] max-h-[75vh] flex items-center justify-center bg-gray-100 rounded-t-2xl overflow-hidden">
               
               {/* Main Image */}
               <img loading="lazy" 
                 src={selectedProject.images[currentImageIndex]} 
-                alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`} 
-                className="w-full h-full object-cover transition-opacity duration-500"
+                alt={`${selectedProject.title} - ${selectedProject.year} - ${
+                  selectedProject.images.length === 2 
+                    ? (currentImageIndex === 0 ? 'Avant' : 'Après') 
+                    : `Photo ${currentImageIndex + 1}`
+                }`} 
+                title={`${selectedProject.title} - ${selectedProject.year} - ${
+                  selectedProject.images.length === 2 
+                    ? (currentImageIndex === 0 ? 'Avant' : 'Après') 
+                    : `Photo ${currentImageIndex + 1}`
+                }`}
+                className="w-full h-auto max-h-[75vh] object-contain transition-opacity duration-500"
               decoding="async" width="800" height="600" />
               
               {/* Carousel Controls */}
@@ -374,15 +275,21 @@ export const Portfolio: React.FC = () => {
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-brand-black/90 to-transparent pointer-events-none"></div>
               
               <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-4 sm:gap-6 z-10 pointer-events-none">
-                <div className="flex flex-col text-white">
+                <div className="flex flex-col text-white pointer-events-auto">
                   <span className="text-xs uppercase font-bold tracking-wider text-white/80 flex items-center gap-1.5"><MapPin size={12} /> Lieu</span>
-                  <span className="font-semibold text-lg">{selectedProject.city}</span>
+                  {getCityPath(selectedProject.city) ? (
+                    <Link to={getCityPath(selectedProject.city)!} className="font-semibold text-lg hover:text-brand-red transition-colors underline decoration-brand-red/50 underline-offset-4">
+                      {selectedProject.city}
+                    </Link>
+                  ) : (
+                    <span className="font-semibold text-lg">{selectedProject.city}</span>
+                  )}
                 </div>
-                <div className="flex flex-col text-white">
+                <div className="flex flex-col text-white pointer-events-auto">
                   <span className="text-xs uppercase font-bold tracking-wider text-white/80 flex items-center gap-1.5"><Calendar size={12} /> Année</span>
                   <span className="font-semibold text-lg">{selectedProject.year}</span>
                 </div>
-                <div className="flex flex-col text-white">
+                <div className="flex flex-col text-white pointer-events-auto">
                   <span className="text-xs uppercase font-bold tracking-wider text-white/80 flex items-center gap-1.5"><Hammer size={12} /> Matériaux</span>
                   <span className="font-semibold text-lg">{selectedProject.materials}</span>
                 </div>
