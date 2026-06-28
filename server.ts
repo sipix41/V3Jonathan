@@ -34,11 +34,10 @@ async function startServer() {
     contentSecurityPolicy: process.env.NODE_ENV === "production" ? {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://www.googletagmanager.com"],
-        // 'unsafe-inline' est retiré comme demandé pour améliorer la sécurité.
-        styleSrc: ["'self'", "https://fonts.googleapis.com"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://i.postimg.cc", "https://www.image-heberg.fr", "https://www.google-analytics.com", "https://storage.googleapis.com"],
+        imgSrc: ["'self'", "data:", "https:"],
         connectSrc: ["'self'", "https://formsubmit.co", "https://www.google-analytics.com"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"]
