@@ -2,7 +2,6 @@
   "name": "toiture-jonathan-délisle-inc",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
     "prebuild": "tsx generate-sitemap.js",

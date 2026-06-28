@@ -37,7 +37,7 @@ async function startServer() {
         scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "https:"],
+        imgSrc: ["*", "data:", "blob:"],
         connectSrc: ["'self'", "https://formsubmit.co", "https://www.google-analytics.com"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"]
