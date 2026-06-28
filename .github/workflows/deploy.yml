@@ -24,10 +24,13 @@ jobs:
       - name: 🔨 Build du projet
         run: npm run build
 
-      - name: 🔄 Préparer le redémarrage (Passenger)
+      - name: 🔄 Préparer le déploiement (Passenger & Nettoyage)
         run: |
           mkdir -p tmp
           date > tmp/restart.txt
+          # On supprime les fichiers sources locaux pour ne pas les uploader sur le serveur
+          rm -rf src components pages public
+          rm -f index.html *.tsx *.ts README.md .env*
 
       # Déploiement via FTP vers votre hébergement WHC
       - name: 🚀 Déploiement FTP vers WHC
@@ -45,16 +48,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            **/src/**
             **/.github/**
-            .env*
-            README.md
-            index.html
-            *.tsx
-            *.ts
-            components/**
-            pages/**
-            public/**
 
       # Redémarrage de l'application Node.js sur cPanel via FTP
       # On utilise un script FTP ou SSH ? On n'a que FTP. 
