@@ -1,0 +1,45 @@
+name: Deploy to Web Hosting Canada (WHC)
+
+on:
+  push:
+    branches:
+      - main # Le déploiement s'activera automatiquement lors d'un push sur la branche 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout du code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configuration de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # Aligné avec la version choisie sur WHC (22.22.2)
+
+      - name: 📦 Installation des dépendances
+        run: npm ci
+
+      - name: 🔨 Build du projet
+        run: npm run build
+
+      # Déploiement via FTP vers votre hébergement WHC
+      - name: 🚀 Déploiement FTP vers WHC
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # On déploie le dossier complet (sauf exclusions ci-dessous)
+          local-dir: ./
+          # Changez /public_html/ si vous déployez dans un sous-dossier ou un autre répertoire
+          server-dir: /public_html/ 
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/src/**
+            **/.github/**
+            .env*
+            README.md

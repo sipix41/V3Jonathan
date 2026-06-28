@@ -17,7 +17,8 @@ const formSchema = z.object({
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  // Utiliser le port fourni par l'hébergeur (WHC) ou 3000 par défaut
+  const PORT = process.env.PORT || 3000;
 
   // Add compression and security headers
   app.use(compression());
