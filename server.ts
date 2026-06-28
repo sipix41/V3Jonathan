@@ -67,7 +67,7 @@ async function startServer() {
     try {
       const parsedData = formSchema.safeParse(req.body);
       if (!parsedData.success) {
-        return res.status(400).json({ error: "Données invalides", details: parsedData.error.errors });
+        return res.status(400).json({ error: "Données invalides", details: (parsedData as any).error.errors });
       }
 
       const FORMSUBMIT_TOKEN = process.env.VITE_FORMSUBMIT_TOKEN || process.env.FORMSUBMIT_TOKEN;
@@ -163,7 +163,7 @@ async function startServer() {
     });
   } else {
     // Port is a number
-    app.listen(PORT, "0.0.0.0", () => {
+    app.listen(Number(PORT), "0.0.0.0", () => {
       console.log(`Server running on port ${PORT}`);
     });
   }
