@@ -106,7 +106,8 @@ async function startServer() {
     next();
   });
 
-  if (process.env.NODE_ENV !== "production") {
+  const env = process.env.NODE_ENV?.toLowerCase()?.trim();
+  if (env !== "production") {
     const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
