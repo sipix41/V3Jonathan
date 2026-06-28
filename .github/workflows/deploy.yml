@@ -40,7 +40,12 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            **/src/**
             **/.github/**
             .env*
             README.md
+            /*.tsx
+            /components/**
+            /pages/**
+            /public/**
+            /index.html
+            /index.css
