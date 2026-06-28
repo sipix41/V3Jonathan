@@ -22,6 +22,10 @@ async function startServer() {
   // Add compression and security headers
   app.use(compression());
   app.use(helmet({
+    crossOriginResourcePolicy: false,
+    crossOriginOpenerPolicy: false,
+    crossOriginEmbedderPolicy: false,
+    frameguard: false, // REQUIRED for AI Studio iframe preview
     hsts: {
       maxAge: 31536000,
       includeSubDomains: true,
