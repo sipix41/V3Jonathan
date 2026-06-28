@@ -119,7 +119,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = __dirname;
+    const distPath = path.join(process.cwd(), 'dist');
     // Serve static files with express cache options as well just in case
     app.use(express.static(distPath, {
       maxAge: '1y',
