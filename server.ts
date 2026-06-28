@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import { createServer as createViteServer } from "vite";
 import helmet from "helmet";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
@@ -108,6 +107,7 @@ async function startServer() {
   });
 
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -128,7 +128,7 @@ async function startServer() {
         }
       }
     }));
-    app.get('*', (req, res) => {
+    app.get(/(.*)/, (req, res) => {
       let routePath = req.path;
       if (routePath.endsWith('/')) {
         routePath = routePath.slice(0, -1);
