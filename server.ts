@@ -13,6 +13,17 @@ const formSchema = z.record(z.any());
 async function startServer() {
   const app = express();
   app.set("trust proxy", 1);
+
+  // Redirection HTTP vers HTTPS en production
+  if (process.env.NODE_ENV === "production") {
+    app.use((req, res, next) => {
+      if (!req.secure && req.get("x-forwarded-proto") !== "https") {
+        return res.redirect(301, `https://${req.get("host")}${req.url}`);
+      }
+      next();
+    });
+  }
+
   // Utiliser le port fourni par l'hébergeur (WHC) ou 3000 par défaut
   const PORT = process.env.PORT || 3000;
 

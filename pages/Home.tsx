@@ -98,7 +98,7 @@ export const Home: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <SEO 
-        title="Toiture TJD | Couvreur d'excellence"
+        title="Toiture Jonathan Délisle Inc. | Couvreur Laurentides"
         description="Expert en toiture à Sainte-Agathe-des-Monts. Toiture Bardeaux, Membrane, réparation et déneigement. Soumission gratuite. RBQ: 5831-9658-01."
         canonicalUrl="/"
       />

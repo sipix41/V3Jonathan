@@ -52,7 +52,7 @@ export const Contact: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Contactez Nous | Toiture Jonathan Délisle Inc | Soumission Gratuite" 
+        title="Contact & Soumission | Toiture Jonathan Délisle" 
         description="Besoin d'un expert pour votre toiture dans les Laurentides? Contactez Toiture Jonathan Délisle Inc. Remplissez notre formulaire pour une soumission gratuite." 
         canonicalUrl="/contact" 
       />

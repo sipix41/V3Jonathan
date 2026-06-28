@@ -107,8 +107,8 @@ export const CityTemplate: React.FC<{ cityName: string; cityPath: string }> = ({
   return (
     <div className="w-full">
       <SEO
-        title={`Couvreur à ${cityName} | Toiture Jonathan Délisle Inc – Toiture Laurentides`}
-        overrideFullTitle={`Couvreur à ${cityName} | Toiture Jonathan Délisle Inc – Toiture Laurentides`}
+        title={`Couvreur à ${cityName} | Toiture Jonathan Délisle`}
+        overrideFullTitle={`Couvreur à ${cityName} | Toiture Jonathan Délisle`}
         description={`Vous cherchez un couvreur de confiance à ${cityName}? Toiture Jonathan Délisle Inc est l'expert local en installation, réparation de toiture et déneigement. Soumission gratuite!`}
         canonicalUrl={cityPath}
       >

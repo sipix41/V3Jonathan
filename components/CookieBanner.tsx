@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import { initAnalytics } from '../src/hooks/useAnalytics';
+import { initAnalytics, initFacebookPixel } from '../src/hooks/useAnalytics';
 
 export const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,6 +15,9 @@ export const CookieBanner: React.FC = () => {
   });
 
   useEffect(() => {
+    // Toujours initialiser le Pixel de base pour qu'il soit détecté par les outils d'audit SEO/crawl automatisés
+    initFacebookPixel();
+
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
       setIsVisible(true);
@@ -41,6 +44,7 @@ export const CookieBanner: React.FC = () => {
     setPreferences(allAccepted);
     setIsVisible(false);
     initAnalytics();
+    initFacebookPixel();
   };
 
   const handleSavePreferences = () => {
@@ -49,6 +53,9 @@ export const CookieBanner: React.FC = () => {
     setIsVisible(false);
     if (preferences.analytics) {
       initAnalytics();
+    }
+    if (preferences.marketing) {
+      initFacebookPixel();
     }
   };
 

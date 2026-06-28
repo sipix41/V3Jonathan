@@ -108,7 +108,7 @@ export const Careers: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
       <SEO 
-        title="Emplois et Carrières en Toiture | Toiture Jonathan Délisle Inc" 
+        title="Carrière en Toiture | Toiture Jonathan Délisle" 
         description="Joignez l'équipe de Toiture Jonathan Délisle Inc dans les Laurentides. Nous recrutons des couvreurs, apprentis et manœuvres. Découvrez nos avantages et postulez aujourd'hui !" 
         canonicalUrl="/carriere" 
       />
