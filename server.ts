@@ -119,7 +119,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    const distPath = __dirname;
     // Serve static files with express cache options as well just in case
     app.use(express.static(distPath, {
       maxAge: '1y',
@@ -156,9 +156,17 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
-  });
+  if (typeof PORT === 'string' && isNaN(Number(PORT))) {
+    // Port is a socket/pipe (common in Passenger)
+    app.listen(PORT, () => {
+      console.log(`Server running on socket ${PORT}`);
+    });
+  } else {
+    // Port is a number
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  }
 }
 
 startServer();
