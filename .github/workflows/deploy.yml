@@ -34,8 +34,8 @@ jobs:
           port: 21
           # On déploie le dossier complet (sauf exclusions ci-dessous)
           local-dir: ./
-          # On envoie à la racine du compte FTP (qui sera configuré pour pointer sur toiture_app)
-          server-dir: /
+          # On envoie dans le dossier de l'application (toiture_app)
+          server-dir: toiture_app/
           exclude: |
             **/.git*
             **/.git*/**
@@ -44,9 +44,9 @@ jobs:
             **/.github/**
             .env*
             README.md
-            ./index.html
+            index.html
             *.tsx
             *.ts
-            ./components/**
-            ./pages/**
-            ./public/**
+            components/**
+            pages/**
+            public/**
