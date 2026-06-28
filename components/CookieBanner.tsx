@@ -10,8 +10,8 @@ export const CookieBanner: React.FC = () => {
   // Granular settings corresponding to Loi 25 requirements
   const [preferences, setPreferences] = useState({
     functional: true, // always required for core site features
-    analytics: false,
-    marketing: false,
+    analytics: true,
+    marketing: true,
   });
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const CookieBanner: React.FC = () => {
         <>
           <div className="mb-3">
             <h2 id="cookie-banner-title" className="text-sm font-bold text-gray-900 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
               Respect de votre vie privée (Loi 25)
             </h2>
             <p id="cookie-banner-desc" className="text-xs text-gray-500 mt-1 leading-relaxed">

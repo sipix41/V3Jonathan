@@ -160,6 +160,17 @@ export const Footer: React.FC = () => {
             <NavLink to="/termes" className="text-gray-400 hover:text-brand-red hover:underline transition-colors">Termes et conditions</NavLink>
             <span className="hidden sm:inline text-gray-700">|</span>
             <NavLink to="/confidentialite" className="text-gray-400 hover:text-brand-red hover:underline transition-colors">Politique de confidentialité</NavLink>
+            <span className="hidden sm:inline text-gray-700">|</span>
+            <button 
+              onClick={() => {
+                localStorage.removeItem('cookieConsent');
+                localStorage.removeItem('cookiePreferences');
+                window.location.reload();
+              }}
+              className="text-gray-400 hover:text-brand-red hover:underline transition-colors"
+            >
+              Gérer les cookies
+            </button>
           </p>
         </div>
       </div>
