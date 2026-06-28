@@ -24,6 +24,11 @@ jobs:
       - name: 🔨 Build du projet
         run: npm run build
 
+      - name: 🔄 Préparer le redémarrage (Passenger)
+        run: |
+          mkdir -p tmp
+          date > tmp/restart.txt
+
       # Déploiement via FTP vers votre hébergement WHC
       - name: 🚀 Déploiement FTP vers WHC
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -50,3 +55,8 @@ jobs:
             components/**
             pages/**
             public/**
+
+      # Redémarrage de l'application Node.js sur cPanel via FTP
+      # On utilise un script FTP ou SSH ? On n'a que FTP. 
+      # FTP-Deploy-Action ne permet pas d'exécuter des commandes.
+      # Mais on peut uploader un fichier tmp/restart.txt mis à jour !
