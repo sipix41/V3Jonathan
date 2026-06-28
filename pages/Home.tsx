@@ -54,25 +54,12 @@ const TURNKEY_SERVICES = [
 
 const STARS_ARRAY = [0, 1, 2, 3, 4];
 
-const BACKGROUND_IMAGES = [
-  "https://i.postimg.cc/76wH34nT/telecharge-(9).jpg",
-  "https://i.postimg.cc/SskS64fS/telecharge-(4).jpg",
-  "https://i.postimg.cc/gJmzVpHR/telecharge-(10).jpg"
-];
+const BACKGROUND_IMAGE = "https://i.postimg.cc/76wH34nT/telecharge-(9).jpg";
 
 export const Home: React.FC = () => {
-  const [bgImageIndex, setBgImageIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
-
-  // Auto-scroll for hero background
-  useEffect(() => {
-    const bgInterval = setInterval(() => {
-      setBgImageIndex(prev => (prev + 1) % BACKGROUND_IMAGES.length);
-    }, 5000);
-    return () => clearInterval(bgInterval);
-  }, []);
 
   // Handle responsive items per page
   useEffect(() => {
@@ -119,17 +106,15 @@ export const Home: React.FC = () => {
       <section className="relative min-h-[550px] md:h-[650px] flex items-center bg-gray-900 py-4 md:py-0">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {BACKGROUND_IMAGES.map((img, idx) => (
-            <img 
-              key={idx}
-              src={img} 
-              alt={`Toiture neuve Laurentides ${idx + 1}`} 
-              loading={idx === 0 ? "eager" : "lazy"}
-              {...({ fetchpriority: idx === 0 ? "high" : "auto" } as any)}
-              decoding={idx === 0 ? "sync" : "async"}
-              className={`absolute w-full h-full transition-opacity duration-1000 ease-in-out ${idx === bgImageIndex ? 'opacity-40' : 'opacity-0'} ${idx === 0 ? 'object-cover object-top' : 'object-contain object-center'}`}
-            width="800" height="600" />
-          ))}
+          <img 
+            src={BACKGROUND_IMAGE} 
+            alt="Toiture neuve Laurentides" 
+            loading="eager"
+            {...({ fetchpriority: "high" } as any)}
+            decoding="sync"
+            className="absolute w-full h-full opacity-40 object-cover object-top"
+            width="800" height="600" 
+          />
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/70 md:via-black/50 to-transparent z-10"></div>
         </div>
 

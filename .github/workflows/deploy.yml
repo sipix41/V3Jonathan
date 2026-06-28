@@ -33,8 +33,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # On déploie le dossier complet (sauf exclusions ci-dessous)
           local-dir: ./
-          # Changez /public_html/ si vous déployez dans un sous-dossier ou un autre répertoire
-          server-dir: /public_html/ 
+          # Changez /toiture_app/ si vous déployez dans un sous-dossier ou un autre répertoire
+          server-dir: /toiture_app/ 
           exclude: |
             **/.git*
             **/.git*/**
