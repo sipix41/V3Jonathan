@@ -148,7 +148,7 @@ export const Services: React.FC = () => {
           <div className="absolute top-0 right-0 w-2 h-full bg-brand-black"></div>
           <div className="order-1">
              <img loading="lazy" 
-              src="https://reno-toit.com/wp-content/uploads/2025/07/inspection-evaluation-toiture.jpg" 
+              src="https://i.postimg.cc/x1x8mDzn/0a3144f1-f390-44f3-befc-71172aa18223.jpg" 
               alt="Réparation de toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />
@@ -244,7 +244,7 @@ export const Services: React.FC = () => {
           </div>
           <div className="order-1 md:order-2">
              <img loading="lazy" 
-              src="https://i.postimg.cc/D0RZ5zyB/503rmpemaxrp60cz1n8sv0dc54.png" 
+              src="https://i.postimg.cc/L82ckJMQ/Toiture-inspection-bardeau.png" 
               alt="Inspection de toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />
