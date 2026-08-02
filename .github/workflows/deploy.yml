@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout du code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: ⚙️ Configuration de Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '22' # Aligné avec la version choisie sur WHC (22.22.2)
 
@@ -34,7 +34,7 @@ jobs:
 
       # Déploiement via FTP vers votre hébergement WHC
       - name: 🚀 Déploiement FTP vers WHC
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
