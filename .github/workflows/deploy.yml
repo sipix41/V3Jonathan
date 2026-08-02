@@ -19,7 +19,7 @@ jobs:
           node-version: '22' # Aligné avec la version choisie sur WHC (22.22.2)
 
       - name: 📦 Installation des dépendances
-        run: npm ci
+        run: npm install
 
       - name: 🔨 Build du projet
         run: npm run build
