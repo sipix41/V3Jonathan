@@ -27,7 +27,7 @@ export const About: React.FC = () => {
             <div className="relative mt-2 md:mt-0">
                <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-brand-red -mt-4 -ml-4"></div>
                <img loading="lazy" 
-                src="https://i.postimg.cc/50b4BJSb/B.jpg" 
+                src="/images/B.jpg" 
                 alt="Jonathan Délisle sur un chantier" 
                 className="rounded-xl shadow-2xl w-full aspect-[4/3] object-cover border border-zinc-800 relative z-10"
               decoding="async" width="800" height="600" />
@@ -42,7 +42,7 @@ export const About: React.FC = () => {
                 className="inline-block hover:opacity-80 transition-opacity"
               >
                 <img 
-                  src="https://www.image-heberg.fr/files/17783600033809957581.jpg" 
+                  src="/images/17783600033809957581.jpg" 
                   alt="Logo RBQ" 
                   className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
                 loading="lazy" decoding="async" width="150" height="96" />
@@ -54,7 +54,7 @@ export const About: React.FC = () => {
                 className="inline-block hover:opacity-80 transition-opacity"
               >
                 <img 
-                  src="https://www.image-heberg.fr/files/177835927549167421.webp" 
+                  src="/images/177835927549167421.webp" 
                   alt="Logo APCHQ" 
                   className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
                 loading="lazy" decoding="async" width="150" height="96" />
@@ -222,7 +222,7 @@ export const About: React.FC = () => {
       {/* RBQ, assurance et garantie */}
       <div className="bg-zinc-900 border-t border-zinc-800 py-4 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
-           <img loading="lazy" src="https://i.postimg.cc/xC50gZ6N/telecharge-(16).jpg" className="w-full h-full object-cover" alt="Background" decoding="async" width="800" height="600" />
+           <img loading="lazy" src="/images/telecharge-_16_.jpg" className="w-full h-full object-cover" alt="Background" decoding="async" width="800" height="600" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -273,7 +273,7 @@ export const About: React.FC = () => {
             </div>
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-brand-red rounded-3xl transform rotate-3 scale-105"></div>
-              <img loading="lazy" src="https://i.postimg.cc/XqLG8WBk/RBQ-assurance-et-garantie.jpg" alt="RBQ, assurance et garantie" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full" decoding="async" width="800" height="600" />
+              <img loading="lazy" src="/images/RBQ-assurance-et-garantie.jpg" alt="RBQ, assurance et garantie" className="relative z-10 rounded-3xl shadow-2xl object-cover h-[550px] w-full" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

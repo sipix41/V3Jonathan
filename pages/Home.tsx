@@ -54,7 +54,7 @@ const TURNKEY_SERVICES = [
 
 const STARS_ARRAY = [0, 1, 2, 3, 4];
 
-const BACKGROUND_IMAGE = "https://i.postimg.cc/76wH34nT/telecharge-(9).jpg";
+const BACKGROUND_IMAGE = "/images/telecharge-_9_.jpg";
 
 export const Home: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -205,7 +205,7 @@ export const Home: React.FC = () => {
             
             <div className="lg:w-1/2 relative z-10 w-full">
                <img loading="lazy" decoding="async"
-                 src="https://i.postimg.cc/Jnx1KFpJ/telecharge-(17).jpg" 
+                 src="/images/telecharge-_17_.jpg" 
                  alt="Maison avec toiture propre et sécuritaire" 
                  className="rounded-2xl shadow-xl w-full object-cover h-[400px]"
                  width="1000"

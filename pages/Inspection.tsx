@@ -33,7 +33,7 @@ export const Inspection: React.FC = () => {
           transition={{ duration: 1.5 }}
         >
           <img loading="lazy" 
-            src="https://i.ibb.co/Dgs96DpR/533529545-702578862825816-4072289905900816055-n.jpg" 
+            src="/images/33529545-702578862825816-4072289905900816055-n.jpg" 
             alt="Inspection de toiture" 
             className="w-full h-full object-cover opacity-40"
           decoding="async" width="800" height="600" />

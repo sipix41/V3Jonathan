@@ -130,7 +130,7 @@ export const Services: React.FC = () => {
           </div>
           <div className="order-1 md:order-2">
             <img loading="lazy" 
-              src="https://i.ibb.co/PsxYSsrK/t-l-charg-1.jpg" 
+              src="/images/t-l-charg-1.jpg" 
               alt="Toiture bardeaux" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />
@@ -148,7 +148,7 @@ export const Services: React.FC = () => {
           <div className="absolute top-0 right-0 w-2 h-full bg-brand-black"></div>
           <div className="order-1">
              <img loading="lazy" 
-              src="https://i.postimg.cc/x1x8mDzn/0a3144f1-f390-44f3-befc-71172aa18223.jpg" 
+              src="/images/0a3144f1-f390-44f3-befc-71172aa18223.jpg" 
               alt="Réparation de toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />
@@ -244,7 +244,7 @@ export const Services: React.FC = () => {
           </div>
           <div className="order-1 md:order-2">
              <img loading="lazy" 
-              src="https://i.postimg.cc/L82ckJMQ/Toiture-inspection-bardeau.png" 
+              src="/images/Toiture-inspection-bardeau.png" 
               alt="Inspection de toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />
@@ -262,7 +262,7 @@ export const Services: React.FC = () => {
           <div className="absolute top-0 right-0 w-2 h-full bg-blue-600"></div>
           <div className="order-1">
              <img loading="lazy" 
-              src="https://i.postimg.cc/hjdPvB0q/Deneigement.png" 
+              src="/images/Deneigement.png" 
               alt="Déneigement de Toiture" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover bg-gray-200 group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
             decoding="async" width="800" height="600" />

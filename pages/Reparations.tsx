@@ -162,7 +162,7 @@ export const Reparations: React.FC = () => {
               <div className="rounded-3xl overflow-hidden shadow-2xl relative">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                 <img loading="lazy" 
-                  src="https://i.postimg.cc/3x0KnhP1/Urgence.jpg" 
+                  src="/images/Urgence.jpg" 
                   alt="Signes de dommages sur une toiture" 
                   className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                 decoding="async" width="800" height="600" />

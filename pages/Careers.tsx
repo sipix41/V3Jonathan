@@ -115,7 +115,7 @@ export const Careers: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-brand-black text-white py-6 lg:py-8 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
-           <img loading="lazy" src="https://i.postimg.cc/SskS64fS/telecharge-(4).jpg" className="w-full h-full object-cover object-top" alt="Arrière-plan Toiture" decoding="async" width="1920" height="1080" />
+           <img loading="lazy" src="/images/telecharge-_4_.jpg" className="w-full h-full object-cover object-top" alt="Arrière-plan Toiture" decoding="async" width="1920" height="1080" />
            <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -178,7 +178,7 @@ export const Careers: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-brand-red/10 rounded-3xl transform translate-x-4 translate-y-4"></div>
-              <img loading="lazy" src="https://i.postimg.cc/fLc5gJgd/att-r-Ow-IF8i2FMh-J9-xwj-FSsdp-Wun3x7K-WUmoj-Ymea-ZXh-E.jpg" alt="Toiture de bardeaux résidentiel" className="relative rounded-3xl w-full h-auto shadow-xl" decoding="async" width="800" height="600" />
+              <img loading="lazy" src="/images/IF8i2FMh-J9-xwj-FSsdp-Wun3x7K-WUmoj-Ymea-ZXh-E.jpg" alt="Toiture de bardeaux résidentiel" className="relative rounded-3xl w-full h-auto shadow-xl" decoding="async" width="800" height="600" />
             </div>
           </div>
         </div>

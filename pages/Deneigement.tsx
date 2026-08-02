@@ -33,7 +33,7 @@ export const Deneigement: React.FC = () => {
           transition={{ duration: 1.5 }}
         >
           <img loading="lazy" 
-            src="https://i.ibb.co/DD1HBY0d/Gemini-Generated-Image-tb69k1tb69k1tb69.png" 
+            src="/images/Gemini-Generated-Image-tb69k1tb69k1tb69.png" 
             alt="Déneigement de toiture professionnel dans les Laurentides" 
             className="w-full h-full object-cover opacity-50"
           decoding="async" width="800" height="600" />

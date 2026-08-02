@@ -44,7 +44,7 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, over
     "@type": "RoofingContractor",
     "name": "Toiture Jonathan Délisle Inc.",
     "alternateName": "Toiture JJD",
-    "image": "https://i.postimg.cc/FKLjSjn2/thumb-show.jpg",
+    "image": "/images/thumb-show.jpg",
     "@id": "https://toiturejonathandelisle.ca/#organization",
     "url": "https://toiturejonathandelisle.ca",
     "telephone": "+18193236665",
@@ -111,14 +111,14 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, over
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="https://i.postimg.cc/FKLjSjn2/thumb-show.jpg" />
+      <meta property="og:image" content="/images/thumb-show.jpg" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={url} />
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content="https://i.postimg.cc/FKLjSjn2/thumb-show.jpg" />
+      <meta property="twitter:image" content="/images/thumb-show.jpg" />
 
       {/* Canonical URL */}
       <link rel="canonical" href={url} />

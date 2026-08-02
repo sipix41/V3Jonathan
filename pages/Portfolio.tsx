@@ -14,8 +14,8 @@ const PROJECTS = [
     title: 'Toiture Saint-Adolphe-d\'Howard', 
     category: 'Bardeaux', 
     images: [
-      'https://i.postimg.cc/nrzwFFxF/Saint-Adolphe-d-Howard-2024-Bardeaux-Mystique-Brun-2-Tons-Avant.jpg',
-      'https://i.postimg.cc/DzTjWdhN/Saint-Adolphe-d-Howard-2024-Bardeaux-Mystique-Brun-2-Tons-Apres.jpg'
+      '/images/oward-2024-Bardeaux-Mystique-Brun-2-Tons-Avant.jpg',
+      '/images/oward-2024-Bardeaux-Mystique-Brun-2-Tons-Apres.jpg'
     ],
     city: 'Saint-Adolphe-d\'Howard',
     year: '2024',

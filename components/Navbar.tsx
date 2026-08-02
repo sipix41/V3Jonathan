@@ -22,7 +22,7 @@ export const Navbar: React.FC = () => {
               aria-label="Accueil Toiture Jonathan Délisle inc"
             >
               <img
-                src="https://i.postimg.cc/FKLjSjn2/thumb-show.jpg"
+                src="/images/thumb-show.jpg"
                 alt="Logo Toiture Jonathan Délisle inc"
                 width="282"
                 height="96"

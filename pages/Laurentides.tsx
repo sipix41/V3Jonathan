@@ -71,7 +71,7 @@ export const Laurentides: React.FC = () => {
       "provider": {
         "@type": "RoofingContractor",
         "name": "Toiture Jonathan Délisle inc",
-        "image": "https://i.postimg.cc/FKLjSjn2/thumb-show.jpg",
+        "image": "/images/thumb-show.jpg",
         "telephone": COMPANY_INFO.phone,
         "address": {
           "@type": "PostalAddress",

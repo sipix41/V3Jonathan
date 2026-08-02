@@ -150,7 +150,7 @@ export const Bardeaux: React.FC = () => {
               <div className="relative group">
                 <div className="absolute inset-0 bg-brand-red rounded-3xl translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500"></div>
                 <img loading="lazy" 
-                  src="https://i.postimg.cc/Qd36nkz5/Bardeau-2024.jpg" 
+                  src="/images/Bardeau-2024.jpg" 
                   alt="Travaux de couverture en bardeaux" 
                   className="rounded-3xl shadow-2xl w-full h-[500px] object-cover border-8 border-white"
                 decoding="async" width="800" height="600" />
@@ -342,7 +342,7 @@ export const Bardeaux: React.FC = () => {
                <div className="sticky top-24">
                  <div className="absolute -inset-4 bg-brand-red/5 rounded-[2rem] blur-2xl"></div>
                  <img loading="lazy" 
-                    src="https://i.postimg.cc/YSXb0cCd/BP-2024.jpg" 
+                    src="/images/BP-2024.jpg" 
                     alt="Processus d'installation de toiture professionnelle" 
                     className="relative rounded-[2rem] shadow-2xl w-full h-[600px] object-cover ring-1 ring-gray-100"
                   decoding="async" width="800" height="600" />
