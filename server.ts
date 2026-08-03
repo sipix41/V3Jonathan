@@ -104,12 +104,14 @@ async function startServer() {
       const mailOptions = {
         from: SMTP_USER,
         to: targetEmail,
-        subject: `Nouvelle demande de soumission de ${parsedData.data.name || "Client"}`,
-        text: JSON.stringify(parsedData.data, null, 2),
+        subject: parsedData.data._subject || `Nouvelle demande de soumission de ${parsedData.data.name || "Client"}`,
+        text: JSON.stringify(Object.fromEntries(Object.entries(parsedData.data).filter(([key]) => !key.startsWith('_'))), null, 2),
         html: `
           <h2>Nouvelle demande de soumission</h2>
           <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-            ${Object.entries(parsedData.data).map(([key, value]) => `
+            ${Object.entries(parsedData.data)
+              .filter(([key]) => !key.startsWith('_'))
+              .map(([key, value]) => `
               <tr>
                 <td><strong>${key}</strong></td>
                 <td>${value}</td>

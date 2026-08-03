@@ -39,7 +39,7 @@ export const Careers: React.FC = () => {
       }
     }
 
-    const subject = `Nouvelle candidature - ${data.position} - ${data.name}`;
+    const subject = "Vous avez reçu une candidature d'emploi !";
     
     const formData = new FormData();
     formData.append('Nom', data.name);

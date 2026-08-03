@@ -26,7 +26,7 @@ export const Contact: React.FC = () => {
   const onSubmit = async (data: FormData) => {
     if (data._honey) return; // Spam detected
 
-    const subject = `Nouvelle demande de soumission - ${data.service} - ${data.name}`;
+    const subject = "Un client vous envoie un message.";
     const formattedData = {
       Nom: data.name,
       Téléphone: data.phone,
